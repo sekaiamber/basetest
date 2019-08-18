@@ -8,7 +8,8 @@
     "build": "webpack",
     "production": "rm -rf www && webpack --mode production --config webpack/webpack.config.production.js && cp -rf vendors/* www/",
     "debug": "rm -rf tmp && mkdir tmp && open -n /Applications/Google\\ Chrome.app --args --disable-web-security  --user-data-dir=./tmp",
-    "data": "http-server -p 8002 ./vendors"
+    "data": "http-server -p 8002 ./vendors",
+    "changeorigin": "mv .git .gitbak2 && mv .gitbak .git && mv .gitbak2 .gitbak"
   },
   "license": "ISC",
   "devDependencies": {
