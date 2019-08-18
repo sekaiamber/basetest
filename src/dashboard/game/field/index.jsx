@@ -7,7 +7,6 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import classnames from 'classnames';
-import { hori } from '../../../utils';
 import {
   convertCoordinateToPosition,
   getClickCoordinateRound,

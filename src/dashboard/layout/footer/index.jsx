@@ -23,7 +23,7 @@ import './style.scss';
 
 class Footer extends Component {
   gotoGame = () => {
-    document.documentElement.requestFullscreen();
+    // document.documentElement.requestFullscreen();
     const { screen } = window;
     if (screen.orientation) {
       message.success('rotate');

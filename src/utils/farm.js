@@ -2,11 +2,11 @@
 import { hori } from './index';
 
 function getClickPosition(pageX, pageY) {
-  const x = hori ? pageY : pageX;
-  const y = hori ? (window.innerWidth - pageX) : pageY;
+  // const x = hori ? pageY : pageX;
+  // const y = hori ? (window.innerWidth - pageX) : pageY;
   return {
-    x,
-    y,
+    x: pageX,
+    y: pageY,
   };
 }
 

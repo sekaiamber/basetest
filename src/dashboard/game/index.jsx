@@ -3,7 +3,6 @@ import { connect } from 'dva';
 import { Spin } from 'antd';
 import classnames from 'classnames';
 import Field from './field';
-import { hori } from '../../utils';
 
 import './style.scss';
 
