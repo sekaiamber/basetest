@@ -1,0 +1,80 @@
+#me {
+  padding-top: 0.56rem;
+
+  .avatar {
+    height: 1.2rem;
+    width: 1.2rem;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #EDEDED;
+    text-align: center;
+    margin: 0 auto;
+    
+    img {
+      width: 80%;
+      margin-top: 10%;
+    }
+  }
+
+  .avatar-container {
+    position: relative;
+    margin-bottom: 0.25rem;
+
+    .code {
+      font-size: 0.12rem;
+      color: #fff;
+      background: linear-gradient(45deg, #953D96 0%, #D85BDB 100%);
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      padding: 0.05rem 0.08rem;
+      height: 0.28rem;
+      border-radius: 0.14rem;
+    }
+  }
+
+  .nickname {
+    text-align: center;
+    font-size: 0.22rem;
+    font-weight: 400;
+  }
+
+  .link-list {
+    box-shadow: 0 0.08rem 0.16rem 0 rgba($color: #22222C, $alpha: 0.1);
+    padding: 0 0.12rem;
+    border-radius: 0.06rem;
+    margin-bottom: 0.1rem;
+    min-height: 0.45rem;
+    border: transparent 1px solid;
+    transition: all ease 0.3s;
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.12rem 0;
+      color: #000;
+      font-weight: 300;
+
+      div:first-child {
+        color: #000;
+      }
+    }
+  }
+
+  .logout {
+    margin: 0.24rem 0 0.12rem;
+    text-align: center;
+
+    a {
+      color: #ff2a2a;
+    }
+  }
+
+  .version {
+    margin: 0.12rem 0 0.24rem;
+    text-align: center;
+    opacity: 0.5;
+  }
+}

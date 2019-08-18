@@ -1,0 +1,56 @@
+[{
+  "id": "i_head_0",
+  "name": "头部",
+  "position": "head",
+  "styles": {
+    "f" :[{
+      "key": "1",
+      "slots": {
+        "BACKHAIR": "hair_basic/f01/basic_back_hair_f1",
+        "HAIR": "hair_basic/f01/basic_hair_f1",
+        "HEAD": "hair_basic/f01/basic_head_f1"
+      }
+    }, {
+      "key": "2",
+      "slots": {
+        "BACKHAIR": "hair_basic/f02/basic_back_hair_f2",
+        "HAIR": "hair_basic/f02/basic_hair_f2",
+        "HEAD": "hair_basic/f02/basic_head_f2"
+      }
+    }, {
+      "key": "3",
+      "slots": {
+        "BACKHAIR": "hair_basic/f03/basic_back_hair_f3",
+        "HAIR": "hair_basic/f03/basic_hair_f3",
+        "HEAD": "hair_basic/f03/basic_head_f3"
+      }
+    }, {
+      "key": "4",
+      "slots": {
+        "HAIR": "hair_basic/f04/basic_hair_f4",
+        "HEAD": "hair_basic/f04/basic_head_f4"
+      }
+    }],
+    "m": [{
+      "key": "1",
+      "slots": {
+        "HAIR": "hair_basic/m01/basic_hair_m1",
+        "HEAD": "hair_basic/m01/basic_head_m1"
+      }
+    }, {
+      "key": "2",
+      "slots": {
+        "BACKHAIR": "hair_basic/m02/basic_back_hair_m2",
+        "HAIR": "hair_basic/m02/basic_hair_m2",
+        "HEAD": "hair_basic/m02/basic_head_m2"
+      }
+    }, {
+      "key": "3",
+      "slots": {
+        "BACKHAIR": "hair_basic/m03/basic_back_hair_m3",
+        "HAIR": "hair_basic/m03/basic_hair_m3",
+        "HEAD": "hair_basic/m03/basic_head_m3"
+      }
+    }]
+  }
+}]

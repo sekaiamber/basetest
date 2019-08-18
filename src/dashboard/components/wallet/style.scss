@@ -1,0 +1,117 @@
+#wallet {
+  padding-top: 0.56rem;
+
+  .card {
+    border-radius: 0.12rem;
+    padding: 0.2rem;
+    background: linear-gradient(45deg, #953D96 0%, #D85BDB 100%);
+    color: #fff;
+
+    &.usdt {
+      background: linear-gradient(45deg, #26a07b 0%, #23e0a7 100%);
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+
+      .logo {
+        width: 0.44rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+
+      .address {
+        flex-grow: 1;
+        flex-shrink: 1;
+        line-height: 1.35;
+        margin-left: 0.15rem;
+
+        .currency {
+          font-size: 0.22rem;
+          font-weight: 400;
+        }
+
+        .text {
+          display: flex;
+          align-items: center;
+
+          span {
+            width: 2rem;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+
+    .amount {
+      font-size: 0.22rem;
+      font-weight: 400;
+      margin-top: 0.33rem;
+      text-align: right;
+    }
+  }
+
+  .opt {
+    display: flex;
+    justify-content: space-around;
+    margin: 0.2rem 0;
+
+    .opt-btn {
+      padding: 0.07rem 0.3rem;
+      font-size: 0.18rem;
+      font-weight: 400;
+      box-shadow: 0 0.08rem 0.16rem 0 rgba($color: #22222C, $alpha: 0.12);
+      height: 0.42rem;
+      border-radius: 0.21rem;
+      color: #000;
+
+      span {
+        margin-left: 0.08rem;
+      }
+    }
+  }
+
+  .history {
+    .item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.1rem;
+
+      .logo {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 0.4rem;
+      }
+
+      .center {
+        font-size: 0.14rem;
+        flex-shrink: 1;
+        flex-grow: 1;
+        overflow: hidden;
+        margin: 0 0.1rem;
+      }
+
+      .amount {
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+
+      .txid {
+        font-weight: 400;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .time {
+        color: rgba($color: #000, $alpha: 0.4);
+      }
+    }
+
+    .loading {
+      text-align: center;
+    }
+  }
+}

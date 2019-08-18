@@ -1,0 +1,17 @@
+#notice {
+  margin-top: 0.56rem;
+
+  .notice {
+    .title {
+      font-size: 0.16rem;
+      font-weight: 400;
+    }
+    .time {
+      font-weight: 0.12rem;
+      color: rgba($color: #000, $alpha: 0.4);
+    }
+    .content {
+      margin: 0.16rem 0 0.32rem;
+    }
+  }
+}

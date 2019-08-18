@@ -1,0 +1,27 @@
+#gamedeposit {
+  position: relative;
+  height: 80%;
+  width: 80%;
+  background: #faf5ef;
+  border: #522810 solid 2px;
+  border-radius: 0.06rem;
+
+  .content {
+    height: calc(100% - 0.5rem);
+    overflow: hidden;
+
+    .title {
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.2rem;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.12rem;
+    }
+
+    .game-input,
+    .game-btn {
+      width: 100%;
+    }
+  }
+}

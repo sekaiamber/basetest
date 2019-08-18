@@ -1,0 +1,64 @@
+#paidPower {
+  .paidpower {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .lv,
+    .price {
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+
+    .lv {
+      height: 0.44rem;
+      width: 0.44rem;
+      text-align: center;
+      font-size: 0.12rem;
+      position: relative;
+      margin-right: 0.12rem;
+
+      .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .center {
+      flex-shrink: 1;
+      flex-grow: 1;
+
+      .rate {
+        font-size: 0.12rem;
+        color: #999;
+      }
+      .data {
+        font-size: 0.14rem;
+        font-weight: 500;
+        margin-bottom: 0.08rem;
+      }
+    }
+
+    .price {
+      margin-left: 0.12rem;
+      text-align: right;
+
+      .unit {
+        font-size: 0.12rem;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.demo2{
+  transform-origin: 0.22rem 0.22rem;
+  transform: rotate(-90deg);
+  transition: stroke-dasharray .3s ease-in;
+}

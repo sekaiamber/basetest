@@ -1,0 +1,19 @@
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    padding: 0.04rem 0.08rem;
+    border-radius: 0.03rem;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -1,0 +1,37 @@
+#invite {
+  margin-top: 0.56rem;
+  text-align: center;
+
+  .qrcode {
+    padding-top: 0.7rem;
+    
+    img {
+      width: 1.25rem;
+    }
+  }
+
+  .code {
+    margin-top: 0.38rem;
+    font-weight: 400;
+  }
+
+  .url {
+    box-shadow: 0 0.08rem 0.16rem 0 rgba($color: #22222C, $alpha: 0.1);
+    padding: 0.12rem;
+    border-radius: 0.06rem;
+    margin-bottom: 0.1rem;
+    margin-top: 0.38rem;
+    min-height: 0.45rem;
+  }
+
+  .btn {
+    color: #fff;
+    background: linear-gradient(15deg, #953D96 0%, #D85BDB 100%);
+    font-size: 0.16rem;
+    font-weight: 400;
+    padding: 0.15rem;
+    height: 0.54rem;
+    border-radius: 0.27rem;
+    margin-top: 0.6rem;
+  }
+}

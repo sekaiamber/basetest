@@ -1,0 +1,110 @@
+#guild {
+  position: relative;
+  height: 80%;
+  width: 80%;
+  font-weight: 400;
+
+  .content {
+    height: 90%;
+    overflow: auto;
+
+    .title {
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.2rem;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.12rem;
+    }
+  }
+
+  img {
+    height: 100%;
+  }
+
+  .create-guild-modal {
+    .game-input {
+      width: 100%;
+    }
+  }
+
+  .users {
+    width: 2rem;
+    margin: 0 auto;
+
+    .user {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .info {
+    display: flex;
+    margin-bottom: 0.2rem;
+
+    &>div {
+      text-align: center;
+      flex: 1;
+    }
+
+    .icon {
+      font-size: 0.3rem;
+
+      img {
+        width: 0.5rem;
+      }
+    }
+
+    .name {
+      font-size: 0.12rem;
+      font-weight: 500;
+      color: #522810;
+    }
+
+    .value {
+      font-size: 0.12rem;
+      color: #333;
+    }
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.2rem;
+    
+    .name {
+      font-size: 0.24rem;
+      width: 40%;
+      text-align: center;
+      color: #522810;
+    }
+
+    .level {
+      font-size: 0.2rem;
+      width: 40%;
+      text-align: center;
+      color: #333;
+    }
+  }
+
+  .guilds {
+    .guild {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.12rem;
+
+      .level {
+        width: 0.8rem;
+        flex: 0;
+        opacity: 0.6;
+      }
+      .name {
+        flex: 1;
+        padding: 0 0.12rem;
+      }
+      .join {
+        width: 0.8rem;
+      }
+    }
+  }
+}

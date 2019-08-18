@@ -1,0 +1,45 @@
+#miners {
+  margin-top: 0.56rem;
+
+  .banner {
+    color: #fff;
+    background: linear-gradient(45deg, #953D96 0%, #D85BDB 100%);
+    text-align: center;
+    padding: 0.2rem 0;
+    border-radius: 0.07rem;
+
+    .title {
+      font-size: 0.18rem;
+      font-weight: 400;
+    }
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.1rem;
+
+    .center {
+      font-size: 0.14rem;
+      flex-shrink: 1;
+      flex-grow: 1;
+      overflow: hidden;
+      margin: 0 0.1rem;
+    }
+
+    .amount {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    .txid {
+      font-weight: 400;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .time {
+      color: rgba($color: #000, $alpha: 0.4);
+    }
+  }
+}

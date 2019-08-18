@@ -1,0 +1,36 @@
+header {
+  font-size: 0.18rem;
+  height: 0.44rem;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 5;
+  color: #2A455A;
+  background-color: rgba($color: #fff, $alpha: 0);
+  transition: all ease 0.3s;
+  border-bottom: transparent solid 1px;
+
+  &.top {
+    background-color: rgba($color: #fff, $alpha: 1);
+    border-bottom-color: #EEEFF0;
+  }
+
+  .title {
+    width: 100%;
+    text-align: center;
+    font-weight: 400;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  .icon-container {
+    width: 0.2rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    text-align: center;
+    line-height: 1;
+  }
+}

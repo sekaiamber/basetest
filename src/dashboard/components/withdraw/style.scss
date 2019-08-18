@@ -1,0 +1,61 @@
+#withdraw {
+  margin-top: 0.56rem;
+
+  .banner {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.24rem;
+    padding-top: 0.12rem;
+
+    div:last-child {
+      color: #6788A2;
+    }
+  }
+
+  .form {
+    .scan-btn {
+      width: 0.2rem;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+
+  .form .form-info {
+    display: flex;
+    justify-content: space-between;
+    height: 0.28rem;
+
+    div:last-child {
+      color: #6788A2;
+    }
+  }
+
+  .btn {
+    color: #fff;
+    background: linear-gradient(15deg, #953D96 0%, #D85BDB 100%);
+    font-size: 0.16rem;
+    font-weight: 400;
+    padding: 0.06rem 0.15rem;
+    border-radius: 0.27rem;
+    margin-top: 0.12rem;
+    text-align: center;
+    width: 100%;
+    transition: all ease 0.3s;
+
+    &[disabled] {
+      opacity: 0.5;
+    }
+  }
+
+  .submit {
+    margin-top: 0.24rem;
+  }
+
+  &.usdt {
+    .btn {
+      background: linear-gradient(15deg, #26a07b 0%, #23e0a7 100%);
+    }
+  }
+}

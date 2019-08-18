@@ -1,0 +1,11 @@
+{
+  "index": "index.html",
+  "routers": [
+    {
+      "name": "demo",
+      "entry": "./entries/index",
+      "template": "templates/index.html",
+      "filename": "index.html"
+    }
+  ]
+}

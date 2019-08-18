@@ -1,0 +1,232 @@
+#field {
+  position: relative;
+
+  .brick {
+    position: absolute;
+
+    img {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+#ui {
+  position: relative;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+
+  .bottom-left-menu,
+  .top-right-menu,
+  .top-left-menu,
+  .bottom-right-menu {
+    position: fixed;
+    display: none;
+
+    &.show {
+      display: flex;
+    }
+  }
+
+  .bottom-left-menu {
+    bottom: 0;
+    left: 0;
+    display: none;
+
+    .item {
+      height: 1rem;
+
+      &.main-icon {
+        height: 0.8rem;
+      }
+
+      &.insert-select {
+        width: 1rem;
+        background-image: url(../../../assets/farm/ui/icon_bg.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        padding: 0.055rem 0.09rem 0.21rem;
+
+        &.selected {
+          background-image: url(../../../assets/farm/ui/icon_bg_selected.png);
+        }
+
+        .img-container {
+          border-radius: 0.08rem;
+          height: 0.74rem;
+          position: relative;
+          overflow: hidden;
+
+          span {
+            position: absolute;
+            top: 0.02rem;
+            left: 0.02rem;
+            background: #cebcaf;
+            font-size: 0.12rem;
+            width: calc(100% - 0.04rem);
+            border-radius: 0.06rem 0.06rem 0 0;
+            text-align: center;
+          }
+
+          img {
+            position: absolute;
+            width: 80%;
+            height: auto;
+            bottom: 0;
+            left: 10%;
+          }
+        }
+
+        .price {
+          font-size: 0.12rem;
+          color: #cebcaf;
+          text-align: center;
+        }
+      }
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+
+  .top-right-menu {
+    top: 0.12rem;
+    right: 0.12rem;
+
+    .item {
+      height: 0.5rem;
+      margin-left: 0.12rem;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+
+  .top-left-menu {
+    top: 0.12rem;
+    left: 0.12rem;
+
+    .item {
+      height: 0.55rem;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .accounts {
+      position: absolute;
+      font-size: 0.12rem;
+      bottom: 0;
+      left: 0.75rem;
+      color: #fbf5ee;
+      font-weight: 400;
+    }
+
+    .level {
+      position: absolute;
+      left: 1.63rem;
+      top: 0.05rem;
+      font-weight: 500;
+      font-size: 0.12rem;
+    }
+
+    .exp {
+      position: absolute;
+      left: 0.53rem;
+      top: 0.23rem;
+      height: 0.11rem;
+      width: 1.22rem;
+      border-radius: 0.04rem;
+      overflow: hidden;
+      background: #c8b6ab;
+
+      .bar {
+        background: #e2a74c;
+        height: 100%;
+      }
+    }
+
+    .nickname {
+      position: absolute;
+      left: 0.53rem;
+      top: 0.05rem;
+      font-weight: 500;
+      font-size: 0.12rem;
+      max-width: 0.86rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  .bottom-right-menu {
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    
+    &.show {
+      display: block;
+    }
+
+    .item {
+      height: 25vh;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+
+  .select-point {
+    display: none;
+    position: absolute;
+    width: 0.45rem;
+    height: 0.55rem;
+
+    img {
+      width: 100%;
+    }
+
+    &.show {
+      display: block;
+    }
+  }
+
+  .menu {
+    position: relative;
+    z-index: 999999;
+  }
+
+  .arrows {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 250px;
+    left: 250px;
+    z-index: 99999;
+
+    img.ok {
+      width: 0.5rem;
+    }
+
+    img {
+      position: absolute;
+      width: 0.4rem;
+    }
+  }
+}
+
+#game.hori #ui .bottom-right-menu{
+  height: 100vw;
+
+  .item {
+    height: 25vw;
+  }
+}

@@ -1,0 +1,19 @@
+#message {
+  position: fixed;
+  top: 0.12rem;
+  right: 0.12rem;
+  box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.5);
+  background: #fff;
+  padding: 0.12rem;
+  z-index: 10;
+
+  img {
+    height: 0.3rem;
+    vertical-align: middle;
+    margin-right: 0.12rem;
+  }
+
+  &>* {
+    vertical-align: middle;
+  }
+}

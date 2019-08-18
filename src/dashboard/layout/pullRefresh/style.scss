@@ -1,0 +1,22 @@
+#refreshIcon {
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  z-index: 20;
+  transform: translate(-50%, 0);
+
+  .icon-container {
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 0.2rem;
+    background: #fff;
+    box-shadow: 0 0 0.08rem rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding-top: 0.09rem;
+    transition: all ease 0.15s;
+
+    &.dragging {
+      transition: none;
+    }
+  }
+}

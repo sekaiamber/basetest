@@ -1,0 +1,247 @@
+@import "~noty/src/noty.scss";
+@import "~noty/src/themes/mint.scss";
+
+// @import '~antd/dist/antd.css';
+html {
+  font-size: 100px;
+}
+
+body {
+  font-size: 0.14rem;
+  font-weight: 300;
+  background: #fff;
+  // perspective: 300;
+
+  &.welcome {
+    background: #000;
+  }
+}
+
+input {
+  font-weight: 300;
+  outline: none;
+}
+
+button {
+  background-image: linear-gradient(to right, #953D96 0%, #D85BDB 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.02rem;
+  font-size: 0.16rem;
+  padding: 0.12rem 0.24rem;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: #7f4b80;
+  font-weight: 400;
+}
+
+*::-webkit-media-controls-panel {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
+/* Old shadow dom for play button */
+
+*::-webkit-media-controls-play-button {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
+/* New shadow dom for play button */
+
+/* This one works! */
+
+*::-webkit-media-controls-start-playback-button {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
+.container {
+  padding: 0 0.15rem;
+}
+
+#app {
+  position: relative;
+}
+
+.page-title {
+  font-size: 0.18rem;
+  font-weight: 500;
+  margin-top: 0.3rem;
+  margin-bottom: 0.18rem;
+}
+
+.form {
+  .item {
+    padding: 0.06rem 0;
+    border-bottom: #F2F2F2 solid 1px;
+    margin-bottom: 0.06rem;
+    position: relative;
+
+    input {
+      border: none;
+      width: 100%;
+      line-height: 2;
+      padding: 0;
+
+      &::placeholder {
+        color: #6788A2;
+      }
+    }
+  }
+}
+
+.page {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.my-modal-conainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  background: rgba($color: #000000, $alpha: 0.3);
+
+  .my-modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 0.06rem;
+    padding: 0.2rem;
+    box-shadow: 0 0 0.07rem 0 rgba($color: #000000, $alpha: 0.3);
+  }
+}
+
+.top-select {
+  padding-bottom: 0.12rem;
+  text-align: center;
+
+  &>span {
+    min-height: 0.45rem;
+    border: transparent 1px solid;
+    transition: all ease 0.3s;
+    display: inline-block;
+  }
+
+  .option {
+    display: inline-block;
+    width: 1.3rem;
+    transition: all ease 0.3s;
+    opacity: 0.5;
+
+    &.active {
+      color: #953D96;
+      font-weight: 500;
+      opacity: 1;
+    }
+  }
+}
+
+// antd
+#app {
+  .ant-spin-dot-item {
+    background-color: #953D96;
+  }
+}
+
+// shadow pad
+.shadow-pad {
+  background: #fff;
+  border-radius: 0.06rem;
+  min-height: 0.66rem;
+  padding: 0.12rem;
+  position: relative;
+  // animation: shadow-pad-show .5s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    box-shadow: 0 0.08rem 0.16rem 0 rgba($color: #22222C, $alpha: 0.1);
+    border-radius: 0.06rem;
+  }
+}
+
+@keyframes shadow-pad-show {
+  0% {
+    opacity: 0;
+    transform: rotateX(60deg) rotateY(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0) rotateY(0);
+  }
+}
+
+// welcome
+#welcome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+
+  video {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+  }
+
+  canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#test {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 999;
+  background: #ff8c8c;
+  color: #fff;
+  padding: 0 0.1rem;
+  transform: translate(-50%, 0);
+  font-size: 0.12rem;
+}

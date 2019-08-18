@@ -1,0 +1,23 @@
+.upgrade-modal {
+  text-align: center;
+  width: 80%;
+
+  .title {
+    font-weight: 400;
+    margin-bottom: 0.12rem;
+  }
+
+  .content {
+    margin-bottom: 0.12rem;
+  }
+
+  .btn {
+    color: #fff;
+    background: linear-gradient(15deg, #953D96 0%, #D85BDB 100%);
+    font-size: 0.16rem;
+    font-weight: 400;
+    padding: 0.06rem 0.15rem;
+    border-radius: 0.27rem;
+    margin-top: 0.12rem;
+  }
+}

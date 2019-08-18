@@ -1,0 +1,221 @@
+[{
+  "id": "i_emotion_0",
+  "name": "表情",
+  "position": "emotion",
+  "styles": {
+    "f" :[
+      {
+        "key": "1_1",
+        "slots": {
+          "FACE01": "emotion/f01/emotion_01_f01"
+        }
+      },
+      {
+        "key": "2_1",
+        "slots": {
+          "FACE01": "emotion/f02/emotion_01_f02"
+        }
+      },
+      {
+        "key": "3_1",
+        "slots": {
+          "FACE01": "emotion/f03/emotion_01_f03"
+        }
+      },
+      {
+        "key": "4_1",
+        "slots": {
+          "FACE01": "emotion/f04/emotion_01_f04"
+        }
+      },
+      {
+        "key": "1_2",
+        "slots": {
+          "FACE02": "emotion/f01/emotion_02_f01"
+        }
+      },
+      {
+        "key": "2_2",
+        "slots": {
+          "FACE02": "emotion/f02/emotion_02_f02"
+        }
+      },
+      {
+        "key": "3_2",
+        "slots": {
+          "FACE02": "emotion/f03/emotion_02_f03"
+        }
+      },
+      {
+        "key": "4_2",
+        "slots": {
+          "FACE02": "emotion/f04/emotion_02_f04"
+        }
+      },
+      {
+        "key": "1_3",
+        "slots": {
+          "FACE03": "emotion/f01/emotion_03_f01"
+        }
+      },
+      {
+        "key": "2_3",
+        "slots": {
+          "FACE03": "emotion/f02/emotion_03_f02"
+        }
+      },
+      {
+        "key": "3_3",
+        "slots": {
+          "FACE03": "emotion/f03/emotion_03_f03"
+        }
+      },
+      {
+        "key": "4_3",
+        "slots": {
+          "FACE03": "emotion/f04/emotion_03_f04"
+        }
+      },
+      {
+        "key": "1_4",
+        "slots": {
+          "FACE04": "emotion/f01/emotion_04_f01"
+        }
+      },
+      {
+        "key": "2_4",
+        "slots": {
+          "FACE04": "emotion/f02/emotion_04_f02"
+        }
+      },
+      {
+        "key": "3_4",
+        "slots": {
+          "FACE04": "emotion/f03/emotion_04_f03"
+        }
+      },
+      {
+        "key": "4_4",
+        "slots": {
+          "FACE04": "emotion/f04/emotion_04_f04"
+        }
+      },
+      {
+        "key": "1_5",
+        "slots": {
+          "FACE05": "emotion/f01/emotion_05_f01"
+        }
+      },
+      {
+        "key": "2_5",
+        "slots": {
+          "FACE05": "emotion/f02/emotion_05_f02"
+        }
+      },
+      {
+        "key": "3_5",
+        "slots": {
+          "FACE05": "emotion/f03/emotion_05_f03"
+        }
+      },
+      {
+        "key": "4_5",
+        "slots": {
+          "FACE05": "emotion/f04/emotion_05_f04"
+        }
+      }
+    ],
+    "m": [
+      {
+        "key": "1_1",
+        "slots": {
+          "FACE01": "emotion/m01/emotion_01_m01"
+        }
+      },
+      {
+        "key": "2_1",
+        "slots": {
+          "FACE01": "emotion/m02/emotion_01_m02"
+        }
+      },
+      {
+        "key": "3_1",
+        "slots": {
+          "FACE01": "emotion/m03/emotion_01_m03"
+        }
+      },
+      {
+        "key": "1_2",
+        "slots": {
+          "FACE02": "emotion/m01/emotion_02_m01"
+        }
+      },
+      {
+        "key": "2_2",
+        "slots": {
+          "FACE02": "emotion/m02/emotion_02_m02"
+        }
+      },
+      {
+        "key": "3_2",
+        "slots": {
+          "FACE02": "emotion/m03/emotion_02_m03"
+        }
+      },
+      {
+        "key": "1_3",
+        "slots": {
+          "FACE03": "emotion/m01/emotion_03_m01"
+        }
+      },
+      {
+        "key": "2_3",
+        "slots": {
+          "FACE03": "emotion/m02/emotion_03_m02"
+        }
+      },
+      {
+        "key": "3_3",
+        "slots": {
+          "FACE03": "emotion/m03/emotion_03_m03"
+        }
+      },
+      {
+        "key": "1_4",
+        "slots": {
+          "FACE04": "emotion/m01/emotion_04_m01"
+        }
+      },
+      {
+        "key": "2_4",
+        "slots": {
+          "FACE04": "emotion/m02/emotion_04_m02"
+        }
+      },
+      {
+        "key": "3_4",
+        "slots": {
+          "FACE04": "emotion/m03/emotion_04_m03"
+        }
+      },
+      {
+        "key": "1_5",
+        "slots": {
+          "FACE05": "emotion/m01/emotion_05_m01"
+        }
+      },
+      {
+        "key": "2_5",
+        "slots": {
+          "FACE05": "emotion/m02/emotion_05_m02"
+        }
+      },
+      {
+        "key": "3_5",
+        "slots": {
+          "FACE05": "emotion/m03/emotion_05_m03"
+        }
+      }
+    ]
+  }
+}]
