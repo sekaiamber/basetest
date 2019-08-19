@@ -46,7 +46,7 @@ export default class Anime extends React.Component {
     app.view.style.width = `${parseInt(size.width, 10)}px`;
     console.log('BASE_LOG 1');
     app.loader
-      .add('spineCharacter', '/assets/data/skeleton.json')
+      .add('spineCharacter', 'assets/data/skeleton.json')
       .load((_, resources) => {
         console.log('BASE_LOG 2');
         const { spineData } = resources.spineCharacter;
