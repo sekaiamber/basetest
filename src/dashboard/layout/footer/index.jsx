@@ -26,7 +26,6 @@ class Footer extends Component {
     // document.documentElement.requestFullscreen();
     const { screen } = window;
     if (screen.orientation) {
-      message.success('rotate');
       screen.orientation.lock('landscape-primary');
     }
     // screen.lockOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;

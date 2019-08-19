@@ -44,13 +44,16 @@ export default class Anime extends React.Component {
     container.appendChild(app.view);
     app.view.style.height = '150px';
     app.view.style.width = `${parseInt(size.width, 10)}px`;
+    console.log('BASE_LOG 1');
     app.loader
       .add('spineCharacter', '/assets/data/skeleton.json')
       .load((_, resources) => {
+        console.log('BASE_LOG 2');
         const { spineData } = resources.spineCharacter;
         this.spineCleanData = spineData;
         this.ready = true;
-        this.updateCharacter();
+        console.log('BASE_LOG 3,' + typeof this.spineCleanData);
+        this.convertInfoToData();
         // 初始化角色定制
         // initCharacterSlotSelect(spineData);
         // spineCleanData = spineData;
@@ -65,7 +68,7 @@ export default class Anime extends React.Component {
         // //   character.state.timeScale = 0.3;
         // // }
 
-        // app.start();
+        app.start();
       });
   }
 
@@ -101,6 +104,7 @@ export default class Anime extends React.Component {
       characterData.updateWeapon(equipped.weapon.meta.code);
     }
     if (this.ready) {
+      console.log('BASE_LOG 4,');
       this.updateCharacter();
     }
   }
@@ -110,21 +114,25 @@ export default class Anime extends React.Component {
     const { app, spineCleanData, characterData } = this;
     app.stage.removeChild(this.character);
     // 清空插槽数据
+    console.log('BASE_LOG 5,');
     spineCleanData.slots.forEach(slot => slot.attachmentName = null);
     // 将定制插槽插入数据
     const slotAttachments = characterData.getSlots();
+    console.log('BASE_LOG 6,');
     Object.keys(slotAttachments).forEach((slotName) => {
       const slot = spineCleanData.slots.find(s => s.name === slotName);
       if (slot) {
         slot.attachmentName = slotAttachments[slotName];
       }
     });
+    console.log('BASE_LOG 7,');
     const character = new PIXI.spine.Spine(spineCleanData);
     this.character = character;
     character.x = this.size.width;
     character.y = 290;
     character.scale.set(1.5, 1.5);
     app.stage.addChild(character);
+    console.log('BASE_LOG 8,');
   }
 
   render() {
