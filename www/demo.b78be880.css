@@ -1,14 +1,16 @@
 #main {
   padding-bottom: 0.8rem; }
 
+.ant-message {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top); }
+
 header {
   font-size: 0.18rem;
   height: 0.44rem;
   display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
           align-items: center;
   position: fixed;
   top: 0;
@@ -28,17 +30,13 @@ header {
     text-align: center;
     font-weight: 400;
     -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
             flex-grow: 1;
-    -webkit-flex-shrink: 1;
-            flex-shrink: 1; }
+    flex-shrink: 1; }
   header .icon-container {
     width: 0.2rem;
     -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
             flex-grow: 0;
-    -webkit-flex-shrink: 0;
-            flex-shrink: 0;
+    flex-shrink: 0;
     text-align: center;
     line-height: 1; }
 
@@ -73,7 +71,6 @@ footer {
   width: 100vw;
   border-top: #EEEFF0 solid 1px;
   display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   background: #fff;
   z-index: 3;
@@ -88,6 +85,7 @@ footer {
     text-align: center;
     padding: 0.12rem 0; }
     footer .item .active-container {
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#953D96), to(#D85BDB));
       background-image: -webkit-linear-gradient(top, #953D96 0%, #D85BDB 100%);
       background-image: linear-gradient(to bottom, #953D96 0%, #D85BDB 100%);
       height: 0.4rem;
@@ -172,16 +170,14 @@ footer {
   padding-top: 0.56rem; }
   #signup .verify {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex; }
     #signup .verify a {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0; }
+      flex-shrink: 0; }
   #signup button {
     width: 100%;
+    background-image: -webkit-gradient(linear, left top, right top, from(#953D96), to(#D85BDB));
     background-image: -webkit-linear-gradient(left, #953D96 0%, #D85BDB 100%);
     background-image: linear-gradient(to right, #953D96 0%, #D85BDB 100%);
     color: #fff;
@@ -198,16 +194,14 @@ footer {
   padding-top: 0.56rem; }
   #forgetPassword .verify {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex; }
     #forgetPassword .verify a {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0; }
+      flex-shrink: 0; }
   #forgetPassword button {
     width: 100%;
+    background-image: -webkit-gradient(linear, left top, right top, from(#953D96), to(#D85BDB));
     background-image: -webkit-linear-gradient(left, #953D96 0%, #D85BDB 100%);
     background-image: linear-gradient(to right, #953D96 0%, #D85BDB 100%);
     color: #fff;
@@ -222,10 +216,8 @@ footer {
 
 #markets .item {
   display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
           align-items: center;
   font-weight: 400; }
   #markets .item:last-child .info {
@@ -234,41 +226,31 @@ footer {
     height: 0.4rem;
     width: 0.4rem;
     -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
             flex-grow: 0;
-    -webkit-flex-shrink: 0;
-            flex-shrink: 0;
+    flex-shrink: 0;
     margin-right: 0.13rem; }
     #markets .item .icon img {
       height: 0.4rem; }
   #markets .item .info {
     -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
             flex-grow: 1;
-    -webkit-flex-shrink: 1;
-            flex-shrink: 1;
+    flex-shrink: 1;
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     padding: 0.16rem 0;
     border-bottom: #d3d3d3 solid 1px; }
   #markets .item .name {
     width: 0.65rem;
     -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
             flex-grow: 0;
-    -webkit-flex-shrink: 0;
-            flex-shrink: 0;
+    flex-shrink: 0;
     font-size: 0.16rem; }
   #markets .item .price {
     -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
             flex-grow: 1;
-    -webkit-flex-shrink: 1;
-            flex-shrink: 1; }
+    flex-shrink: 1; }
     #markets .item .price .cny {
       font-size: 0.12rem;
       color: #6788A2; }
@@ -311,19 +293,15 @@ footer {
       font-size: 0.12rem; }
       #home .block-info .wrapper > div {
         display: -webkit-box;
-        display: -webkit-flex;
         display: flex;
         -webkit-box-align: center;
-        -webkit-align-items: center;
                 align-items: center; }
     #home .block-info .item {
       margin-bottom: 0.09rem; }
   #home .opt {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     position: relative; }
     #home .opt .block-level {
@@ -349,7 +327,6 @@ footer {
           -ms-transform-origin: left center;
               transform-origin: left center;
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
       flex-grow: 0; }
       #home .opt .switch span {
@@ -383,13 +360,11 @@ footer {
         color: #6ACDFF; }
     #home .opt img {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
       flex-grow: 0;
       height: 0.5rem; }
     #home .opt .center {
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
       flex-grow: 1; }
   #home .desc {
@@ -456,19 +431,15 @@ footer {
   border-radius: 0.07rem;
   box-shadow: rgba(215, 215, 215, 0.5) 0 0 0.1rem 0;
   display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
           flex-direction: column;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
+  justify-content: space-around;
   box-sizing: border-box;
   padding: 0.12rem 0; }
   #board > div {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex; }
   #board .value {
     font-size: 0.18rem;
@@ -482,10 +453,8 @@ footer {
     text-align: center;
     width: 50%;
     -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
             flex-grow: 1;
-    -webkit-flex-shrink: 1;
-            flex-shrink: 1;
+    flex-shrink: 1;
     position: relative; }
     #board .item::after {
       content: "";
@@ -563,6 +532,7 @@ footer {
     top: 0;
     left: 0;
     height: 100%;
+    background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) 0.15rem, transparent 0, transparent 0.3rem), -webkit-gradient(linear, left top, right top, from(#953D96), to(#D85BDB));
     background-image: -webkit-repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) 0.15rem, transparent 0, transparent 0.3rem), -webkit-linear-gradient(left, #953D96 0%, #D85BDB 100%);
     background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) 0.15rem, transparent 0, transparent 0.3rem), linear-gradient(to right, #953D96 0%, #D85BDB 100%);
     -webkit-transition: all ease-in-out .3s;
@@ -572,17 +542,13 @@ footer {
     z-index: 2;
     padding: 0.13rem 0.2rem;
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center; }
     #totalPower .content .lv,
     #totalPower .content .icon {
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0;
+      flex-shrink: 0;
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
       width: 0.45rem; }
     #totalPower .content .lv {
@@ -592,10 +558,8 @@ footer {
       #totalPower .content .lv span {
         font-size: 0.4rem; }
     #totalPower .content .center {
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
+      flex-shrink: 1;
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
       text-align: center; }
       #totalPower .content .center .title {
@@ -609,20 +573,16 @@ footer {
 
 #paidPower .paidpower {
   display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
           align-items: center;
   margin-bottom: 0.1rem; }
   #paidPower .paidpower:last-child {
     margin-bottom: 0; }
   #paidPower .paidpower .lv,
   #paidPower .paidpower .price {
-    -webkit-flex-shrink: 0;
-            flex-shrink: 0;
+    flex-shrink: 0;
     -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
             flex-grow: 0; }
   #paidPower .paidpower .lv {
     height: 0.44rem;
@@ -639,10 +599,8 @@ footer {
           -ms-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%); }
   #paidPower .paidpower .center {
-    -webkit-flex-shrink: 1;
-            flex-shrink: 1;
+    flex-shrink: 1;
     -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
             flex-grow: 1; }
     #paidPower .paidpower .center .rate {
       font-size: 0.12rem;
@@ -670,20 +628,16 @@ footer {
 
 #yesterdayPower .yesterdaypower {
   display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
           align-items: center;
   margin-bottom: 0.1rem; }
   #yesterdayPower .yesterdaypower:last-child {
     margin-bottom: 0; }
   #yesterdayPower .yesterdaypower .icon,
   #yesterdayPower .yesterdaypower .reward {
-    -webkit-flex-shrink: 0;
-            flex-shrink: 0;
+    flex-shrink: 0;
     -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
             flex-grow: 0; }
   #yesterdayPower .yesterdaypower .icon {
     width: 0.22rem;
@@ -691,10 +645,8 @@ footer {
     #yesterdayPower .yesterdaypower .icon img {
       width: 100%; }
   #yesterdayPower .yesterdaypower .center {
-    -webkit-flex-shrink: 1;
-            flex-shrink: 1;
+    flex-shrink: 1;
     -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
             flex-grow: 1; }
     #yesterdayPower .yesterdaypower .center .data {
       font-size: 0.14rem;
@@ -723,10 +675,8 @@ footer {
       text-align: center; }
   #buy .list .item {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     margin-bottom: 0.1rem;
     border: transparent 1px solid;
@@ -738,10 +688,8 @@ footer {
       border-color: #953E96; }
     #buy .list .item .lv,
     #buy .list .item .price {
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0;
+      flex-shrink: 0;
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0; }
     #buy .list .item .lv {
       height: 0.44rem;
@@ -758,10 +706,8 @@ footer {
             -ms-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%); }
     #buy .list .item .center {
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
+      flex-shrink: 1;
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1; }
       #buy .list .item .center .rate {
         font-size: 0.12rem;
@@ -779,16 +725,13 @@ footer {
   #buy .footer {
     position: fixed;
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     bottom: 0.72rem;
     z-index: 1;
     height: 0.5rem;
     -webkit-box-align: stretch;
-    -webkit-align-items: stretch;
             align-items: stretch;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
             justify-content: space-between;
     width: 100%;
     -webkit-animation: buy-footer-show 0.3s ease;
@@ -810,26 +753,20 @@ footer {
     #buy .footer .info-container {
       background: #fff;
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
+      flex-shrink: 1;
       border-top: #EEEFF0 solid 1px; }
     #buy .footer .btn-container {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0;
+      flex-shrink: 0;
       background: -webkit-linear-gradient(75deg, #953D96 0%, #D85BDB 100%);
       background: linear-gradient(15deg, #953D96 0%, #D85BDB 100%); }
     #buy .footer .info-container,
     #buy .footer .btn-container {
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-align: center;
-      -webkit-align-items: center;
               align-items: center; }
   #buy .order-modal {
     position: fixed;
@@ -855,13 +792,10 @@ footer {
             transform: translate(-50%, -50%); }
     #buy .order-container .item {
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
               justify-content: space-between;
       -webkit-box-align: center;
-      -webkit-align-items: center;
               align-items: center;
       margin-bottom: 0.06rem; }
       #buy .order-container .item > div:first-child {
@@ -918,24 +852,18 @@ footer {
       background: linear-gradient(45deg, #26a07b 0%, #23e0a7 100%); }
     #wallet .card .top {
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-align: center;
-      -webkit-align-items: center;
               align-items: center; }
       #wallet .card .top .logo {
         width: 0.44rem;
         -webkit-box-flex: 0;
-        -webkit-flex-grow: 0;
                 flex-grow: 0;
-        -webkit-flex-shrink: 0;
-                flex-shrink: 0; }
+        flex-shrink: 0; }
       #wallet .card .top .address {
         -webkit-box-flex: 1;
-        -webkit-flex-grow: 1;
                 flex-grow: 1;
-        -webkit-flex-shrink: 1;
-                flex-shrink: 1;
+        flex-shrink: 1;
         line-height: 1.35;
         margin-left: 0.15rem; }
         #wallet .card .top .address .currency {
@@ -943,10 +871,8 @@ footer {
           font-weight: 400; }
         #wallet .card .top .address .text {
           display: -webkit-box;
-          display: -webkit-flex;
           display: flex;
           -webkit-box-align: center;
-          -webkit-align-items: center;
                   align-items: center; }
           #wallet .card .top .address .text span {
             width: 2rem;
@@ -960,10 +886,8 @@ footer {
       text-align: right; }
   #wallet .opt {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
-    -webkit-justify-content: space-around;
-            justify-content: space-around;
+    justify-content: space-around;
     margin: 0.2rem 0; }
     #wallet .opt .opt-btn {
       padding: 0.07rem 0.3rem;
@@ -977,34 +901,26 @@ footer {
         margin-left: 0.08rem; }
   #wallet .history .item {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     margin-bottom: 0.1rem; }
     #wallet .history .item .logo {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0;
+      flex-shrink: 0;
       width: 0.4rem; }
     #wallet .history .item .center {
       font-size: 0.14rem;
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
+      flex-shrink: 1;
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
       overflow: hidden;
       margin: 0 0.1rem; }
     #wallet .history .item .amount {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0; }
+      flex-shrink: 0; }
     #wallet .history .item .txid {
       font-weight: 400;
       overflow: hidden;
@@ -1059,13 +975,10 @@ footer {
     transition: all ease 0.3s; }
     #me .link-list .link {
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-align: center;
-      -webkit-align-items: center;
               align-items: center;
       -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
               justify-content: space-between;
       padding: 0.12rem 0;
       color: #000;
@@ -1097,10 +1010,8 @@ footer {
   margin-top: 0.56rem; }
   #myActivities .item {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     box-shadow: 0 0.08rem 0.16rem 0 rgba(34, 34, 44, 0.1);
     padding: 0.12rem;
@@ -1109,25 +1020,19 @@ footer {
     min-height: 0.45rem; }
     #myActivities .item .logo {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0; }
+      flex-shrink: 0; }
     #myActivities .item .center {
       font-size: 0.14rem;
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
+      flex-shrink: 1;
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
       overflow: hidden;
       margin: 0 0.1rem; }
     #myActivities .item .amount {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0; }
+      flex-shrink: 0; }
     #myActivities .item .txid {
       font-weight: 400;
       overflow: hidden;
@@ -1139,7 +1044,6 @@ footer {
     text-align: center; }
   #myActivities .btn {
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     box-shadow: 0 0.08rem 0.16rem 0 rgba(34, 34, 44, 0.1);
     padding: 0.12rem;
@@ -1189,27 +1093,21 @@ footer {
       font-weight: 400; }
   #miners .item {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     margin-bottom: 0.1rem; }
     #miners .item .center {
       font-size: 0.14rem;
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
+      flex-shrink: 1;
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
       overflow: hidden;
       margin: 0 0.1rem; }
     #miners .item .amount {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0; }
+      flex-shrink: 0; }
     #miners .item .txid {
       font-weight: 400;
       overflow: hidden;
@@ -1221,23 +1119,18 @@ footer {
   margin-top: 0.56rem; }
   #subuser .item {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     margin-bottom: 0.1rem;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
             justify-content: space-between; }
     #subuser .item:last-child {
       margin-bottom: 0; }
     #subuser .item .lv,
     #subuser .item .price {
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0;
+      flex-shrink: 0;
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0; }
     #subuser .item .lv {
       height: 0.44rem;
@@ -1261,10 +1154,8 @@ footer {
   margin-top: 0.56rem; }
   #deposit .banner {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     box-shadow: 0 0.08rem 0.16rem 0 rgba(34, 34, 44, 0.1);
     padding: 0.12rem;
@@ -1272,21 +1163,16 @@ footer {
     margin-bottom: 0.1rem;
     min-height: 0.45rem;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
             justify-content: space-between; }
     #deposit .banner .logo {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0;
+      flex-shrink: 0;
       width: 0.4rem; }
     #deposit .banner .amount {
       -webkit-box-flex: 0;
-      -webkit-flex-grow: 0;
               flex-grow: 0;
-      -webkit-flex-shrink: 0;
-              flex-shrink: 0; }
+      flex-shrink: 0; }
   #deposit .btn {
     color: #fff;
     background: -webkit-linear-gradient(75deg, #953D96 0%, #D85BDB 100%);
@@ -1325,10 +1211,8 @@ footer {
   margin-top: 0.56rem; }
   #withdraw .banner {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
             justify-content: space-between;
     margin-bottom: 0.24rem;
     padding-top: 0.12rem; }
@@ -1344,10 +1228,8 @@ footer {
             transform: translate(0, -50%); }
   #withdraw .form .form-info {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
             justify-content: space-between;
     height: 0.28rem; }
     #withdraw .form .form-info div:last-child {
@@ -1386,10 +1268,8 @@ footer {
       font-weight: 500;
       font-size: 0.2rem;
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
               justify-content: space-between;
       margin-bottom: 0.12rem; }
   #guild img {
@@ -1401,20 +1281,16 @@ footer {
     margin: 0 auto; }
     #guild .users .user {
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
               justify-content: space-between; }
   #guild .info {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     margin-bottom: 0.2rem; }
     #guild .info > div {
       text-align: center;
       -webkit-box-flex: 1;
-      -webkit-flex: 1;
               flex: 1; }
     #guild .info .icon {
       font-size: 0.3rem; }
@@ -1429,10 +1305,8 @@ footer {
       color: #333; }
   #guild .top {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     margin-bottom: 0.2rem; }
     #guild .top .name {
@@ -1447,21 +1321,17 @@ footer {
       color: #333; }
   #guild .guilds .guild {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     margin-bottom: 0.12rem; }
     #guild .guilds .guild .level {
       width: 0.8rem;
       -webkit-box-flex: 0;
-      -webkit-flex: 0;
               flex: 0;
       opacity: 0.6; }
     #guild .guilds .guild .name {
       -webkit-box-flex: 1;
-      -webkit-flex: 1;
               flex: 1;
       padding: 0 0.12rem; }
     #guild .guilds .guild .join {
@@ -1494,17 +1364,14 @@ footer {
     height: calc(100% - 0.5rem);
     overflow: hidden;
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex; }
     #shop .content .title {
       color: #522810;
       font-weight: 500;
       font-size: 0.2rem;
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
               justify-content: space-between;
       margin-bottom: 0.12rem; }
   #shop .shop-panel {
@@ -1519,10 +1386,8 @@ footer {
     margin: 0.02rem;
     font-size: 0.12rem;
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center; }
     #shop .item.selected {
       border-color: #e2a74c; }
@@ -1534,21 +1399,16 @@ footer {
         width: 100%; }
     #shop .item .info {
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
+      flex-shrink: 1;
       -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
               justify-content: space-between; }
       #shop .item .info > div:last-child {
         text-align: right; }
   #shop #backpack {
     -webkit-box-flex: 1;
-    -webkit-flex: 1;
             flex: 1; }
   #shop .shop-footer {
     position: absolute;
@@ -1557,14 +1417,11 @@ footer {
     width: 100%;
     background: #f5e6d4;
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
             justify-content: space-between;
     padding: 0.06rem 0.12rem;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center; }
 
 #hero {
@@ -1576,17 +1433,14 @@ footer {
     height: calc(100% - 0.5rem);
     overflow: hidden;
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex; }
     #hero .content .title {
       color: #522810;
       font-weight: 500;
       font-size: 0.2rem;
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
               justify-content: space-between;
       margin-bottom: 0.12rem; }
   #hero .hero-panel {
@@ -1601,10 +1455,8 @@ footer {
     margin: 0.02rem;
     font-size: 0.12rem;
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center; }
     #hero .item.selected {
       border-color: #e2a74c; }
@@ -1616,29 +1468,22 @@ footer {
         width: 100%; }
     #hero .item .info {
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
+      flex-shrink: 1;
       -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
               justify-content: space-between; }
       #hero .item .info > div:last-child {
         text-align: right; }
   #hero .mianban-row {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex; }
     #hero .mianban-row .mianban {
       font-size: 0.12rem;
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
               justify-content: space-between;
       width: 50%; }
       #hero .mianban-row .mianban:first-child {
@@ -1647,7 +1492,6 @@ footer {
         margin-left: 0.06rem; }
   #hero #backpack {
     -webkit-box-flex: 1;
-    -webkit-flex: 1;
             flex: 1; }
   #hero .hero-footer {
     position: absolute;
@@ -1656,22 +1500,17 @@ footer {
     width: 100%;
     background: #f5e6d4;
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
             justify-content: space-between;
     padding: 0.06rem 0.12rem;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center; }
   #hero .equips {
     width: 0.5rem;
     -webkit-box-flex: 0;
-    -webkit-flex-grow: 0;
             flex-grow: 0;
-    -webkit-flex-shrink: 0;
-            flex-shrink: 0; }
+    flex-shrink: 0; }
     #hero .equips .equip {
       position: relative; }
       #hero .equips .equip img {
@@ -1693,14 +1532,11 @@ footer {
         text-shadow: 0 0 4px #5b331e; }
   #hero .pic {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex; }
     #hero .pic .preview {
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1; }
+      flex-shrink: 1; }
 
 #battle {
   position: relative;
@@ -1784,13 +1620,10 @@ footer {
     color: #522810; }
   #battle .vs {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
             justify-content: space-between;
     margin-bottom: 0.2rem; }
     #battle .vs img {
@@ -1798,32 +1631,25 @@ footer {
     #battle .vs span {
       width: 1rem;
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
+      flex-shrink: 1;
       text-align: center;
       font-weight: 500;
       font-size: 0.2rem; }
   #battle .result {
     display: -webkit-box;
-    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
-    -webkit-align-items: center;
             align-items: center;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
             justify-content: space-between; }
     #battle .result img {
       width: 1.32rem; }
     #battle .result span {
       width: 1rem;
       -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
               flex-grow: 1;
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
+      flex-shrink: 1;
       text-align: center;
       font-size: 0.3rem; }
 
@@ -1982,10 +1808,8 @@ footer {
       font-weight: 500;
       font-size: 0.2rem;
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex;
       -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
               justify-content: space-between;
       margin-bottom: 0.12rem; }
     #gamedeposit .content .game-input,
@@ -2018,7 +1842,6 @@ footer {
     #ui .top-left-menu.show,
     #ui .bottom-right-menu.show {
       display: -webkit-box;
-      display: -webkit-flex;
       display: flex; }
   #ui .bottom-left-menu {
     bottom: 0;
@@ -2224,13 +2047,10 @@ footer {
   z-index: 9999999999;
   background: rgba(0, 0, 0, 0.5);
   display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
           align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
           justify-content: center; }
   .game-modal.inner {
     margin: -0.2rem 0;
@@ -2518,6 +2338,7 @@ input {
   outline: none; }
 
 button {
+  background-image: -webkit-gradient(linear, left top, right top, from(#953D96), to(#D85BDB));
   background-image: -webkit-linear-gradient(left, #953D96 0%, #D85BDB 100%);
   background-image: linear-gradient(to right, #953D96 0%, #D85BDB 100%);
   color: #fff;
@@ -2570,6 +2391,8 @@ a {
     line-height: 2;
     padding: 0; }
     .form .item input::-webkit-input-placeholder {
+      color: #6788A2; }
+    .form .item input::-moz-placeholder {
       color: #6788A2; }
     .form .item input:-ms-input-placeholder {
       color: #6788A2; }
