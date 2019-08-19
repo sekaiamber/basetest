@@ -35,7 +35,9 @@
     bottom: 0;
     left: 0;
     display: none;
-
+    padding-left: constant(safe-area-inset-left);
+    padding-left: env(safe-area-inset-left);
+  
     .item {
       height: 1rem;
 
@@ -171,6 +173,8 @@
 
     .deposit {
       height: 0.5rem;
+      padding-left: constant(safe-area-inset-left);
+      padding-left: env(safe-area-inset-left);    
     }
   }
 
