@@ -1,9 +1,61 @@
 #backpack {
   overflow: auto;
+  width: 2.5rem;
+  flex-grow: 0;
+  flex-shrink: 0;
 
   .account {
     font-size: 0.12rem;
     text-align: right;
     line-height: 1.1;
+  }
+
+  .backpack-equips {
+    width: 2.5rem;
+
+    .backpack-equip {
+      width: 0.5rem;
+      position: relative;
+      display: inline-block;
+
+      img {
+        height: 0.5rem;
+      }
+
+      .position,
+      .level {
+        pointer-events: none;
+      }
+
+      .position {
+        position: absolute;
+        bottom: 0.02rem;
+        right: 0.02rem;
+        font-size: 0.12rem;
+        color: #fff;
+        text-shadow: 0 0 4px #5b331e;
+      }
+
+      .level {
+        position: absolute;
+        top: 0.02rem;
+        left: 0.02rem;
+        font-size: 0.12rem;
+        font-weight: 500;
+        color: #fff;
+        text-shadow: 0 0 4px #5b331e;
+      }
+    }
+  }
+  .backpack-item-modal {
+    .content {
+      display: block;
+      min-width: 2rem;
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
   }
 }

@@ -50,19 +50,29 @@ function convertCoordinateToPosition(i, j, field) {
 }
 
 function checkBuildingData(data) {
-  // TODO: 过滤过期building
   if (data.position) {
     if (isNaN(parseInt(data.position[0], 10))) return false;
     if (isNaN(parseInt(data.position[1], 10))) return false;
+  }
+  if (data.finish_at) {
+    if (new Date() > new Date(data.finish_at)) return false;
   }
   return true;
 }
 
 function convertBuildingDataToRenderData(data) {
-  // TODO: 按时间变贴图
+  let texture = data.meta.textures.slice(-1)[0];
+  if (data.finish_at) {
+    const start = new Date(data.created_at).getTime();
+    const finish = new Date(data.finish_at).getTime();
+    const now = new Date().getTime();
+    const steps = data.meta.textures.length;
+    const step = (finish - start) / steps;
+    texture = data.meta.textures[parseInt((now - start) / step, 10)];
+  }
   const ret = {
     ...data,
-    texture: data.meta.textures.slice(-1)[0],
+    texture,
     position: [parseInt(data.position[0], 10), parseInt(data.position[1], 10)],
   };
   return ret;

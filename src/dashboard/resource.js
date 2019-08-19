@@ -46,6 +46,7 @@ import MENU_ICON_GAME from '../assets/farm/ui/icon_game.png';
 import MAIN_PANEL from '../assets/farm/ui/main_panel.png';
 import MAIN_PLAYER from '../assets/farm/ui/main_player.png';
 import MAIN_BTN_SHOP from '../assets/farm/ui/main_btn_shop.png';
+import MAIN_DEPOSIT from '../assets/farm/ui/main_deposit.png';
 
 import SEED_0 from '../assets/farm/building/200_0.png';
 import SEED_1 from '../assets/farm/building/200_1.png';
@@ -131,6 +132,7 @@ const RESOURCE = {
     GUILD_05,
     BATTLE_DEFEAT,
     BATTLE_VICTORY,
+    MAIN_DEPOSIT,
   },
   TEXTURES: {
     CENTRE,

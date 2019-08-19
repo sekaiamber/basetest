@@ -14,6 +14,7 @@ import './style.scss';
 class Entertainment extends Component {
   state = {
     amount: '',
+    showCheckDeposit: false,
   }
 
   handleDeposit = () => {
@@ -28,20 +29,36 @@ class Entertainment extends Component {
   }
 
   render() {
-    const { amount } = this.state;
+    const { amount, showCheckDeposit } = this.state;
     const { onClose, outAccount } = this.props;
     return (
-      <div className="game-modal">
-        <div id="gamedeposit" className="content-container">
-          <div className="close game-btn" onClick={onClose}>返回</div>
-          <div className="content">
-            <div className="title">充值</div>
-            <div><input type="number" className="game-input" placeholder="输入充值金额" value={amount} onChange={e => this.setState({ amount: e.target.value })} /></div>
-            <div style={{ marginBottom: 24 }}>可用余额 {outAccount.balance} BASE</div>
-            <div className="game-btn" onClick={this.handleDeposit}>确认充值</div>
+      <>
+        <div className="game-modal">
+          <div id="gamedeposit" className="content-container">
+            <div className="close game-btn" onClick={onClose}>返回</div>
+            <div className="content">
+              <div className="title">从资产充值到游戏</div>
+              <div><input type="number" className="game-input" placeholder="输入充值金额" value={amount} onChange={e => this.setState({ amount: e.target.value })} /></div>
+              <div style={{ marginBottom: 24 }}>可用余额 {outAccount.balance} BASE</div>
+              <div className="game-btn" onClick={() => this.setState({ showCheckDeposit: true })}>确认充值</div>
+            </div>
           </div>
         </div>
-      </div>
+        {showCheckDeposit && (
+          <div className="game-modal">
+            <div className="content-container">
+              <div className="modal-ex">
+                <div className="game-btn" onClick={this.handleDeposit}>确认</div>
+                <div className="game-btn" onClick={() => this.setState({ showCheckDeposit: false })}>取消</div>
+              </div>
+              <div className="content">
+                <div className="title">充值确认</div>
+                <div>您将充值 {amount} BASE 到游戏，充值将不可退回，确认充值？</div>
+              </div>
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 }

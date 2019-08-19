@@ -73,8 +73,8 @@ class Guild extends Component {
         )}
 
         {showCreateModal && (
-          <div className="game-modal inner create-guild-modal">
-            <div id="guild" className="content-container">
+          <div className="game-modal create-guild-modal">
+            <div className="content-container">
               <div className="close game-btn" onClick={() => this.setState({ showCreateModal: false })}>返回</div>
               <div className="content">
                 <div className="title">创建公会</div>

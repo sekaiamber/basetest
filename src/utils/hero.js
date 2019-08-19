@@ -34,5 +34,9 @@ export function convertExpToLevel(exp) {
 }
 
 export function calculateItemPower(item) {
-  return item.meta.power * (1 + 0.05 * item.level);
+  let radio = 0.05;
+  if (item.meta.position === 'weapon') {
+    radio = 0.08;
+  }
+  return item.meta.power * (1 + radio * item.level);
 }

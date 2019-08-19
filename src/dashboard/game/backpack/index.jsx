@@ -25,24 +25,31 @@ const positionMap = {
 class Backpack extends Component {
   state = {
     selectedItem: null,
+    showItem: false,
   }
 
   componentDidMount() {
 
   }
 
+  handleCloseItem = () => {
+    this.setState({
+      showItem: false,
+    });
+  }
+
   handleSelectItem(item) {
-    const { onItemSelect } = this.props;
-    if (!onItemSelect) return;
     this.setState({
       selectedItem: item,
+      showItem: true,
     });
-    onItemSelect(item);
+    const { onItemSelect } = this.props;
+    if (onItemSelect) onItemSelect(item);
   }
 
   render() {
-    const { backpack, accounts, backpackSize } = this.props;
-    const { selectedItem } = this.state;
+    const { backpack, accounts, backpackSize, inject } = this.props;
+    const { selectedItem, showItem } = this.state;
 
     return (
       <div id="backpack">
@@ -53,27 +60,38 @@ class Backpack extends Component {
             <div>背包容量：{backpack.length}/{backpackSize}</div>
           </div>
         </div>
-        {backpack.map(item => (
-          <div
-            key={item.id}
-            className={classnames('item', { selected: selectedItem === item })}
-            onClick={this.handleSelectItem.bind(this, item)}
-          >
-            <div className="img-container">
-              <img src={RESOURCE.ITEM_ICON[item.meta.code]} alt="" />
+        <div className="backpack-equips">
+          {backpack.map(item => (
+            <div className="backpack-equip" key={item.id} onClick={this.handleSelectItem.bind(this, item)}>
+              <span className="level">Lv.{item.level}</span>
+              <img src={RESOURCE.ITEM_ICON[item.meta.code]} />
+              <span className="position">{positionMap[item.meta.position]}</span>
             </div>
-            <div className="info">
-              <div>
-                <div>{item.meta.name}</div>
-                <div>等级{item.level}</div>
+          ))}
+        </div>
+        {showItem && (
+          <div className="game-modal backpack-item-modal">
+            <div className="content-container">
+              <div className="modal-ex">
+                {inject && inject.map((btn, i) => (
+                  <div key={i} className="game-btn" onClick={() => btn.onClick(this.handleCloseItem)}>{btn.text}</div>
+                ))}
+                <div className="game-btn" onClick={this.handleCloseItem}>返回</div>
               </div>
-              <div>
-                <div>{positionMap[item.meta.position]}</div>
-                <div>{parseInt(calculateItemPower(item), 10)}<Icon type="thunderbolt" /></div>
+              <div className="content">
+                <div className="title">{selectedItem.meta.name}</div>
+                <div className="row">
+                  <div>{positionMap[selectedItem.meta.position]}</div>
+                  <div>等级{selectedItem.level}</div>
+                </div>
+                <div className="row">
+                  <div>战斗力加成</div>
+                  <div>{parseInt(calculateItemPower(selectedItem), 10)}<Icon type="thunderbolt" /></div>
+                </div>
               </div>
             </div>
           </div>
-        ))}
+        )}
       </div>
     );
   }

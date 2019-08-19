@@ -27,6 +27,7 @@ const positionMap = {
 class Hero extends Component {
   state = {
     selectedItem: null,
+    selectedEquipItem: null,
   }
 
   handleSelectItem = (item) => {
@@ -35,19 +36,33 @@ class Hero extends Component {
     });
   }
 
-  handleNotEquip = () => {
-    const { selectedItem } = this.state;
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'hero_player/notEquip',
-      payload: selectedItem,
-    });
+  handleSelectEquipItem = (item) => {
     this.setState({
-      selectedItem: null,
+      selectedEquipItem: item,
     });
   }
 
-  handleEquip = () => {
+  handleExit = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'utils/goto',
+      goto: '/',
+    });
+  }
+
+  handleNotEquip = () => {
+    const { selectedEquipItem } = this.state;
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'hero_player/notEquip',
+      payload: selectedEquipItem,
+    });
+    this.setState({
+      selectedEquipItem: null,
+    });
+  }
+
+  handleEquip = (callback) => {
     const { selectedItem } = this.state;
     const { dispatch, equipped } = this.props;
     if (equipped[selectedItem.meta.position]) {
@@ -60,10 +75,11 @@ class Hero extends Component {
     this.setState({
       selectedItem: null,
     });
+    callback();
   }
 
   render() {
-    const { selectedItem } = this.state;
+    const { selectedItem, selectedEquipItem } = this.state;
     const { onClose, heroInfo, equipped } = this.props;
     const equipPower = parseInt(heroInfo.equipped.map(i => calculateItemPower(i)).reduce((a, b) => a + b, 10), 10);
     const heroPower = calculateHeroPower(heroInfo.game_level);
@@ -71,7 +87,10 @@ class Hero extends Component {
     return (
       <div className="game-modal">
         <div id="hero" className="content-container">
-          <div className="close game-btn" onClick={onClose}>返回</div>
+          <div className="modal-ex">
+            <div className="game-btn" onClick={this.handleExit}>退出游戏</div>
+            <div className="game-btn" onClick={onClose}>返回</div>
+          </div>
           <div className="content">
             <div className="hero-panel">
               <div className="title">英雄</div>
@@ -82,10 +101,10 @@ class Hero extends Component {
                       {equipped[key] ? (
                         <>
                           <span className="level">Lv.{equipped[key].level}</span>
-                          <img src={RESOURCE.ITEM_ICON[equipped[key].meta.code] || RESOURCE.ITEM_ICON.EMPTY} onClick={this.handleSelectItem.bind(this, equipped[key])} />
+                          <img src={RESOURCE.ITEM_ICON[equipped[key].meta.code] || RESOURCE.ITEM_ICON.EMPTY} onClick={this.handleSelectEquipItem.bind(this, equipped[key])} />
                         </>
                       ) : (
-                        <img src={RESOURCE.ITEM_ICON.EMPTY} onClick={this.handleSelectItem.bind(this, null)} />
+                        <img src={RESOURCE.ITEM_ICON.EMPTY} />
                       )}
                       <span className="position">{positionMap[key]}</span>
                     </div>
@@ -100,10 +119,10 @@ class Hero extends Component {
                       {equipped[key] ? (
                         <>
                           <span className="level">Lv.{equipped[key].level}</span>
-                          <img src={RESOURCE.ITEM_ICON[equipped[key].meta.code] || RESOURCE.ITEM_ICON.EMPTY} onClick={this.handleSelectItem.bind(this, equipped[key])} />
+                          <img src={RESOURCE.ITEM_ICON[equipped[key].meta.code] || RESOURCE.ITEM_ICON.EMPTY} onClick={this.handleSelectEquipItem.bind(this, equipped[key])} />
                         </>
                       ) : (
-                        <img src={RESOURCE.ITEM_ICON.EMPTY} onClick={this.handleSelectItem.bind(this, null)} />
+                        <img src={RESOURCE.ITEM_ICON.EMPTY} />
                       )}
                       <span className="position">{positionMap[key]}</span>
                     </div>
@@ -131,16 +150,33 @@ class Hero extends Component {
                 </div>
               </div>
             </div>
-            <Backpack onItemSelect={this.handleSelectItem} />
+            <Backpack
+              onItemSelect={this.handleSelectItem}
+              inject={[{
+                text: '装备',
+                onClick: this.handleEquip,
+              }]}
+            />
           </div>
-          {selectedItem && (
-            <div className="hero-footer">
-              <div>等级{selectedItem.level} {selectedItem.meta.name}</div>
-              {selectedItem.equipped ? (
-                <div className="game-btn" onClick={this.handleNotEquip}>卸下</div>
-              ) : (
-                <div className="game-btn" onClick={this.handleEquip}>装备</div>
-              )}
+          {selectedEquipItem && (
+            <div className="game-modal backpack-item-modal">
+              <div className="content-container">
+                <div className="modal-ex">
+                  <div className="game-btn" onClick={this.handleNotEquip}>卸下</div>
+                  <div className="game-btn" onClick={() => this.setState({ selectedEquipItem: null })}>返回</div>
+                </div>
+                <div className="content">
+                  <div className="title">{selectedEquipItem.meta.name}</div>
+                  <div className="row">
+                    <div>{positionMap[selectedEquipItem.meta.position]}</div>
+                    <div>等级{selectedEquipItem.level}</div>
+                  </div>
+                  <div className="row">
+                    <div>战斗力加成</div>
+                    <div>{parseInt(calculateItemPower(selectedEquipItem), 10)}<Icon type="thunderbolt" /></div>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>

@@ -5,7 +5,7 @@
   font-weight: 400;
 
   .content {
-    height: calc(100% - 0.5rem);
+    height: 100%;
     overflow: hidden;
     display: flex;
 
@@ -79,22 +79,6 @@
     }
   }
 
-  #backpack {
-    flex: 1;
-  }
-
-  .hero-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #f5e6d4;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.06rem 0.12rem;
-    align-items: center;
-  }
-
   .equips {
     width: 0.5rem;
     flex-grow: 0;
@@ -105,6 +89,11 @@
 
       img {
         height: 0.5rem;
+      }
+
+      .position,
+      .level {
+        pointer-events: none;
       }
 
       .position {
@@ -134,6 +123,18 @@
     .preview {
       flex-grow: 1;
       flex-shrink: 1;
+    }
+  }
+
+  .backpack-item-modal {
+    .content {
+      display: block;
+      min-width: 2rem;
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 }

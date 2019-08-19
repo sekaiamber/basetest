@@ -112,6 +112,10 @@
     top: 0.12rem;
     left: 0.12rem;
 
+    &.show {
+      display: block;
+    }
+
     .item {
       height: 0.55rem;
 
@@ -123,7 +127,7 @@
     .accounts {
       position: absolute;
       font-size: 0.12rem;
-      bottom: 0;
+      top: 0.38rem;
       left: 0.75rem;
       color: #fbf5ee;
       font-weight: 400;
@@ -163,6 +167,10 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+    }
+
+    .deposit {
+      height: 0.5rem;
     }
   }
 
@@ -219,6 +227,39 @@
     img {
       position: absolute;
       width: 0.4rem;
+    }
+  }
+
+  .resttime {
+    background: #fff;
+    white-space: nowrap;
+    font-size: 0.12rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: -0.4rem;
+    padding: 0.04rem;
+  }
+
+  .insert-tip {
+    position: relative;
+    background: #faf5ef;
+    border: #522810 solid 2px;
+    border-radius: 0.06rem;
+    padding: 0.06rem;
+    min-width: 1.5rem;
+
+    .title {
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.16rem;
+      text-align: right;
+      margin-bottom: 0.06rem;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.12rem;
     }
   }
 }

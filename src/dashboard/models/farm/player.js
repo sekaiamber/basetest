@@ -6,9 +6,9 @@ import {
 } from '../../../utils/farm';
 import fetch from '../../../utils/fetch';
 import QUERYS from '../../querys';
+import { message } from 'antd';
 
 
-// TODO: building id
 const getMyBuilding = () => fetch.private.get(QUERYS.GAME_MY);
 const getAccounts = () => fetch.private.get(QUERYS.GAME_ACCOUNT);
 const buyBuilding = data => fetch.private.post(QUERYS.GAME_BUY_BUILDING(data.id), data);
@@ -231,15 +231,18 @@ export default {
       yield put({
         type: 'farm_env/loading',
       });
-      yield call(deposit, {
+      const data = yield call(deposit, {
         amount: payload,
       });
-      yield put({
-        type: 'getAccounts',
-      });
-      yield put({
-        type: 'account/queryAccount',
-      });
+      if (data.success) {
+        message.success('充值成功');
+        yield put({
+          type: 'getAccounts',
+        });
+        yield put({
+          type: 'account/queryAccount',
+        });
+      }
       yield put({
         type: 'farm_env/loading',
         loading: false,

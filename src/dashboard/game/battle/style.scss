@@ -30,18 +30,19 @@
       position: absolute;
       height: 0.46rem;
       top: 0.4rem;
+      left: 50%;
     }
 
     .left {
       opacity: 0;
-      left: 1.7rem;
+      transform: translate(-1rem, 0);
       animation: bhl-show 0.5s ease 0;
       animation-fill-mode: forwards;
       animation-iteration-count: 1;
     }
     .right {
       opacity: 0;
-      right: 1.7rem;
+      transform: translate(0rem , 0);
       animation: bhr-show 0.5s ease 0;
       animation-fill-mode: forwards;
       animation-iteration-count: 1;
@@ -128,21 +129,21 @@
 @keyframes bhl-show {
   0% {
     opacity: 0;
-    left: 1.7rem;
+    transform: translate(-1rem, 0);
   }
   100% {
     opacity: 1;
-    left: 1.2rem;
+    transform: translate(-1.35rem, 0);
   }
 }
 @keyframes bhr-show {
   0% {
     opacity: 0;
-    right: 1.7rem;
+    transform: translate(0, 0);
   }
   100% {
     opacity: 1;
-    right: 1.2rem;
+    transform: translate(0.33rem, 0);
   }
 }
 

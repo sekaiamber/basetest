@@ -5,9 +5,9 @@
   font-weight: 400;
 
   .content {
-    height: calc(100% - 0.5rem);
+    padding: 0;
+    height: 100%;
     overflow: hidden;
-    display: flex;
 
     .title {
       color: #522810;
@@ -16,14 +16,16 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 0.12rem;
+      padding: 0.06rem 0.12rem 0;
     }
   }
 
   .shop-panel {
-    width: 50%;
+    width: calc(100% - 2rem);
     height: 100%;
     overflow: auto;
     margin-right: 0.12rem;
+    padding: 0 0.12rem 0.3rem;
   }
 
   .item {
@@ -61,19 +63,42 @@
     }
   }
 
-  #backpack {
-    flex: 1;
-  }
-
   .shop-footer {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    top: 0;
+    right: 0;
+    width: 2rem;
+    height: 100%;
     background: #f5e6d4;
-    display: flex;
-    justify-content: space-between;
     padding: 0.06rem 0.12rem;
-    align-items: center;
+
+    .title {
+      text-align: center;
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.2rem;
+      margin-bottom: 0.12rem;
+    }
+
+    .icon {
+      text-align: center;
+      margin-bottom: 0.12rem;
+
+      img {
+        height: 0.75rem;
+      }
+    }
+
+    .game-btn {
+      position: absolute;
+      bottom: 0.06rem;
+      width: calc(100% - 0.24rem);
+      left: 0.12rem;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }

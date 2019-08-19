@@ -16,6 +16,7 @@
   z-index: 99;
   transform: translate(-50%, -50%);
   overflow: hidden;
+  font-weight: 400;
   
   &.hori {
     transform: translate(-50%, -50%) rotate(90deg);
@@ -64,7 +65,7 @@
 }
 
 .game-modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -82,10 +83,23 @@
   }
 
   .content-container {
+    position: relative;
     background: #faf5ef;
     border: #522810 solid 2px;
     border-radius: 0.06rem;
-    padding: 0.06rem 0.12rem;
+  }
+
+  .content {
+    padding: 0.06rem 0.12rem 0.3rem;
+
+    .title {
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.2rem;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.12rem;
+    }
   }
 
   .close {
@@ -94,5 +108,22 @@
     left: 50%;
     transform: translate(-50%, 50%);
     z-index: 2;
+  }
+
+  .modal-ex {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 2;
+    display: flex;
+
+    .game-btn {
+      margin-right: 0.06rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }

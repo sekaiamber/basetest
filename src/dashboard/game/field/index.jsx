@@ -20,6 +20,7 @@ import Shop from '../shop';
 import Hero from '../hero';
 import Battle from '../battle';
 import Deposit from '../deposit';
+import { getRestTimeFormatted } from '../../../utils';
 
 import './style.scss';
 
@@ -32,6 +33,7 @@ const MODE = {
 
 class Field extends Component {
   state = {
+    now: new Date(),
     mode: MODE.NORMAL,
     insertSelectList: [],
     currentInsert: null,
@@ -44,6 +46,18 @@ class Field extends Component {
     showHero: false,
     showBattle: false,
     showDeposit: false,
+  }
+
+  componentDidMount() {
+    this.handler = setInterval(() => {
+      this.setState({
+        now: new Date(),
+      });
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.handler);
   }
 
   getPosition(i, j) {
@@ -252,7 +266,10 @@ class Field extends Component {
       message.error('无法放置在此格');
       return;
     }
-    if (!this.checkPosition(position[0], position[1], currentInsert)) return;
+    if (!this.checkPosition(position[0], position[1], currentInsert)) {
+      message.error('无法放置在此格');
+      return;
+    }
     if (insertSelectType === 'storage') {
       // 从仓库中移出来
       const selectedBuilding = buildingsStorage.filter(b => b.meta.id === currentInsert.id)[0];
@@ -377,6 +394,7 @@ class Field extends Component {
     const arrowPosition = this.getArrowsPosition();
     const currentInsertSelectListPage = insertSelectList.slice(insertSelectListPage * 4, insertSelectListPage * 4 + 4);
 
+    console.log(currentInsert);
     return (
       <>
         <div id="field" onClick={this.handleClickField}>
@@ -398,11 +416,12 @@ class Field extends Component {
             <div className="item" onClick={() => this.setState({ showHero: true })}>
               <img src={RESOURCE.UI.MAIN_PLAYER} alt="" />
             </div>
-            <div className="accounts" onClick={() => this.setState({ showDeposit: true })}>{accounts.base} BASE</div>
+            <div className="accounts">{accounts.base} BASE</div>
             {/* <div className="avatar"></div> */}
             <div className="nickname">{userInfo.nickname}</div>
             <div className="level">{heroInfo.game_level}</div>
             <div className="exp"><div className="bar" /></div>
+            <img className="deposit" src={RESOURCE.UI.MAIN_DEPOSIT} alt="" onClick={() => this.setState({ showDeposit: true })} />
           </div>
           <div className={classnames('bottom-right-menu', { show: mode === MODE.NORMAL })}>
             <div className="item" onClick={() => this.setState({ showEntertainment: true })}>
@@ -440,7 +459,7 @@ class Field extends Component {
                       )}
                     </div>
                     {insertSelectType !== 'storage' && (
-                      <div className="price">{currentInsertSelectListPage[i].price} BASE</div>
+                      <div className="price">{currentInsertSelectListPage[i].price.toString() === '0' ? '免费' : `${currentInsertSelectListPage[i].price} BASE`}</div>
                     )}
                   </>
                 )}
@@ -449,6 +468,21 @@ class Field extends Component {
             <div className="item" onClick={this.handleChangeInsertSelectListPage.bind(this, 1)}>
               <img src={RESOURCE.UI.MENU_ICON_NEXT_PAGE} alt="" />
             </div>
+          </div>
+          <div className={classnames('top-right-menu', { show: mode === MODE.INSERT && currentInsert && currentInsert.reward })}>
+            {currentInsert && (
+              <div className="insert-tip">
+                <div className="title">{currentInsert.name}</div>
+                <div className="row">
+                  <div>每日收益</div>
+                  <div>{currentInsert.reward} BASE</div>
+                </div>
+                <div className="row">
+                  <div>总收益</div>
+                  <div>{currentInsert.reward * currentInsert.day} BASE</div>
+                </div>
+              </div>
+            )}
           </div>
           <div className={classnames('bottom-left-menu', { show: mode === MODE.SELECT })}>
             <div className="item" onClick={this.handleChangeMode.bind(this, MODE.NORMAL)}>
@@ -476,6 +510,9 @@ class Field extends Component {
             }}
           >
             <img src={RESOURCE.UI.MENU_ICON_SELECT_POINT} alt="" />
+            {selectedBuilding && selectedBuilding.finish_at && (
+              <span className="game-input resttime">{getRestTimeFormatted(selectedBuilding.finish_at)}</span>
+            )}
           </div>
           {mode === MODE.MOVE && selectedBuilding && (
             <div className="arrows" style={{ left: arrowPosition.center.x, top: arrowPosition.center.y }}>

@@ -29,7 +29,6 @@ const modeMap = {
 
 class Shop extends Component {
   state = {
-    selectMode: null,
     selectItem: null,
   }
 
@@ -40,26 +39,32 @@ class Shop extends Component {
     });
   }
 
-  handleEvent = () => {
-    const { selectMode, selectItem } = this.state;
-    const { dispatch } = this.props;
-    if (selectMode === 'buy' && selectItem) {
-      dispatch({
-        type: 'hero_shop/buy',
-        payload: selectItem.id,
+  componentWillReceiveProps(newProps) {
+    const { selectItem } = this.state;
+    if (newProps.basic && newProps.basic.length > 0 && !selectItem) {
+      this.setState({
+        selectItem: newProps.basic[0],
       });
     }
   }
 
+  handleEvent = () => {
+    const { selectItem } = this.state;
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'hero_shop/buy',
+      payload: selectItem.id,
+    });
+  }
+
   handleSelectBuy(item) {
     this.setState({
-      selectMode: 'buy',
       selectItem: item,
     });
   }
 
   render() {
-    const { selectMode, selectItem } = this.state;
+    const { selectItem } = this.state;
     const { onClose, basic } = this.props;
     return (
       <div className="game-modal">
@@ -90,12 +95,24 @@ class Shop extends Component {
                 </div>
               ))}
             </div>
-            <Backpack />
           </div>
-          {selectMode && (
+          {selectItem && (
             <div className="shop-footer">
-              <div>{selectItem.name}: 价值 {selectItem.price} BASE</div>
-              <div className="game-btn" onClick={this.handleEvent}>{modeMap[selectMode]}</div>
+              <div className="title">{selectItem.name}</div>
+              <div className="icon"><img src={RESOURCE.ITEM_ICON[selectItem.code]} alt="" /></div>
+              <div className="row">
+                <div className="key">花费</div>
+                <div className="value">{selectItem.price} BASE</div>
+              </div>
+              <div className="row">
+                <div className="key">初始战斗力</div>
+                <div className="value">{selectItem.power}<Icon type="thunderbolt" /></div>
+              </div>
+              <div className="row">
+                <div className="key">每级提升</div>
+                <div className="value">{selectItem.position === 'weapon' ? '8%' : '5%'}</div>
+              </div>
+              <div className="game-btn" onClick={this.handleEvent}>购买</div>
             </div>
           )}
         </div>
