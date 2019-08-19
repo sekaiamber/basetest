@@ -1,6 +1,10 @@
 #main {
   padding-bottom: 0.8rem; }
 
+.ant-message {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top); }
+
 header {
   font-size: 0.18rem;
   height: 0.44rem;
@@ -1479,11 +1483,53 @@ footer {
     height: 100%; }
 
 #backpack {
-  overflow: auto; }
+  overflow: auto;
+  width: 2.5rem;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+          flex-grow: 0;
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0; }
   #backpack .account {
     font-size: 0.12rem;
     text-align: right;
     line-height: 1.1; }
+  #backpack .backpack-equips {
+    width: 2.5rem; }
+    #backpack .backpack-equips .backpack-equip {
+      width: 0.5rem;
+      position: relative;
+      display: inline-block; }
+      #backpack .backpack-equips .backpack-equip img {
+        height: 0.5rem; }
+      #backpack .backpack-equips .backpack-equip .position,
+      #backpack .backpack-equips .backpack-equip .level {
+        pointer-events: none; }
+      #backpack .backpack-equips .backpack-equip .position {
+        position: absolute;
+        bottom: 0.02rem;
+        right: 0.02rem;
+        font-size: 0.12rem;
+        color: #fff;
+        text-shadow: 0 0 4px #5b331e; }
+      #backpack .backpack-equips .backpack-equip .level {
+        position: absolute;
+        top: 0.02rem;
+        left: 0.02rem;
+        font-size: 0.12rem;
+        font-weight: 500;
+        color: #fff;
+        text-shadow: 0 0 4px #5b331e; }
+  #backpack .backpack-item-modal .content {
+    display: block;
+    min-width: 2rem; }
+    #backpack .backpack-item-modal .content .row {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between; }
 
 #shop {
   position: relative;
@@ -1491,11 +1537,9 @@ footer {
   width: 80%;
   font-weight: 400; }
   #shop .content {
-    height: calc(100% - 0.5rem);
-    overflow: hidden;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex; }
+    padding: 0;
+    height: 100%;
+    overflow: hidden; }
     #shop .content .title {
       color: #522810;
       font-weight: 500;
@@ -1506,12 +1550,14 @@ footer {
       -webkit-box-pack: justify;
       -webkit-justify-content: space-between;
               justify-content: space-between;
-      margin-bottom: 0.12rem; }
+      margin-bottom: 0.12rem;
+      padding: 0.06rem 0.12rem 0; }
   #shop .shop-panel {
-    width: 50%;
+    width: calc(100% - 2rem);
     height: 100%;
     overflow: auto;
-    margin-right: 0.12rem; }
+    margin-right: 0.12rem;
+    padding: 0 0.12rem 0.3rem; }
   #shop .item {
     border: #5b331e solid 2px;
     border-radius: 0.06rem;
@@ -1546,26 +1592,37 @@ footer {
               justify-content: space-between; }
       #shop .item .info > div:last-child {
         text-align: right; }
-  #shop #backpack {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-            flex: 1; }
   #shop .shop-footer {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    top: 0;
+    right: 0;
+    width: 2rem;
+    height: 100%;
     background: #f5e6d4;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-            justify-content: space-between;
-    padding: 0.06rem 0.12rem;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center; }
+    padding: 0.06rem 0.12rem; }
+    #shop .shop-footer .title {
+      text-align: center;
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.2rem;
+      margin-bottom: 0.12rem; }
+    #shop .shop-footer .icon {
+      text-align: center;
+      margin-bottom: 0.12rem; }
+      #shop .shop-footer .icon img {
+        height: 0.75rem; }
+    #shop .shop-footer .game-btn {
+      position: absolute;
+      bottom: 0.06rem;
+      width: calc(100% - 0.24rem);
+      left: 0.12rem; }
+    #shop .shop-footer .row {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between; }
 
 #hero {
   position: relative;
@@ -1573,7 +1630,7 @@ footer {
   width: 80%;
   font-weight: 400; }
   #hero .content {
-    height: calc(100% - 0.5rem);
+    height: 100%;
     overflow: hidden;
     display: -webkit-box;
     display: -webkit-flex;
@@ -1645,26 +1702,6 @@ footer {
         margin-right: 0.06rem; }
       #hero .mianban-row .mianban:last-child {
         margin-left: 0.06rem; }
-  #hero #backpack {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-            flex: 1; }
-  #hero .hero-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #f5e6d4;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-            justify-content: space-between;
-    padding: 0.06rem 0.12rem;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center; }
   #hero .equips {
     width: 0.5rem;
     -webkit-box-flex: 0;
@@ -1676,6 +1713,9 @@ footer {
       position: relative; }
       #hero .equips .equip img {
         height: 0.5rem; }
+      #hero .equips .equip .position,
+      #hero .equips .equip .level {
+        pointer-events: none; }
       #hero .equips .equip .position {
         position: absolute;
         bottom: 0.02rem;
@@ -1701,6 +1741,16 @@ footer {
               flex-grow: 1;
       -webkit-flex-shrink: 1;
               flex-shrink: 1; }
+  #hero .backpack-item-modal .content {
+    display: block;
+    min-width: 2rem; }
+    #hero .backpack-item-modal .content .row {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between; }
 
 #battle {
   position: relative;
@@ -1732,10 +1782,13 @@ footer {
     #battle .header .right {
       position: absolute;
       height: 0.46rem;
-      top: 0.4rem; }
+      top: 0.4rem;
+      left: 50%; }
     #battle .header .left {
       opacity: 0;
-      left: 1.7rem;
+      -webkit-transform: translate(-1rem, 0);
+          -ms-transform: translate(-1rem, 0);
+              transform: translate(-1rem, 0);
       -webkit-animation: bhl-show 0.5s ease 0;
               animation: bhl-show 0.5s ease 0;
       -webkit-animation-fill-mode: forwards;
@@ -1744,7 +1797,9 @@ footer {
               animation-iteration-count: 1; }
     #battle .header .right {
       opacity: 0;
-      right: 1.7rem;
+      -webkit-transform: translate(0rem, 0);
+          -ms-transform: translate(0rem, 0);
+              transform: translate(0rem, 0);
       -webkit-animation: bhr-show 0.5s ease 0;
               animation: bhr-show 0.5s ease 0;
       -webkit-animation-fill-mode: forwards;
@@ -1846,34 +1901,42 @@ footer {
 @-webkit-keyframes bhl-show {
   0% {
     opacity: 0;
-    left: 1.7rem; }
+    -webkit-transform: translate(-1rem, 0);
+            transform: translate(-1rem, 0); }
   100% {
     opacity: 1;
-    left: 1.2rem; } }
+    -webkit-transform: translate(-1.35rem, 0);
+            transform: translate(-1.35rem, 0); } }
 
 @keyframes bhl-show {
   0% {
     opacity: 0;
-    left: 1.7rem; }
+    -webkit-transform: translate(-1rem, 0);
+            transform: translate(-1rem, 0); }
   100% {
     opacity: 1;
-    left: 1.2rem; } }
+    -webkit-transform: translate(-1.35rem, 0);
+            transform: translate(-1.35rem, 0); } }
 
 @-webkit-keyframes bhr-show {
   0% {
     opacity: 0;
-    right: 1.7rem; }
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
   100% {
     opacity: 1;
-    right: 1.2rem; } }
+    -webkit-transform: translate(0.33rem, 0);
+            transform: translate(0.33rem, 0); } }
 
 @keyframes bhr-show {
   0% {
     opacity: 0;
-    right: 1.7rem; }
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
   100% {
     opacity: 1;
-    right: 1.2rem; } }
+    -webkit-transform: translate(0.33rem, 0);
+            transform: translate(0.33rem, 0); } }
 
 @-webkit-keyframes bs-show {
   0% {
@@ -2074,6 +2137,8 @@ footer {
   #ui .top-left-menu {
     top: 0.12rem;
     left: 0.12rem; }
+    #ui .top-left-menu.show {
+      display: block; }
     #ui .top-left-menu .item {
       height: 0.55rem; }
       #ui .top-left-menu .item img {
@@ -2081,7 +2146,7 @@ footer {
     #ui .top-left-menu .accounts {
       position: absolute;
       font-size: 0.12rem;
-      bottom: 0;
+      top: 0.38rem;
       left: 0.75rem;
       color: #fbf5ee;
       font-weight: 400; }
@@ -2113,6 +2178,8 @@ footer {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap; }
+    #ui .top-left-menu .deposit {
+      height: 0.5rem; }
   #ui .bottom-right-menu {
     bottom: 0;
     right: 0;
@@ -2147,6 +2214,38 @@ footer {
     #ui .arrows img {
       position: absolute;
       width: 0.4rem; }
+  #ui .resttime {
+    background: #fff;
+    white-space: nowrap;
+    font-size: 0.12rem;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+    top: -0.4rem;
+    padding: 0.04rem; }
+  #ui .insert-tip {
+    position: relative;
+    background: #faf5ef;
+    border: #522810 solid 2px;
+    border-radius: 0.06rem;
+    padding: 0.06rem;
+    min-width: 1.5rem; }
+    #ui .insert-tip .title {
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.16rem;
+      text-align: right;
+      margin-bottom: 0.06rem; }
+    #ui .insert-tip .row {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between;
+      font-size: 0.12rem; }
 
 #game.hori #ui .bottom-right-menu {
   height: 100vw; }
@@ -2171,7 +2270,8 @@ footer {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  overflow: hidden; }
+  overflow: hidden;
+  font-weight: 400; }
   #game.hori {
     -webkit-transform: translate(-50%, -50%) rotate(90deg);
         -ms-transform: translate(-50%, -50%) rotate(90deg);
@@ -2216,7 +2316,7 @@ footer {
   font-size: 0.16rem; }
 
 .game-modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -2237,10 +2337,23 @@ footer {
     height: calc(100% + 0.4rem);
     background: rgba(0, 0, 0, 0.01); }
   .game-modal .content-container {
+    position: relative;
     background: #faf5ef;
     border: #522810 solid 2px;
-    border-radius: 0.06rem;
-    padding: 0.06rem 0.12rem; }
+    border-radius: 0.06rem; }
+  .game-modal .content {
+    padding: 0.06rem 0.12rem 0.3rem; }
+    .game-modal .content .title {
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.2rem;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between;
+      margin-bottom: 0.12rem; }
   .game-modal .close {
     position: absolute;
     bottom: 0;
@@ -2249,6 +2362,21 @@ footer {
         -ms-transform: translate(-50%, 50%);
             transform: translate(-50%, 50%);
     z-index: 2; }
+  .game-modal .modal-ex {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, 50%);
+        -ms-transform: translate(-50%, 50%);
+            transform: translate(-50%, 50%);
+    z-index: 2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex; }
+    .game-modal .modal-ex .game-btn {
+      margin-right: 0.06rem; }
+      .game-modal .modal-ex .game-btn:last-child {
+        margin-right: 0; }
 
 .noty_layout_mixin, #noty_layout__top, #noty_layout__topLeft, #noty_layout__topCenter, #noty_layout__topRight, #noty_layout__bottom, #noty_layout__bottomLeft, #noty_layout__bottomCenter, #noty_layout__bottomRight, #noty_layout__center, #noty_layout__centerLeft, #noty_layout__centerRight {
   position: fixed;
