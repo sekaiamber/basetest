@@ -71,7 +71,8 @@ export default class Anime extends React.Component {
 
   componentWillReceiveProps(newProps) {
     const { heroInfo } = newProps;
-    if (heroInfo) {
+    // eslint-disable-next-line react/destructuring-assignment
+    if (heroInfo && heroInfo !== this.props.heroInfo) {
       this.convertInfoToData(newProps);
     }
   }
@@ -122,9 +123,14 @@ export default class Anime extends React.Component {
     const character = new PIXI.spine.Spine(spineCleanData);
     this.character = character;
     character.x = this.size.width;
-    character.y = 290;
-    character.scale.set(1.5, 1.5);
+    character.y = 310;
+    character.scale.set(1.7, 1.7);
     app.stage.addChild(character);
+    const code = characterData.getAnimationCode('idle', 0);
+    if (character.state.hasAnimation(code)) {
+      character.state.setAnimation(0, code, 1);
+      character.state.timeScale = 1;
+    }
   }
 
   render() {

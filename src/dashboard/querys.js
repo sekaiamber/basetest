@@ -26,19 +26,27 @@ const QUERYS = {
   // GAME
   GAME_BUILDINGS: '/api/v1/games/buildings.json',
   GAME_MY: '/api/v1/games/my.json',
+  GAME_MY_BUFF: '/api/v1/games/buffs.json',
+  GAME_MY_SETS: '/api/v1/games/sets.json',
   GAME_ACCOUNT: '/api/v1/games/accounts.json',
   GAME_BUY_BUILDING: id => `/api/v1/games/buildings/${id}/buy.json`,
   GAME_UPDATE_BUILDING: id => `/api/v1/games/buildings/${id}`,
   GAME_MY_GUILD: '/api/v1/games/unions/my.json',
   GAME_GUILDS: '/api/v1/games/unions.json',
+  GAME_GUILD_UPDATE: id => `/api/v1/games/unions/${id}.json`,
+  GAME_GUILD_REMOVE_USER: id => `/api/v1/games/unions/${id}/remove_user.json`,
   GAME_GUILD_JOIN: id => `/api/v1/games/unions/${id}/join.json`,
   GAME_GUILD_LEAVE: id => `/api/v1/games/unions/${id}/leave.json`,
   GAME_GUILD_UP: id => `/api/v1/games/unions/${id}/upgrade.json`,
+  GAME_GUILD_DONATE: id => `/api/v1/games/unions/${id}/donate.json`,
+  GAME_GUILD_UPGRADE_TECH: id => `/api/v1/games/unions/${id}/upgrade_technology.json`,
   GAME_SHOP_BASIC: '/api/v1/games/items.json',
   GAME_ME: '/api/v1/games/items/my.json',
   GAME_BUY_ITEM: id => `/api/v1/games/items/${id}/buy.json`,
+  GAME_SELL_ITEM: id => `/api/v1/games/items/${id}/sell.json`,
   GAME_EQUIP: id => `/api/v1/games/items/${id}.json`,
   GAME_DEPOSIT: '/api/v1/games/accounts/deposit.json',
+  GAME_BATTLES: '/api/v1/games/fightings.json',
 };
 
 const { DOMAIN: domain } = config;

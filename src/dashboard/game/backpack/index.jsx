@@ -6,26 +6,21 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Icon } from 'antd';
+import { Icon, Modal } from 'antd';
 import classnames from 'classnames';
 import RESOURCE from '../../resource';
-import { calculateItemPower } from '../../../utils/hero';
+import ItemModal from '../item';
+import { calculateItemPower, getItemPositionName } from '../../../utils/hero';
 
 import './style.scss';
 
-const positionMap = {
-  head: '头部',
-  body: '身体',
-  lower: '裤子',
-  accessory: '饰品',
-  weapon: '武器',
-  relic: '圣物',
-};
+const { confirm } = Modal;
 
 class Backpack extends Component {
   state = {
     selectedItem: null,
     showItem: false,
+    showAddSpace: false,
   }
 
   componentDidMount() {
@@ -36,6 +31,28 @@ class Backpack extends Component {
     this.setState({
       showItem: false,
     });
+  }
+
+  handleSold = () => {
+    const { dispatch } = this.props;
+    const { selectedItem } = this.state;
+    confirm({
+      title: '确认卖出？',
+      content: `您将以 ${selectedItem.meta.sell_price} BASE 卖出 ${selectedItem.meta.name}。`,
+      okText: '卖出',
+      cancelText: '取消',
+      onOk: () => {
+        dispatch({
+          type: 'hero_shop/sell',
+          payload: selectedItem.id,
+          onSuccess: this.handleCloseItem,
+        });
+      },
+    });
+  }
+
+  handleAddSpace = () => {
+    console.log('扩展');
   }
 
   handleSelectItem(item) {
@@ -49,7 +66,34 @@ class Backpack extends Component {
 
   render() {
     const { backpack, accounts, backpackSize, inject } = this.props;
-    const { selectedItem, showItem } = this.state;
+    const { selectedItem, showItem, showAddSpace } = this.state;
+
+    const equips = [];
+    for (let i = 0; i < backpackSize; i += 1) {
+      const item = backpack[i];
+      if (item) {
+        equips.push((
+          <div className="backpack-equip" key={i} onClick={this.handleSelectItem.bind(this, item)}>
+            <span className="level">Lv.{item.level}</span>
+            <img src={RESOURCE.ITEM_ICON[item.meta.code]} />
+            <span className="position">{getItemPositionName(item.meta)}</span>
+          </div>
+        ));
+      } else {
+        equips.push((
+          <div className="backpack-equip" key={i}>
+            <img src={RESOURCE.ITEM_ICON.BLOCK} />
+          </div>
+        ));
+      }
+    }
+    if (backpackSize < 25) {
+      equips.push((
+        <div className="backpack-equip" key={backpackSize + 1} onClick={() => this.setState({ showAddSpace: true })}>
+          <img src={RESOURCE.ITEM_ICON.ADD} />
+        </div>
+      ));
+    }
 
     return (
       <div id="backpack">
@@ -60,34 +104,30 @@ class Backpack extends Component {
             <div>背包容量：{backpack.length}/{backpackSize}</div>
           </div>
         </div>
-        <div className="backpack-equips">
-          {backpack.map(item => (
-            <div className="backpack-equip" key={item.id} onClick={this.handleSelectItem.bind(this, item)}>
-              <span className="level">Lv.{item.level}</span>
-              <img src={RESOURCE.ITEM_ICON[item.meta.code]} />
-              <span className="position">{positionMap[item.meta.position]}</span>
-            </div>
-          ))}
-        </div>
+        <div className="backpack-equips">{equips}</div>
         {showItem && (
-          <div className="game-modal backpack-item-modal">
+          <ItemModal
+            data={selectedItem}
+            inject={(inject || []).map(i => ({
+              ...i,
+              onClick: () => { i.onClick(this.handleCloseItem); },
+            })).concat({
+              text: '卖出',
+              onClick: this.handleSold,
+            })}
+            onClose={this.handleCloseItem}
+          />
+        )}
+        {showAddSpace && (
+          <div className="game-modal add-backpack-space">
             <div className="content-container">
               <div className="modal-ex">
-                {inject && inject.map((btn, i) => (
-                  <div key={i} className="game-btn" onClick={() => btn.onClick(this.handleCloseItem)}>{btn.text}</div>
-                ))}
-                <div className="game-btn" onClick={this.handleCloseItem}>返回</div>
+                <div className="game-btn" onClick={this.handleAddSpace}>扩展</div>
+                <div className="game-btn" onClick={() => this.setState({ showAddSpace: false })}>返回</div>
               </div>
               <div className="content">
-                <div className="title">{selectedItem.meta.name}</div>
-                <div className="row">
-                  <div>{positionMap[selectedItem.meta.position]}</div>
-                  <div>等级{selectedItem.level}</div>
-                </div>
-                <div className="row">
-                  <div>战斗力加成</div>
-                  <div>{parseInt(calculateItemPower(selectedItem), 10)}<Icon type="thunderbolt" /></div>
-                </div>
+                <div className="title">扩展背包</div>
+                <div>扩展背包花费 500 BASE，一共可以扩展3次，每次增加5格。确认扩展？</div>
               </div>
             </div>
           </div>
@@ -103,6 +143,7 @@ function mapStateToProps({ hero_player: hero, farm_player: player }) {
   const backpack = heroInfo.backpack || [];
 
   return {
+    heroInfo,
     backpack,
     backpackSize: heroInfo.backpack_size,
     accounts,

@@ -63,7 +63,9 @@ class Guild extends Component {
               <div className="guild" key={guild.id}>
                 <div className="level">Lv.{guild.level + 1}</div>
                 <div className="name">{guild.name}</div>
-                <div className="join"><div className="game-btn" onClick={this.handleJoinGuild.bind(this, guild)}>加入</div></div>
+                <div className="description">{guild.description || '暂无口号'}</div>
+                <div className="number">{guild.user_count}人</div>
+                <div className="join"><div className="game-btn sm" onClick={this.handleJoinGuild.bind(this, guild)}>加入</div></div>
               </div>
             ))}
           </div>

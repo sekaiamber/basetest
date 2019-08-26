@@ -2,7 +2,6 @@
   position: relative;
   height: 80%;
   width: 80%;
-  text-align: center;
   background: #faf5ef;
   border: #522810 solid 2px;
   border-radius: 0.06rem;
@@ -14,7 +13,7 @@
   .header {
     height: 0.88rem;
     position: relative;
-    margin-top: -0.4rem;
+    margin-top: -0.7rem;
     margin-bottom: 0.2rem;
 
     .center {
@@ -51,17 +50,17 @@
 
   .searching {
     position: relative;
-    height: 1.35rem;
+    height: 0.6rem;
 
     .main {
-      height: 1.35rem;
+      height: 0.6rem;
       animation: bs-show 5s ease 0;
       animation-fill-mode: forwards;
       animation-iteration-count: infinite;
     }
 
     .sec {
-      height: 1.35rem;
+      height: 0.6rem;
       position: absolute;
       left: 50%;
       top: 0;
@@ -74,7 +73,7 @@
   }
 
   .searching-text {
-    font-size: 0.3rem;
+    font-size: 0.24rem;
     margin-top: 0.12rem;
     font-weight: 500;
     color: #522810;
@@ -91,7 +90,7 @@
     }
 
     span {
-      width: 1rem;
+      width: 2rem;
       flex-grow: 1;
       flex-shrink: 1;
       text-align: center;
@@ -99,23 +98,134 @@
       font-size: 0.2rem;
     }
   }
-  .result {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    img {
-      width: 1.32rem;
-    }
+  .searching-model {
+    text-align: center;
 
-    span {
-      width: 1rem;
-      flex-grow: 1;
-      flex-shrink: 1;
-      text-align: center;
-      font-size: 0.3rem;
+    .result {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      img {
+        width: 1.32rem;
+      }
+  
+      span {
+        width: 1rem;
+        flex-grow: 1;
+        flex-shrink: 1;
+        text-align: center;
+        font-size: 0.3rem;
+      }
     }
   }
+
+  .battle-search-modal {
+    min-width: 3rem;
+  }
+
+  .battles {
+    font-size: 0.12rem;
+
+    .battle {
+      display: flex;
+      align-items: center;
+      padding: 0.06rem 0.12rem;
+
+      &:nth-child(odd) {
+        background: rgba($color: #e2a74c, $alpha: 0.2);
+      }
+
+      .result {
+        width: 0.4rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        span {
+          border: #522810 solid 1px;
+          background: rgba($color: #522810, $alpha: 0.2);
+          border-radius: 0.02rem;
+          padding: 0.02rem 0.06rem;
+          color: #522810;
+
+        }
+        &.win span {
+          border-color: #62ca15;
+          background: rgba($color: #62ca15, $alpha: 0.2);
+          color: #419800;
+        }
+      }
+      .to {
+        flex-grow: 1;
+        flex-shrink: 1;
+        padding: 0 0.06rem;
+      }
+      .number {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 1.3rem;
+        text-align: right;
+      }
+      .date {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 1rem;
+        padding: 0 0.06rem;
+      }
+    }
+  }
+}
+
+.battle-anime-container {
+  position: fixed;
+  height: 2rem;
+  width: 100%;
+  background: gray;
+  z-index: 9999999999;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 0.07rem;
+    width: 100%;
+    background-image: url(../../../assets/farm/ui/battle_border.png);
+    background-size: 316px 7px;
+  }
+
+  &::before {
+    top: 0;
+    transform: translate(0, -6px);
+  }
+
+  &::after {
+    bottom: 0;
+    transform: translate(0, 4px);
+  }
+}
+
+.battle-anime-mapinfo {
+  position: absolute;
+  z-index: 9999999999;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -1.2rem) scale(1.5);
+  height: 0.4rem;
+  width: 1.3rem;
+  background-image: url(../../../assets/farm/ui/battle_board.png);
+  background-repeat: no-repeat;
+  background-size: 1.3rem 0.4rem;
+  text-align: center;
+  font-size: 0.17rem;
+  font-weight: 500;
+  padding-top: 0.07rem;
+  color: rgba($color: #fff, $alpha: 0.8);
+  animation: bam-show 0.5s ease 0;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 }
 
 @keyframes bhc-show {
@@ -191,5 +301,16 @@
   }
   100% {
     transform: translate(-50%, 0) rotate(0deg) scale(1.8);
+  }
+}
+
+@keyframes bam-show {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -1.2rem) scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -1.2rem) scale(1);
   }
 }

@@ -1,6 +1,7 @@
 // import characterList from './characterList.json';
 
 import { imagesPools, equipmentsPools } from './item';
+import animation from './animations/weapon.json';
 
 
 export default class Character {
@@ -21,6 +22,8 @@ export default class Character {
     right: null,
     left: null,
   }
+
+  animations = animation.dagger.animations
 
   constructor(sex = 'f') {
     this.sex = sex;
@@ -52,6 +55,9 @@ export default class Character {
       }
     } else if (!(this.weapons.left && this.weapons.left.hold === 'double')) {
       this.weapons.right = e;
+    }
+    if (e.type !== 'shild' && animation[e.type]) {
+      this.animations = animation[e.type].animations;
     }
   }
 
@@ -101,6 +107,19 @@ export default class Character {
       };
     }
     return ret;
+  }
+
+  getAnimationCode(event, code = -1) {
+    const animationSet = this.animations[event];
+    if (animationSet) {
+      let i = code;
+      if (i === -1) {
+        const { length } = animationSet;
+        i = parseInt(Math.random() * length, 10);
+      }
+      return animationSet[i];
+    }
+    return null;
   }
 
   export() {

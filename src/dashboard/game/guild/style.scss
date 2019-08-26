@@ -5,7 +5,7 @@
   font-weight: 400;
 
   .content {
-    height: 90%;
+    height: 100%;
     overflow: auto;
 
     .title {
@@ -18,8 +18,108 @@
     }
   }
 
-  img {
+  .guilds {
+    font-size: 0.12rem;
+
+    .guild {
+      display: flex;
+      align-items: center;
+      padding: 0.06rem 0.12rem;
+      white-space: nowrap;
+
+      &:nth-child(odd) {
+        background: rgba($color: #e2a74c, $alpha: 0.2);
+      }
+
+      .level {
+        width: 0.3rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+        opacity: 0.6;
+      }
+      .name {
+        flex-grow: 0;
+        flex-shrink: 0;
+        padding-right: 0.06rem;
+        width: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .description {
+        flex-grow: 1;
+        flex-shrink: 1;
+        padding-right: 0.06rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+      .join {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 0.8rem;
+      }
+      .number {
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 0.4rem;
+        padding-right: 0.06rem;
+        text-align: right;
+      }
+    }
+  }
+}
+
+#guild .my-guild {
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+
+  .tabs {
     height: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 0.12rem;
+    background: #f5e6d4;
+    border-radius: 0.06rem 0 0 0.06rem;
+    overflow: hidden;
+
+    .tab {
+      height: 20%;
+      width: 0.6rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.active {
+        background: #faf5ef;
+      }
+
+      .icon img {
+        height: 0.3rem;
+      }
+
+      .text {
+        font-weight: 500;
+        color: #522810;
+        line-height: 1;
+      }
+    }
+  }
+
+  .guild-content {
+    height: 100%;
+    overflow: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.15rem;
+    padding-bottom: 0.4rem;
+
+
+    &.home,
+    &.shop {
+      padding-right: 1.65rem;
+    }
   }
 
   .create-guild-modal {
@@ -29,82 +129,386 @@
   }
 
   .users {
-    width: 2rem;
     margin: 0 auto;
 
     .user {
       display: flex;
       justify-content: space-between;
-    }
-  }
+      align-items: center;
+      padding: 0.06rem 0.12rem;
 
-  .info {
-    display: flex;
-    margin-bottom: 0.2rem;
+      &:nth-child(odd) {
+        background: rgba($color: #e2a74c, $alpha: 0.2);
+      }
 
-    &>div {
-      text-align: center;
-      flex: 1;
-    }
+      .nickname {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
 
-    .icon {
-      font-size: 0.3rem;
+      .position,
+      .opt {
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
 
-      img {
-        width: 0.5rem;
+      .position {
+        width: 0.7rem;
+        text-align: center;
+      }
+
+      .game-btn {
+        font-size: 0.12rem;
+        padding: 0.04rem;
       }
     }
-
-    .name {
-      font-size: 0.12rem;
-      font-weight: 500;
-      color: #522810;
-    }
-
-    .value {
-      font-size: 0.12rem;
-      color: #333;
-    }
   }
 
-  .top {
+  .level {
     display: flex;
     align-items: center;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.12rem;
     
-    .name {
-      font-size: 0.24rem;
-      width: 40%;
+    .step {
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 0.7rem;
       text-align: center;
-      color: #522810;
-    }
+      font-size: 0.12rem;
 
-    .level {
-      font-size: 0.2rem;
-      width: 40%;
-      text-align: center;
-      color: #333;
+      .text {
+        white-space: nowrap;
+      }
+
+      img {
+        opacity: 0.3;
+        width: 0.5rem;
+  
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+    
+
+    .bar {
+      flex-grow: 1;
+      flex-shrink: 1;
+      height: 0.05rem;
+      background: #aaa;
+      border: #555 solid 1px;
+      border-radius: 0.05rem;
+      opacity: 0.3;
+      margin-bottom: 0.25rem;
+
+      &:active {
+        border-color: #522810;
+        background: #e2a74c;
+        opacity: 1;
+      }
     }
   }
 
-  .guilds {
-    .guild {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.12rem;
+  .balance {
+    display: flex;
+    justify-content: space-between;
 
-      .level {
-        width: 0.8rem;
-        flex: 0;
-        opacity: 0.6;
+    &>div {
+      width: 40%;
+      text-align: center;
+
+      .title {
+        display: block;
+        font-size: 0.14rem;
+        margin-bottom: 0.06rem;
       }
-      .name {
-        flex: 1;
-        padding: 0 0.12rem;
+
+      .value {
+        margin-bottom: 0.06rem;
       }
-      .join {
-        width: 0.8rem;
+
+      img {
+        width: 1rem;
+      }
+
+      .game-btn {
+        font-size: 0.12rem;
+        padding: 0.04rem;
       }
     }
+  }
+
+  .side-bar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #f5e6d4;
+    height: 100%;
+    width: 1.5rem;
+    padding: 0.12rem 0.06rem 0.06rem;
+    overflow: auto;
+    border-radius: 0 0.06rem 0.06rem 0;
+
+    .name {
+      font-size: 0.18rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .user {
+      text-align: center;
+      font-size: 0.12rem;
+    }
+
+    .slogan {
+      opacity: 0.7;
+      font-size: 0.12rem;
+      text-align: center;
+      margin-bottom: 0.12rem;
+    }
+
+    .title {
+      font-size: 0.16rem;
+      margin: 0.06rem 0;
+      text-align: center;
+      display: block;
+    }
+
+    .message {
+      background: #faf5ef;
+      font-size: 0.12rem;
+      padding: 0.06rem;
+      border-radius: 0.06rem;
+    }
+  }
+
+
+
+  .guild-content.shop {
+    .item {
+      border: #5b331e solid 2px;
+      border-radius: 0.06rem;
+      padding: 0.06rem;
+      margin: 0.02rem;
+      font-size: 0.12rem;
+      display: flex;
+      align-items: center;
+  
+      &.selected {
+        border-color: #e2a74c;
+      }
+  
+      .img-container {
+        height: 0.5rem;
+        width: 0.5rem;
+        margin-right: 0.06rem;
+  
+        img {
+          width: 100%;
+        }
+      }
+  
+      .info {
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+        justify-content: space-between;
+  
+        &>div:last-child {
+          text-align: right;
+        }
+      }
+    }
+  
+    .side-bar {
+      .title {
+        text-align: center;
+        color: #522810;
+        font-weight: 500;
+        font-size: 0.2rem;
+        margin-bottom: 0.12rem;
+      }
+  
+      .icon {
+        text-align: center;
+        margin-bottom: 0.12rem;
+  
+        img {
+          height: 0.75rem;
+        }
+      }
+  
+      .game-btn {
+        position: absolute;
+        bottom: 0.06rem;
+        width: calc(100% - 0.24rem);
+        left: 0.12rem;
+      }
+  
+      .row {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .guild-content.tech,
+  .game-modal.uptech {
+    .techs {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.3rem;
+
+      .tech {
+        position: relative;
+        text-align: center;
+        width: 25%;
+
+        img {
+          width: 0.75rem;
+        }
+
+        .lv {
+          position: absolute;
+          top: 0.7rem;
+          width: 100%;
+          font-size: 0.2rem;
+          font-weight: 500;
+        }
+
+        .name {
+          font-size: 0.12rem;
+          font-weight: 500;
+          color: #522810;
+          line-height: 1;
+        }
+
+        .value {
+          font-size: 0.16rem;
+          font-weight: 500;
+        }
+
+        &.power .lv {
+          color: #f4e0e1;
+        }
+        &.upgrade .lv {
+          color: #efe8e2;
+        }
+        &.suite .lv {
+          color: #e0eaf4;
+        }
+        &.repair .lv {
+          color: #eee3f0;
+        }
+
+        .game-btn {
+          font-size: 0.12rem;
+          padding: 0.02rem;
+          width: 0.5rem;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .game-modal.uptech .techs {
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 0;
+
+    .arrow {
+      text-align: center;
+
+      img {
+        height: 0.55rem;
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  .guild-content.battle {
+    .coming {
+      text-align: center;
+
+      img {
+        height: 1.1rem;
+      }
+    }
+
+    .text {
+      font-size: 0.16rem;
+      font-weight: 500;
+      color: #522810;
+      line-height: 3;
+    }
+  }
+}
+
+.game-modal.donate,
+.game-modal.uptech {
+
+  .content-container {
+    min-width: 3.5rem;
+  }
+
+  .form {
+    text-align: center;
+    font-size: 0.2rem;
+    font-weight: 500;
+
+    img {
+      height: 0.25rem;
+    }
+
+    span {
+      margin: 0 0.1rem;
+    }
+
+    &>* {
+      vertical-align: middle;
+    }
+  }
+  .cost {
+    text-align: center;
+    margin: 0.06rem 0 0.12rem;
+  }
+  .tip {
+    padding: 0.06rem;
+    background: #f5e6d4;
+    border-radius: 0.06rem;
+  }
+}
+
+.game-modal.contribution {
+
+  .content-container {
+    min-width: 3.5rem;
+  }
+
+  .form {
+    text-align: center;
+    font-size: 0.2rem;
+    font-weight: 500;
+
+    img {
+      height: 0.25rem;
+    }
+
+    span {
+      margin: 0 0.1rem;
+    }
+
+    &>* {
+      vertical-align: middle;
+    }
+  }
+  .cost {
+    text-align: center;
+    margin: 0.06rem 0 0.12rem;
+  }
+  .tip {
+    padding: 0.06rem;
+    background: #f5e6d4;
+    border-radius: 0.06rem;
   }
 }

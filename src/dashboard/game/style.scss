@@ -54,6 +54,11 @@
   font-weight: 500;
   font-size: 0.14rem;
   text-align: center;
+
+  &.sm {
+    padding: 0.03rem 0.06rem;
+    font-size: 0.12rem;
+  }
 }
 
 .game-input {

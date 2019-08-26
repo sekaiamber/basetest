@@ -5,141 +5,71 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
-import { connect } from 'dva';
-import { Spin, Icon } from 'antd';
 import classnames from 'classnames';
+import GuildHome from './my/home';
+import GuildMembers from './my/members';
+import GuildMy from './my/shop';
+import GuildTech from './my/tech';
+import GuildBattle from './my/battle';
 import RESOURCE from '../../resource';
 
-const userLevel = {
-  president: '会长',
-  member: '组员',
-};
-
-class Guild extends Component {
+export default class Guild extends Component {
   state = {
-    // showCreateModal: false,
-    // newGuildName: '',
-    showCheckLeave: false,
-  }
-
-  // handleCreateGuild = () => {
-  //   const { dispatch } = this.props;
-  //   const { newGuildName } = this.state;
-  //   if (newGuildName.length > 0) {
-  //     dispatch({
-  //       type: 'hero_guild/create',
-  //       payload: {
-  //         name: newGuildName,
-  //       },
-  //     });
-  //   }
-  // }
-
-  handleLeaveGuild = () => {
-    const { dispatch, myGuild } = this.props;
-    dispatch({
-      type: 'hero_guild/leave',
-      payload: myGuild.id,
-    });
-  }
-
-  handleUp = () => {
-    const { dispatch, myGuild } = this.props;
-    dispatch({
-      type: 'hero_guild/up',
-      payload: myGuild.id,
-    });
+    tab: 0,
   }
 
   render() {
-    const { showCheckLeave } = this.state;
-    const { myGuild } = this.props;
+    const { tab } = this.state;
     return (
-      <>
-        <div className="content">
-          <div className="title">
-            <div>我的公会</div>
-            <div className="game-btn" onClick={() => this.setState({ showCheckLeave: true })}>退出公会</div>
-          </div>
-          <div className="top">
-            <div className="name">{myGuild.name}</div>
-            <div className="level">Lv.{myGuild.level + 1}</div>
-            <div className="game-btn" onClick={this.handleUp}>升级</div>
-          </div>
-          <div className="info">
+      <div className="content my-guild">
+        <div className="tabs">
+          <div className={classnames('tab', { active: tab === 0 })} onClick={() => this.setState({ tab: 0 })}>
             <div>
               <div className="icon">
                 <img src={RESOURCE.UI.GUILD_01} />
               </div>
-              <div className="name">公会总资产</div>
-              <div className="value">{myGuild.money_library} BASE</div>
+              <div className="text">大厅</div>
             </div>
+          </div>
+          <div className={classnames('tab', { active: tab === 1 })} onClick={() => this.setState({ tab: 1 })}>
             <div>
               <div className="icon">
                 <img src={RESOURCE.UI.GUILD_02} />
               </div>
-              <div className="name">我的贡献度</div>
-              <div className="value">0</div>
+              <div className="text">成员</div>
             </div>
+          </div>
+          <div className={classnames('tab', { active: tab === 2 })} onClick={() => this.setState({ tab: 2 })}>
             <div>
               <div className="icon">
                 <img src={RESOURCE.UI.GUILD_03} />
               </div>
-              <div className="name">公会商店</div>
-              <div className="value">敬请期待</div>
+              <div className="text">商店</div>
             </div>
+          </div>
+          <div className={classnames('tab', { active: tab === 3 })} onClick={() => this.setState({ tab: 3 })}>
             <div>
               <div className="icon">
                 <img src={RESOURCE.UI.GUILD_04} />
               </div>
-              <div className="name">公会科技</div>
-              <div className="value">敬请期待</div>
+              <div className="text">科技</div>
             </div>
+          </div>
+          <div className={classnames('tab', { active: tab === 4 })} onClick={() => this.setState({ tab: 4 })}>
             <div>
               <div className="icon">
                 <img src={RESOURCE.UI.GUILD_05} />
               </div>
-              <div className="name">公会竞标赛</div>
-              <div className="value">即将到来</div>
+              <div className="text">锦标赛</div>
             </div>
-          </div>
-          <div className="title">公会成员</div>
-          <div className="users game-input">
-            {myGuild.user.map(user => (
-              <div className="user" key={user.id}>
-                <div className="nickname">{user.nickname}</div>
-                <div className="nickname">{userLevel[user.level]}</div>
-              </div>
-            ))}
           </div>
         </div>
-        {showCheckLeave && (
-          <div className="game-modal">
-            <div className="content-container">
-              <div className="modal-ex">
-                <div className="game-btn" onClick={this.handleLeaveGuild}>确认</div>
-                <div className="game-btn" onClick={() => this.setState({ showCheckLeave: false })}>取消</div>
-              </div>
-              <div className="content">
-                <div className="title">退出公会</div>
-                <div>退出公会将清空公会贡献值和身份，确认退出公会？</div>
-              </div>
-            </div>
-          </div>
-        )}
-      </>
+        {tab === 0 && <GuildHome />}
+        {tab === 1 && <GuildMembers />}
+        {tab === 2 && <GuildMy />}
+        {tab === 3 && <GuildTech />}
+        {tab === 4 && <GuildBattle />}
+      </div>
     );
   }
 }
-
-function mapStateToProps({ hero_guild: guild, farm_player: player }) {
-  const { accounts } = player;
-  const { myGuild } = guild;
-
-  return {
-    accounts,
-    myGuild,
-  };
-}
-
-export default connect(mapStateToProps)(Guild);

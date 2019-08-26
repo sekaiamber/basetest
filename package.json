@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "animejs": "^3.1.0",
     "antd": "^3.11.0",
     "classnames": "^2.2.6",
     "clipboard": "^2.0.4",
@@ -94,7 +95,8 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-pull2refresh": "^1.1.4",
-    "react-transition-group": "^4.0.1"
+    "react-transition-group": "^4.0.1",
+    "scenejs": "^1.1.4"
   },
   "cordova": {
     "plugins": {

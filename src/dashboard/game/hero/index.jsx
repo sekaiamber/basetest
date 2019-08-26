@@ -5,13 +5,14 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
-import { Icon, message } from 'antd';
+import { Icon, message, Tooltip } from 'antd';
 import { connect } from 'dva';
 import classnames from 'classnames';
 import RESOURCE from '../../resource';
 import Backpack from '../backpack';
 import { calculateHeroPower, calculateItemPower } from '../../../utils/hero';
 import Anime from '../anime';
+import ItemModal from '../item';
 
 import './style.scss';
 
@@ -67,6 +68,7 @@ class Hero extends Component {
     const { dispatch, equipped } = this.props;
     if (equipped[selectedItem.meta.position]) {
       message.error('已经同样位置的装备，请卸下后再装备');
+      return;
     }
     dispatch({
       type: 'hero_player/equip',
@@ -80,9 +82,7 @@ class Hero extends Component {
 
   render() {
     const { selectedItem, selectedEquipItem } = this.state;
-    const { onClose, heroInfo, equipped } = this.props;
-    const equipPower = parseInt(heroInfo.equipped.map(i => calculateItemPower(i)).reduce((a, b) => a + b, 10), 10);
-    const heroPower = calculateHeroPower(heroInfo.game_level);
+    const { onClose, heroInfo, equipped, buffs, power } = this.props;
 
     return (
       <div className="game-modal">
@@ -91,7 +91,7 @@ class Hero extends Component {
             <div className="game-btn" onClick={this.handleExit}>退出游戏</div>
             <div className="game-btn" onClick={onClose}>返回</div>
           </div>
-          <div className="content">
+          <div className="content hero-content">
             <div className="hero-panel">
               <div className="title">英雄</div>
               <div className="pic">
@@ -129,6 +129,29 @@ class Hero extends Component {
                   ))}
                 </div>
               </div>
+              {buffs.length > 0 && (
+                <div className="buffs">
+                  {buffs.map((buff, i) => (
+                    <Tooltip
+                      placement="topLeft"
+                      title={(
+                        <>
+                          <div className="hero-buff-name">{buff.meta.name}</div>
+                          <div className="hero-buff-desc">{buff.meta.desc}</div>
+                        </>
+                      )}
+                      key={i}
+                    >
+                      <div className="buff">
+                        <img src={RESOURCE.BUFF_ICON[buff.meta.code]} alt="" />
+                        {buff.count > 1 && (
+                          <span className="count">{buff.count}</span>
+                        )}
+                      </div>
+                    </Tooltip>
+                  ))}
+                </div>
+              )}
               <div className="mianban-row">
                 <div className="mianban">
                   <div className="key">等级</div>
@@ -136,17 +159,17 @@ class Hero extends Component {
                 </div>
                 <div className="mianban">
                   <div className="key">英雄战斗力</div>
-                  <div className="value">{heroPower}<Icon type="thunderbolt" /></div>
+                  <div className="value">{power.hero}<Icon type="thunderbolt" /></div>
                 </div>
               </div>
               <div className="mianban-row">
                 <div className="mianban">
-                  <div className="key">战斗力</div>
-                  <div className="value">{heroPower + equipPower}<Icon type="thunderbolt" /></div>
+                  <div className="key">总战斗力</div>
+                  <div className="value">{power.totalBase}<span className="extra">(+{power.totalExtra})</span><Icon type="thunderbolt" /></div>
                 </div>
                 <div className="mianban">
                   <div className="key">装备战斗力</div>
-                  <div className="value">{equipPower}<Icon type="thunderbolt" /></div>
+                  <div className="value">{power.equip}<Icon type="thunderbolt" /></div>
                 </div>
               </div>
             </div>
@@ -159,25 +182,14 @@ class Hero extends Component {
             />
           </div>
           {selectedEquipItem && (
-            <div className="game-modal backpack-item-modal">
-              <div className="content-container">
-                <div className="modal-ex">
-                  <div className="game-btn" onClick={this.handleNotEquip}>卸下</div>
-                  <div className="game-btn" onClick={() => this.setState({ selectedEquipItem: null })}>返回</div>
-                </div>
-                <div className="content">
-                  <div className="title">{selectedEquipItem.meta.name}</div>
-                  <div className="row">
-                    <div>{positionMap[selectedEquipItem.meta.position]}</div>
-                    <div>等级{selectedEquipItem.level}</div>
-                  </div>
-                  <div className="row">
-                    <div>战斗力加成</div>
-                    <div>{parseInt(calculateItemPower(selectedEquipItem), 10)}<Icon type="thunderbolt" /></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ItemModal
+              data={selectedEquipItem}
+              inject={[{
+                text: '卸下',
+                onClick: this.handleNotEquip,
+              }]}
+              onClose={() => this.setState({ selectedEquipItem: null })}
+            />
           )}
         </div>
       </div>
@@ -186,11 +198,38 @@ class Hero extends Component {
 }
 
 function mapStateToProps({ hero_player: hero }) {
-  const { info: heroInfo, equipped } = hero;
+  const { info: heroInfo, equipped, buffs } = hero;
+  // 计算战斗力
+  let equipPower = 0;
+  let heroPower = 0;
+  if (heroInfo) {
+    heroPower = calculateHeroPower(heroInfo.game_level);
+  }
+  if (heroInfo && heroInfo.equipped) {
+    equipPower = parseInt(heroInfo.equipped.map(i => calculateItemPower(i)).reduce((a, b) => a + b, 0), 10);
+  }
+  const totalBasePower = equipPower + heroPower;
+  let totalExtraPower = 0;
+  buffs.forEach((buff) => {
+    if (buff.meta.code === 'buff_union_01') {
+      // 公会战斗力
+      totalExtraPower += (buff.count * buff.meta.rate) * totalBasePower / 100;
+    }
+  });
+  totalExtraPower = parseInt(totalExtraPower, 10);
+
+  const power = {
+    equip: equipPower,
+    hero: heroPower,
+    totalBase: totalBasePower,
+    totalExtra: totalExtraPower,
+  };
 
   return {
     heroInfo,
     equipped,
+    buffs,
+    power,
   };
 }
 
