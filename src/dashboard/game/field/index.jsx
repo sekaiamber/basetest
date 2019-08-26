@@ -6,6 +6,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
 import { connect } from 'dva';
+import { Tooltip } from 'antd';
 import classnames from 'classnames';
 import {
   convertCoordinateToPosition,
@@ -389,12 +390,11 @@ class Field extends Component {
       mode, selectedBuilding, insertSelectList, insertSelectListPage, currentInsert, insertSelectType, showGuild, showEntertainment, showShop, showHero, showBattle, showDeposit,
     } = this.state;
     const {
-      buildingMetas, accounts, buildingsStorage, heroInfo, userInfo,
+      buildingMetas, accounts, buildingsStorage, heroInfo, userInfo, playerInfo, buildingsList,
     } = this.props;
     const arrowPosition = this.getArrowsPosition();
     const currentInsertSelectListPage = insertSelectList.slice(insertSelectListPage * 4, insertSelectListPage * 4 + 4);
 
-    console.log(currentInsert);
     return (
       <>
         <div id="field" onClick={this.handleClickField}>
@@ -484,6 +484,24 @@ class Field extends Component {
               </div>
             )}
           </div>
+          <div className={classnames('top-left-menu', { show: mode === MODE.INSERT })}>
+            <div className="plant-info">
+              <div className="title">种植概况</div>
+              <div className="row">
+                <div>最大可种数量</div>
+                <div>{playerInfo.plant_limit}</div>
+              </div>
+              <div className="row">
+                <div>已种数量</div>
+                <div>{buildingsList.filter(b => b.meta.building_type === 'plant').length}</div>
+              </div>
+              <div className="tip">
+                <Tooltip placement="right" title="邀请好友购买BASE矿机，P1矿机限制+1，P2矿机限制+2，以此类推。">
+                  <span>增加数量限制？</span>
+                </Tooltip>
+              </div>
+            </div>
+          </div>
           <div className={classnames('bottom-left-menu', { show: mode === MODE.SELECT })}>
             <div className="item" onClick={this.handleChangeMode.bind(this, MODE.NORMAL)}>
               <img src={RESOURCE.UI.MENU_ICON_BACK} alt="" />
@@ -548,7 +566,7 @@ class Field extends Component {
 }
 
 function mapStateToProps({ farm_env: env, farm_player: player, hero_player: hero, account }) {
-  const { buildings, accounts } = player;
+  const { buildings, accounts, info } = player;
   const { map, field, buildingMetas } = env;
   const { info: heroInfo } = hero;
   const { userInfo } = account;
@@ -564,6 +582,7 @@ function mapStateToProps({ farm_env: env, farm_player: player, hero_player: hero
     accounts,
     heroInfo,
     userInfo,
+    playerInfo: info,
   };
 }
 

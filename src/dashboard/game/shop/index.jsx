@@ -9,18 +9,9 @@ import { connect } from 'dva';
 import { Icon } from 'antd';
 import classnames from 'classnames';
 import RESOURCE from '../../resource';
-import Backpack from '../backpack';
+import { getItemPositionName } from '../../../utils/hero';
 
 import './style.scss';
-
-const positionMap = {
-  head: '头部',
-  body: '身体',
-  lower: '裤子',
-  accessory: '饰品',
-  weapon: '武器',
-  relic: '圣物',
-};
 
 const modeMap = {
   buy: '买入',
@@ -85,7 +76,7 @@ class Shop extends Component {
                   <div className="info">
                     <div>
                       <div>{item.name}</div>
-                      <div>Lv.1 {positionMap[item.position]}</div>
+                      <div>Lv.1 {getItemPositionName(item)}</div>
                     </div>
                     <div>
                       <div>{item.price} BASE</div>

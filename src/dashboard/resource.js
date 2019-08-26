@@ -15,6 +15,13 @@ import GUILD_02 from '../assets/farm/ui/guild_02.png';
 import GUILD_03 from '../assets/farm/ui/guild_03.png';
 import GUILD_04 from '../assets/farm/ui/guild_04.png';
 import GUILD_05 from '../assets/farm/ui/guild_05.png';
+import GUILD_06 from '../assets/farm/ui/guild_06.png';
+import GUILD_07 from '../assets/farm/ui/guild_07.png';
+import GUILD_08 from '../assets/farm/ui/guild_08.png';
+import GUILD_TECH_01 from '../assets/farm/ui/guild_tech_01.png';
+import GUILD_TECH_02 from '../assets/farm/ui/guild_tech_02.png';
+import GUILD_TECH_03 from '../assets/farm/ui/guild_tech_03.png';
+import GUILD_TECH_04 from '../assets/farm/ui/guild_tech_04.png';
 import BATTLE_DEFEAT from '../assets/farm/ui/battle_defeat.png';
 import BATTLE_VICTORY from '../assets/farm/ui/battle_victory.png';
 import BORDER_CENTER from '../assets/farm/ui/border_center.png';
@@ -47,6 +54,14 @@ import MAIN_PANEL from '../assets/farm/ui/main_panel.png';
 import MAIN_PLAYER from '../assets/farm/ui/main_player.png';
 import MAIN_BTN_SHOP from '../assets/farm/ui/main_btn_shop.png';
 import MAIN_DEPOSIT from '../assets/farm/ui/main_deposit.png';
+import BATTLE_SHADOW from '../assets/farm/ui/battle_shadow.png';
+import GUILD_LV_1 from '../assets/farm/ui/guild_lv_1.png';
+import GUILD_LV_2 from '../assets/farm/ui/guild_lv_2.png';
+import GUILD_LV_3 from '../assets/farm/ui/guild_lv_3.png';
+import BTN_ADD from '../assets/farm/ui/btn_add.png';
+import BTN_REDUCE from '../assets/farm/ui/btn_reduce.png';
+import BATTLE_BOARD from '../assets/farm/ui/battle_board.png';
+import BATTLE_BORDER from '../assets/farm/ui/battle_border.png';
 
 import SEED_0 from '../assets/farm/building/200_0.png';
 import SEED_1 from '../assets/farm/building/200_1.png';
@@ -76,10 +91,27 @@ import ROAD_1 from '../assets/farm/building/550004_0.png';
 
 import CONSTRACTION from '../assets/farm/other/constraction.jpg';
 import EMPTY from '../assets/farm/item/item_empty.png';
+import BLOCK from '../assets/farm/item/item_block.png';
+import ADD from '../assets/farm/item/item_add.png';
 import e_head_17_0 from '../assets/farm/item/e_head_17_0.png';
 import e_body_17_0 from '../assets/farm/item/e_body_17_0.png';
 import e_lower_17_0 from '../assets/farm/item/e_lower_17_0.png';
 import e_weapon_DGR100004 from '../assets/farm/item/e_weapon_DGR100004.png';
+import e_weapon_2SD200002 from '../assets/farm/item/e_weapon_2SD200002.png';
+
+import MAP_1 from '../assets/farm/map/map_1.jpg';
+import MAP_2 from '../assets/farm/map/map_2.jpg';
+import MAP_3 from '../assets/farm/map/map_3.jpg';
+import MAP_4 from '../assets/farm/map/map_4.jpg';
+import MAP_5 from '../assets/farm/map/map_5.jpg';
+import MAP_6 from '../assets/farm/map/map_6.jpg';
+import MAP_7 from '../assets/farm/map/map_7.jpg';
+import MAP_8 from '../assets/farm/map/map_8.jpg';
+
+import buff_union_01 from '../assets/farm/buff/buff_union_01.png';
+import buff_union_02 from '../assets/farm/buff/buff_union_02.png';
+import buff_union_03 from '../assets/farm/buff/buff_union_03.png';
+import buff_union_04 from '../assets/farm/buff/buff_union_04.png';
 
 
 const RESOURCE = {
@@ -125,14 +157,29 @@ const RESOURCE = {
     BATTLE_04,
     BATTLE_05,
     BATTLE_06,
+    BATTLE_BOARD,
+    BATTLE_BORDER,
     GUILD_01,
     GUILD_02,
     GUILD_03,
     GUILD_04,
     GUILD_05,
+    GUILD_06,
+    GUILD_07,
+    GUILD_08,
+    GUILD_LV_1,
+    GUILD_LV_2,
+    GUILD_LV_3,
+    GUILD_TECH_01,
+    GUILD_TECH_02,
+    GUILD_TECH_03,
+    GUILD_TECH_04,
     BATTLE_DEFEAT,
     BATTLE_VICTORY,
     MAIN_DEPOSIT,
+    BATTLE_SHADOW,
+    BTN_ADD,
+    BTN_REDUCE,
   },
   TEXTURES: {
     CENTRE,
@@ -164,10 +211,29 @@ const RESOURCE = {
   },
   ITEM_ICON: {
     EMPTY,
+    BLOCK,
+    ADD,
     e_head_17_0,
     e_body_17_0,
     e_lower_17_0,
     e_weapon_DGR100004,
+    e_weapon_2SD200002,
+  },
+  BUFF_ICON: {
+    buff_union_01,
+    buff_union_02,
+    buff_union_03,
+    buff_union_04,
+  },
+  MAP: {
+    MAP_1,
+    MAP_2,
+    MAP_3,
+    MAP_4,
+    MAP_5,
+    MAP_6,
+    MAP_7,
+    MAP_8,
   },
 };
 

@@ -38,5 +38,39 @@ export function calculateItemPower(item) {
   if (item.meta.position === 'weapon') {
     radio = 0.08;
   }
-  return item.meta.power * (1 + radio * item.level);
+  return item.meta.power * (1 + radio * (item.level - 1));
+}
+
+export function convertEquippedListToMap(equipped) {
+  const ret = {
+    head: null,
+    body: null,
+    lower: null,
+    accessory: null,
+    weapon: null,
+  };
+
+  equipped.forEach((e) => {
+    ret[e.meta.position] = e;
+  });
+
+  return ret;
+}
+
+const positionMap = {
+  head: '头部',
+  body: '身体',
+  lower: '裤子',
+  accessory: '饰品',
+  weapon: '武器',
+  relic: '圣物',
+};
+
+export function getItemPositionName(meta) {
+  const { position } = meta;
+  let ret = positionMap[position];
+  if (position === 'weapon') {
+    ret = meta.weapon_type.desc;
+  }
+  return ret;
 }

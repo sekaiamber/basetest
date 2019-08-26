@@ -4,7 +4,7 @@
   width: 80%;
   font-weight: 400;
 
-  .content {
+  .hero-content {
     height: 100%;
     overflow: hidden;
     display: flex;
@@ -119,6 +119,7 @@
 
   .pic {
     display: flex;
+    height: 1.5rem;
 
     .preview {
       flex-grow: 1;
@@ -129,12 +130,46 @@
   .backpack-item-modal {
     .content {
       display: block;
-      min-width: 2rem;
+      min-width: 3rem;
 
       .row {
         display: flex;
         justify-content: space-between;
       }
     }
+  }
+
+  .buffs {
+    .buff {
+      display: inline-block;
+      position: relative;
+
+      img {
+        height: 0.3rem;
+        width: 0.3rem;
+      }
+
+      .count {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        line-height: 1;
+        font-weight: 500;
+        font-size: 0.12rem;
+        color: #faf5ef;
+        background: #e2a74c;
+      }
+    }
+  }
+}
+
+.hero-buff {
+  &-name {
+    font-size: 0.12rem;
+    font-weight: 500;
+  }
+  &-desc {
+    font-size: 0.12rem;
+    opacity: 0.8;
   }
 }

@@ -1,0 +1,48 @@
+.game-modal.item-modal {
+  .content {
+    min-width: 3rem;
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .item-panel {
+      display: flex;
+
+      .icon {
+        width: 0.5rem;
+        margin-right: 0.12rem;
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .info {
+        flex-shrink: 1;
+        flex-grow: 1;
+        font-size: 0.12rem;
+      }
+    }
+  }
+
+  .sub-title {
+    color: #522810;
+    font-weight: 500;
+    font-size: 0.14rem;
+    margin: 0.08rem 0;
+
+  }
+
+  .row.set-item {
+    opacity: 0.7;
+
+    &.equipped {
+      color: #009c00;
+      opacity: 1;
+    }
+  }
+}
