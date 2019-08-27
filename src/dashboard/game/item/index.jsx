@@ -4,10 +4,21 @@ import React from 'react';
 import { Icon, Tooltip } from 'antd';
 import classnames from 'classnames';
 import { connect } from 'dva';
-import { calculateItemPower, getItemPositionName } from '../../../utils/hero';
+import { calculateItemPower, getItemPositionName, getItemQuality } from '../../../utils/hero';
+import ItemIcon from './itemIcon';
 import RESOURCE from '../../resource';
 
 import './style.scss';
+
+const quMap = {
+  0: '杂物',
+  1: '普通',
+  2: '优秀',
+  3: '精良',
+  4: '史诗',
+  5: '传说',
+  6: '至宝',
+};
 
 class ItemModal extends React.Component {
   getSetInfo() {
@@ -26,6 +37,7 @@ class ItemModal extends React.Component {
   render() {
     const { data, inject, onClose } = this.props;
     const setInfo = this.getSetInfo();
+    const qu = getItemQuality(data.meta);
 
     return (
       <div className="game-modal item-modal">
@@ -40,12 +52,16 @@ class ItemModal extends React.Component {
             <div className="title">{data.meta.name}</div>
             <div className="item-panel">
               <div className="icon">
-                <img src={RESOURCE.ITEM_ICON[data.meta.code]} alt="" />
+                <ItemIcon data={data.meta} />
               </div>
               <div className="info">
                 <div className="row">
                   <div>{getItemPositionName(data.meta)}</div>
                   <div>等级{data.level}</div>
+                </div>
+                <div className="row">
+                  <div>品质</div>
+                  <div>{quMap[qu]}</div>
                 </div>
                 <div className="row">
                   <div>战斗力加成</div>

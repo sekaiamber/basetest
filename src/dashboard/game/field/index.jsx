@@ -484,7 +484,7 @@ class Field extends Component {
               </div>
             )}
           </div>
-          <div className={classnames('top-left-menu', { show: mode === MODE.INSERT })}>
+          <div className={classnames('top-left-menu', { show: mode === MODE.INSERT && insertSelectType === 'plant' })}>
             <div className="plant-info">
               <div className="title">种植概况</div>
               <div className="row">

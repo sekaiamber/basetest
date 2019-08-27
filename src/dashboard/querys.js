@@ -44,6 +44,7 @@ const QUERYS = {
   GAME_ME: '/api/v1/games/items/my.json',
   GAME_BUY_ITEM: id => `/api/v1/games/items/${id}/buy.json`,
   GAME_SELL_ITEM: id => `/api/v1/games/items/${id}/sell.json`,
+  GAME_REPAIR_ITEM: id => `/api/v1/games/items/${id}/repair.json`,
   GAME_EQUIP: id => `/api/v1/games/items/${id}.json`,
   GAME_DEPOSIT: '/api/v1/games/accounts/deposit.json',
   GAME_BATTLES: '/api/v1/games/fightings.json',

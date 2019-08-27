@@ -10,6 +10,7 @@ import { Icon, Modal } from 'antd';
 import classnames from 'classnames';
 import RESOURCE from '../../resource';
 import ItemModal from '../item';
+import ItemIcon from '../item/itemIcon';
 import { calculateItemPower, getItemPositionName } from '../../../utils/hero';
 
 import './style.scss';
@@ -51,6 +52,18 @@ class Backpack extends Component {
     });
   }
 
+  handleRepair = () => {
+    const { dispatch } = this.props;
+    const { selectedItem } = this.state;
+    console.log('修理', selectedItem);
+  }
+
+  handleUpgrade = () => {
+    const { dispatch } = this.props;
+    const { selectedItem } = this.state;
+    console.log('升级', selectedItem);
+  }
+
   handleAddSpace = () => {
     console.log('扩展');
   }
@@ -67,6 +80,27 @@ class Backpack extends Component {
   render() {
     const { backpack, accounts, backpackSize, inject } = this.props;
     const { selectedItem, showItem, showAddSpace } = this.state;
+    const showItemInject = (inject || []).map(i => ({
+      ...i,
+      onClick: () => { i.onClick(this.handleCloseItem); },
+    }));
+    // TODO: 判断是否要修理
+    if (selectedItem && selectedItem.max_durability && selectedItem.durability !== selectedItem.max_durability) {
+      showItemInject.push({
+        text: '修理',
+        onClick: this.handleRepair,
+      });
+    }
+    if (selectedItem && ['equipment', 'weapon'].indexOf(selectedItem.meta.item_type) > -1) {
+      showItemInject.push({
+        text: '升级',
+        onClick: this.handleUpgrade,
+      });
+    }
+    showItemInject.push({
+      text: '卖出',
+      onClick: this.handleSold,
+    });
 
     const equips = [];
     for (let i = 0; i < backpackSize; i += 1) {
@@ -74,8 +108,8 @@ class Backpack extends Component {
       if (item) {
         equips.push((
           <div className="backpack-equip" key={i} onClick={this.handleSelectItem.bind(this, item)}>
+            <ItemIcon data={item.meta} />
             <span className="level">Lv.{item.level}</span>
-            <img src={RESOURCE.ITEM_ICON[item.meta.code]} />
             <span className="position">{getItemPositionName(item.meta)}</span>
           </div>
         ));
@@ -108,13 +142,7 @@ class Backpack extends Component {
         {showItem && (
           <ItemModal
             data={selectedItem}
-            inject={(inject || []).map(i => ({
-              ...i,
-              onClick: () => { i.onClick(this.handleCloseItem); },
-            })).concat({
-              text: '卖出',
-              onClick: this.handleSold,
-            })}
+            inject={showItemInject}
             onClose={this.handleCloseItem}
           />
         )}

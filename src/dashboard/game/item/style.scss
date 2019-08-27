@@ -11,14 +11,9 @@
       display: flex;
 
       .icon {
-        width: 0.5rem;
         margin-right: 0.12rem;
         flex-shrink: 0;
         flex-grow: 0;
-
-        img {
-          width: 100%;
-        }
       }
 
       .info {
@@ -44,5 +39,23 @@
       color: #009c00;
       opacity: 1;
     }
+  }
+}
+
+.item-icon {
+  position: relative;
+  display: inline-block;
+  height: 0.5rem;
+  width: 0.5rem;
+
+  img {
+    width: 100%;
+  }
+
+  .item-quality {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
