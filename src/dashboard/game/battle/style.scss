@@ -10,6 +10,11 @@
     height: 100%;
   }
 
+  .content {
+    height: 100%;
+    overflow: auto;
+  }
+
   .header {
     height: 0.88rem;
     position: relative;
