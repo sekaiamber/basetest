@@ -9,6 +9,7 @@ import { connect } from 'dva';
 import { Icon } from 'antd';
 import classnames from 'classnames';
 import RESOURCE from '../../resource';
+import ItemIcon from '../item/itemIcon';
 import { getItemPositionName } from '../../../utils/hero';
 
 import './style.scss';
@@ -71,7 +72,7 @@ class Shop extends Component {
                   onClick={this.handleSelectBuy.bind(this, item)}
                 >
                   <div className="img-container">
-                    <img src={RESOURCE.ITEM_ICON[item.code]} alt="" />
+                    <ItemIcon data={item} />
                   </div>
                   <div className="info">
                     <div>
@@ -90,7 +91,7 @@ class Shop extends Component {
           {selectItem && (
             <div className="shop-footer">
               <div className="title">{selectItem.name}</div>
-              <div className="icon"><img src={RESOURCE.ITEM_ICON[selectItem.code]} alt="" /></div>
+              <div className="icon"><ItemIcon data={selectItem} /></div>
               <div className="row">
                 <div className="key">花费</div>
                 <div className="value">{selectItem.price} BASE</div>

@@ -92,6 +92,12 @@ import ROAD_1 from '../assets/farm/building/550004_0.png';
 import CONSTRACTION from '../assets/farm/other/constraction.jpg';
 import EMPTY from '../assets/farm/item/item_empty.png';
 import BLOCK from '../assets/farm/item/item_block.png';
+import QU1 from '../assets/farm/item/item_qu1.png';
+import QU2 from '../assets/farm/item/item_qu2.png';
+import QU3 from '../assets/farm/item/item_qu3.png';
+import QU4 from '../assets/farm/item/item_qu4.png';
+import QU5 from '../assets/farm/item/item_qu5.png';
+import QU6 from '../assets/farm/item/item_qu6.png';
 import ADD from '../assets/farm/item/item_add.png';
 import e_head_17_0 from '../assets/farm/item/e_head_17_0.png';
 import e_body_17_0 from '../assets/farm/item/e_body_17_0.png';
@@ -112,6 +118,7 @@ import buff_union_01 from '../assets/farm/buff/buff_union_01.png';
 import buff_union_02 from '../assets/farm/buff/buff_union_02.png';
 import buff_union_03 from '../assets/farm/buff/buff_union_03.png';
 import buff_union_04 from '../assets/farm/buff/buff_union_04.png';
+import buff_set_01 from '../assets/farm/buff/buff_set_01.png';
 
 
 const RESOURCE = {
@@ -213,6 +220,12 @@ const RESOURCE = {
     EMPTY,
     BLOCK,
     ADD,
+    QU1,
+    QU2,
+    QU3,
+    QU4,
+    QU5,
+    QU6,
     e_head_17_0,
     e_body_17_0,
     e_lower_17_0,
@@ -224,6 +237,7 @@ const RESOURCE = {
     buff_union_02,
     buff_union_03,
     buff_union_04,
+    buff_set_01,
   },
   MAP: {
     MAP_1,

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export function calculateHeroPower(level) {
   return 1 + (level - 1) * 5;
 }
@@ -73,4 +74,15 @@ export function getItemPositionName(meta) {
     ret = meta.weapon_type.desc;
   }
   return ret;
+}
+
+export function getItemQuality(meta) {
+  const { max_level } = meta;
+  if (!max_level) return 0;
+  if (max_level < 50) return 1;
+  if (max_level < 60) return 2;
+  if (max_level < 70) return 3;
+  if (max_level < 80) return 4;
+  if (max_level < 90) return 5;
+  return 6;
 }

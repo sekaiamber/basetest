@@ -13,6 +13,7 @@ import Backpack from '../backpack';
 import { calculateHeroPower, calculateItemPower } from '../../../utils/hero';
 import Anime from '../anime';
 import ItemModal from '../item';
+import ItemIcon from '../item/itemIcon';
 
 import './style.scss';
 
@@ -100,8 +101,8 @@ class Hero extends Component {
                     <div className="equip" key={key}>
                       {equipped[key] ? (
                         <>
+                          <ItemIcon data={equipped[key].meta} onClick={this.handleSelectEquipItem.bind(this, equipped[key])} />
                           <span className="level">Lv.{equipped[key].level}</span>
-                          <img src={RESOURCE.ITEM_ICON[equipped[key].meta.code] || RESOURCE.ITEM_ICON.EMPTY} onClick={this.handleSelectEquipItem.bind(this, equipped[key])} />
                         </>
                       ) : (
                         <img src={RESOURCE.ITEM_ICON.EMPTY} />
@@ -118,8 +119,8 @@ class Hero extends Component {
                     <div className="equip" key={key}>
                       {equipped[key] ? (
                         <>
+                          <ItemIcon data={equipped[key].meta} onClick={this.handleSelectEquipItem.bind(this, equipped[key])} />
                           <span className="level">Lv.{equipped[key].level}</span>
-                          <img src={RESOURCE.ITEM_ICON[equipped[key].meta.code] || RESOURCE.ITEM_ICON.EMPTY} onClick={this.handleSelectEquipItem.bind(this, equipped[key])} />
                         </>
                       ) : (
                         <img src={RESOURCE.ITEM_ICON.EMPTY} />

@@ -136,8 +136,8 @@ export default {
     },
     * battle({ onSuccess }, { call }) {
       // TODO:
-      // const data = yield call(battle);
-      const data = {"success":true,"data":{"from":{"nickname":"test","power":22,"is_me":true,"equipped":[{"meta":{"id":1,"name":"追风者兜帽","code":"e_head_17_0","position":"head","price":200,"power":10,"item_type":"equipment","suit_code":null},"id":1,"level":1,"durability":null,"max_durability":null,"position":null,"equipped":true,"power":10},{"meta":{"id":4,"name":"无用短匕","code":"e_weapon_DGR100004","position":"weapon","price":200,"power":10,"item_type":"weapon","weapon_type":{"hold":"single","hand":"right","desc":"匕首"}},"id":8,"level":1,"durability":10,"max_durability":10,"position":null,"equipped":true,"power":10}]},"to":{"nickname":"kanlerm001","power":1,"is_me":false,"equipped":[]},"win_amount":"16.0","winer":"from"},"upgrade":{"school_version":"1.0.1","school_url":"https://assets.bitrabbit.com/upload/796fe015-67b4-4f16-95f5-8363ff395f70.dex"}};
+      const data = yield call(battle);
+      // const data = {"success":true,"data":{"from":{"nickname":"test","power":22,"is_me":true,"equipped":[{"meta":{"id":1,"name":"追风者兜帽","code":"e_head_17_0","position":"head","price":200,"power":10,"item_type":"equipment","suit_code":null},"id":1,"level":1,"durability":null,"max_durability":null,"position":null,"equipped":true,"power":10},{"meta":{"id":4,"name":"无用短匕","code":"e_weapon_DGR100004","position":"weapon","price":200,"power":10,"item_type":"weapon","weapon_type":{"hold":"single","hand":"right","desc":"匕首"}},"id":8,"level":1,"durability":10,"max_durability":10,"position":null,"equipped":true,"power":10}]},"to":{"nickname":"kanlerm001","power":1,"is_me":false,"equipped":[]},"win_amount":"16.0","winer":"from"},"upgrade":{"school_version":"1.0.1","school_url":"https://assets.bitrabbit.com/upload/796fe015-67b4-4f16-95f5-8363ff395f70.dex"}};
       if (data.success) {
         onSuccess(data.data);
       }
