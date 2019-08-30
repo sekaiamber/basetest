@@ -131,5 +131,15 @@
         margin-right: 0;
       }
     }
+
+    .game-input {
+      margin-right: 0.06rem;
+      width: 1rem;
+      height: 0.37rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }

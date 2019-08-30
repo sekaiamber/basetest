@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import ShopBase from './page/base';
+import ShopAuction from './page/auction';
 import RESOURCE from '../../resource';
 
 import './style.scss';
@@ -43,6 +44,7 @@ export default class Guild extends Component {
             </div>
           </div>
           {tab === 0 && <ShopBase />}
+          {tab === 1 && <ShopAuction />}
         </div>
       </div>
     );

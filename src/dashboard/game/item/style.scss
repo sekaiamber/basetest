@@ -1,6 +1,8 @@
 .game-modal.item-modal {
   .content {
     min-width: 3rem;
+    max-width: 4.5rem;
+    padding: 0.06rem 0.12rem 0.3rem !important;
 
     .row {
       display: flex;
@@ -38,6 +40,17 @@
     &.equipped {
       color: #009c00;
       opacity: 1;
+    }
+  }
+
+  .set-buff-desc {
+    margin-top: 0.06rem;
+    opacity: 0.7;
+
+    &.active {
+      color: #009c00;
+      opacity: 1;
+      font-weight: 500;
     }
   }
 }

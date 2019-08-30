@@ -102,6 +102,9 @@ import ADD from '../assets/farm/item/item_add.png';
 import e_head_17_0 from '../assets/farm/item/e_head_17_0.png';
 import e_body_17_0 from '../assets/farm/item/e_body_17_0.png';
 import e_lower_17_0 from '../assets/farm/item/e_lower_17_0.png';
+import e_body_21_0 from '../assets/farm/item/e_body_21_0.png';
+import e_head_7_0 from '../assets/farm/item/e_head_7_0.png';
+import e_body_7_0 from '../assets/farm/item/e_body_7_0.png';
 import e_weapon_DGR100004 from '../assets/farm/item/e_weapon_DGR100004.png';
 import e_weapon_2SD200002 from '../assets/farm/item/e_weapon_2SD200002.png';
 
@@ -119,6 +122,7 @@ import buff_union_02 from '../assets/farm/buff/buff_union_02.png';
 import buff_union_03 from '../assets/farm/buff/buff_union_03.png';
 import buff_union_04 from '../assets/farm/buff/buff_union_04.png';
 import buff_set_01 from '../assets/farm/buff/buff_set_01.png';
+import buff_set_02 from '../assets/farm/buff/buff_set_02.png';
 
 
 const RESOURCE = {
@@ -231,6 +235,9 @@ const RESOURCE = {
     e_lower_17_0,
     e_weapon_DGR100004,
     e_weapon_2SD200002,
+    e_body_21_0,
+    e_head_7_0,
+    e_body_7_0,
   },
   BUFF_ICON: {
     buff_union_01,
@@ -238,6 +245,7 @@ const RESOURCE = {
     buff_union_03,
     buff_union_04,
     buff_set_01,
+    buff_set_02,
   },
   MAP: {
     MAP_1,

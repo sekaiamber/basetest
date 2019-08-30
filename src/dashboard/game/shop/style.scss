@@ -66,7 +66,7 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 0.12rem;
-      padding: 0.06rem 0.12rem 0;
+      padding: 0.06rem 0 0;
     }
   }
 
@@ -121,6 +121,8 @@
     height: 100%;
     background: #f5e6d4;
     padding: 0.06rem 0.12rem;
+    overflow: auto;
+    font-size: 0.12rem;
 
     .title {
       text-align: center;
@@ -140,16 +142,105 @@
       }
     }
 
+    .sub-title {
+      color: #522810;
+      font-weight: 500;
+      margin: 0.06rem 0;
+    }
+  
+    .row.set-item {
+      opacity: 0.7;
+  
+      &.equipped {
+        color: #009c00;
+        opacity: 1;
+      }
+    }
+  
+    .set-buff-desc {
+      margin-top: 0.06rem;
+      opacity: 0.7;
+  
+      &.active {
+        color: #009c00;
+        opacity: 1;
+        font-weight: 500;
+      }
+    }
+
     .game-btn {
-      position: absolute;
       bottom: 0.06rem;
-      width: calc(100% - 0.24rem);
+      width: 100%;
       left: 0.12rem;
+      margin-top: 0.12rem;
     }
 
     .row {
       display: flex;
       justify-content: space-between;
+    }
+  }
+}
+
+#shop .content.auction {
+  .title.auction-title {
+    justify-content: start;
+    align-items: baseline;
+    font-size: 0.16rem;
+    color: #796458;
+
+    .auction-title-tab {
+      margin-right: 0.06rem;
+    }
+
+    .active {
+      font-size: 0.2rem;
+      color: #522810;
+    }
+  }
+
+  .auction-set {
+    display: flex;
+    position: relative;
+
+    .item-icon {
+      margin-right: 0.06rem;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    .info {
+      flex-grow: 1;
+      flex-shrink: 1;
+      min-width: 0;
+    }
+
+    .level {
+      position: absolute;
+      top: 0.02rem;
+      left: 0.02rem;
+      font-size: 0.12rem;
+      font-weight: 500;
+      color: #fff;
+      text-shadow: 0 0 4px #5b331e;
+    }
+
+    .name {
+      color: #522810;
+      font-weight: 500;
+      margin-bottom: 0.06rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .close-btn {
+      position: absolute;
+      width: 0.5rem;
+      font-size: 0.12rem;
+      padding: 0;
+      left: 0;
+      bottom: 0;
     }
   }
 }

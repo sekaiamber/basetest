@@ -10,28 +10,40 @@ import RESOURCE from '../../resource';
 
 import './style.scss';
 
-const quMap = {
-  0: '杂物',
-  1: '普通',
-  2: '优秀',
-  3: '精良',
-  4: '史诗',
-  5: '传说',
-  6: '至宝',
-};
-
 class ItemModal extends React.Component {
   getSetInfo() {
     const { data, itemSetMap, equipped } = this.props;
     const setInfo = itemSetMap[data.meta.code];
     if (!setInfo) return undefined;
-    const ret = setInfo.items.map(item => ({
-      code: item.code,
-      name: item.name,
-      position: item.position,
-      equipped: equipped[item.position] && equipped[item.position].meta.code === item.code,
-    }));
+    const ret = {
+      ...setInfo,
+      items: setInfo.items.map(item => ({
+        code: item.code,
+        name: item.name,
+        position: item.position,
+        equipped: equipped[item.position] && equipped[item.position].meta.code === item.code,
+      })),
+    };
+    ret.buff_active = ret.items.map(i => i.equipped).reduce((a, b) => a && b, true);
     return ret;
+  }
+
+  getInjectElem(btn, i) {
+    if (btn.type === 'input') {
+      return (
+        <input
+          key={i}
+          placeholder={btn.placeholder}
+          onChange={btn.onChange}
+          value={btn.value}
+          type="text"
+          className="game-input"
+        />
+      );
+    }
+    return (
+      <div key={i} className="game-btn" onClick={btn.onClick}>{btn.text}</div>
+    );
   }
 
   render() {
@@ -43,9 +55,7 @@ class ItemModal extends React.Component {
       <div className="game-modal item-modal">
         <div className="content-container">
           <div className="modal-ex">
-            {inject && inject.map((btn, i) => (
-              <div key={i} className="game-btn" onClick={btn.onClick}>{btn.text}</div>
-            ))}
+            {inject && inject.map((btn, i) => this.getInjectElem(btn, i))}
             <div className="game-btn" onClick={onClose}>返回</div>
           </div>
           <div className="content">
@@ -61,7 +71,7 @@ class ItemModal extends React.Component {
                 </div>
                 <div className="row">
                   <div>品质</div>
-                  <div>{quMap[qu]}</div>
+                  <div>{qu.desc}</div>
                 </div>
                 <div className="row">
                   <div>战斗力加成</div>
@@ -84,13 +94,14 @@ class ItemModal extends React.Component {
                 )}
                 {setInfo && (
                   <>
-                    <div className="sub-title">套装信息</div>
-                    {setInfo.map(item => (
+                    <div className="sub-title">套装信息 - {setInfo.name}</div>
+                    {setInfo.items.map(item => (
                       <div className={classnames('row set-item', { equipped: item.equipped })} key={item.code}>
                         <div>{item.name}</div>
                         <div>{getItemPositionName(item)}</div>
                       </div>
                     ))}
+                    <div className={classnames('set-buff-desc', { active: setInfo.buff_active })}>套装效果：{setInfo.buff.desc}</div>
                   </>
                 )}
               </div>

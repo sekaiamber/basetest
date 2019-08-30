@@ -8,9 +8,9 @@ import React, { Component } from 'react';
 import { connect } from 'dva';
 import { Icon } from 'antd';
 import classnames from 'classnames';
-import RESOURCE from '../../../resource';
-import ItemIcon from '../../item/itemIcon';
-import { getItemPositionName } from '../../../../utils/hero';
+import RESOURCE from '../../../../resource';
+import ItemIcon from '../../../item/itemIcon';
+import { getItemPositionName, getItemQuality, calculateItemPower } from '../../../../../utils/hero';
 
 const modeMap = {
   buy: '买入',
@@ -25,15 +25,15 @@ class Shop extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: 'hero_shop/getBaseShopItems',
+      type: 'hero_shop/getAuctionShopItems',
     });
   }
 
   componentWillReceiveProps(newProps) {
     const { selectItem } = this.state;
-    if (newProps.basic && newProps.basic.length > 0 && !selectItem) {
+    if (newProps.auction && newProps.auction.length > 0 && !selectItem) {
       this.setState({
-        selectItem: newProps.basic[0],
+        selectItem: newProps.auction[0],
       });
     }
   }
@@ -42,7 +42,7 @@ class Shop extends Component {
     const { selectItem } = this.state;
     if (!selectItem) return null;
     const { itemSetMap, equipped } = this.props;
-    const setInfo = itemSetMap[selectItem.code];
+    const setInfo = itemSetMap[selectItem.meta.code];
     if (!setInfo) return undefined;
     const ret = {
       ...setInfo,
@@ -61,7 +61,7 @@ class Shop extends Component {
     const { selectItem } = this.state;
     const { dispatch } = this.props;
     dispatch({
-      type: 'hero_shop/buy',
+      type: 'hero_shop/auctionBuy',
       payload: selectItem.id,
     });
   }
@@ -74,44 +74,47 @@ class Shop extends Component {
 
   render() {
     const { selectItem } = this.state;
-    const { basic } = this.props;
+    const { auction } = this.props;
     const selectItemSetInfo = this.getSetInfo();
 
     return (
       <>
-        <div className="content shop-content">
-          <div className="shop-panel">
-            <div className="title">商店</div>
-            {basic.map(item => (
-              <div
-                key={item.id}
-                className={classnames('item', { selected: selectItem === item })}
-                onClick={this.handleSelectBuy.bind(this, item)}
-              >
-                <div className="img-container">
-                  <ItemIcon data={item} />
-                </div>
-                <div className="info">
-                  <div>
-                    <div>{item.name}</div>
-                    <div>Lv.1 {getItemPositionName(item)}</div>
-                  </div>
-                  <div>
-                    <div>{item.price} BASE</div>
-                    <div>{item.power}<Icon type="thunderbolt" /></div>
-                  </div>
-                </div>
+        {auction.map(item => (
+          <div
+            key={item.id}
+            className={classnames('item', { selected: selectItem === item })}
+            onClick={this.handleSelectBuy.bind(this, item)}
+          >
+            <div className="img-container">
+              <ItemIcon data={item.meta} />
+            </div>
+            <div className="info">
+              <div>
+                <div>{item.meta.name}</div>
+                <div>Lv.1 {getItemPositionName(item)}</div>
               </div>
-            ))}
+              <div>
+                <div>{item.auction_price} BASE</div>
+                <div>{calculateItemPower(item)}<Icon type="thunderbolt" /></div>
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
         {selectItem && (
           <div className="shop-footer">
-            <div className="title">{selectItem.name}</div>
-            <div className="icon"><ItemIcon data={selectItem} /></div>
+            <div className="title">{selectItem.meta.name}</div>
+            <div className="icon"><ItemIcon data={selectItem.meta} /></div>
             <div className="row">
-              <div className="key">初始战斗力</div>
-              <div className="value">{selectItem.power}<Icon type="thunderbolt" /></div>
+              <div className="key">品质</div>
+              <div className="value">{getItemQuality(selectItem.meta).desc}</div>
+            </div>
+            <div className="row">
+              <div className="key">战斗力</div>
+              <div className="value">{calculateItemPower(selectItem)}<Icon type="thunderbolt" /></div>
+            </div>
+            <div className="row">
+              <div className="key">等级</div>
+              <div className="value">Lv.{selectItem.level}</div>
             </div>
             <div className="row">
               <div className="key">每级提升</div>
@@ -129,7 +132,7 @@ class Shop extends Component {
                 <div className={classnames('set-buff-desc', { active: selectItemSetInfo.buff_active })}>套装效果：{selectItemSetInfo.buff.desc}</div>
               </>
             )}
-            <div className="game-btn" onClick={this.handleEvent}>购买({selectItem.price} BASE)</div>
+            <div className="game-btn" onClick={this.handleEvent}>购买({selectItem.auction_price} BASE)</div>
           </div>
         )}
       </>
@@ -138,12 +141,11 @@ class Shop extends Component {
 }
 
 function mapStateToProps({ hero_shop: shop, farm_player: player, hero_player: hero }) {
-  const { basic } = shop;
+  const { auction } = shop;
   const { accounts } = player;
   const { itemSetMap, equipped } = hero;
-
   return {
-    basic,
+    auction,
     accounts,
     equipped,
     itemSetMap,

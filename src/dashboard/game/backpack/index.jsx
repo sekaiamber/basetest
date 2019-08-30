@@ -11,7 +11,7 @@ import classnames from 'classnames';
 import RESOURCE from '../../resource';
 import ItemModal from '../item';
 import ItemIcon from '../item/itemIcon';
-import { calculateItemPower, getItemPositionName } from '../../../utils/hero';
+import { calculateItemPower, getItemPositionName, getItemUpgradeInfo } from '../../../utils/hero';
 
 import './style.scss';
 
@@ -55,13 +55,36 @@ class Backpack extends Component {
   handleRepair = () => {
     const { dispatch } = this.props;
     const { selectedItem } = this.state;
-    console.log('修理', selectedItem);
+    confirm({
+      title: '确认修理？',
+      content: `本次修理消耗 ${selectedItem.level * 20} BASE，修理完成将降低最大耐久上限2点。`,
+      okText: '修理',
+      cancelText: '取消',
+      onOk: () => {
+        dispatch({
+          type: 'hero_shop/repair',
+          payload: selectedItem.id,
+        });
+      },
+    });
   }
 
   handleUpgrade = () => {
     const { dispatch } = this.props;
     const { selectedItem } = this.state;
-    console.log('升级', selectedItem);
+    const upgradeInfo = getItemUpgradeInfo(selectedItem);
+    confirm({
+      title: '确认升级？',
+      content: `本次修理消耗 ${upgradeInfo.cost} BASE，升级成功率${upgradeInfo.rate}。`,
+      okText: '升级',
+      cancelText: '取消',
+      onOk: () => {
+        dispatch({
+          type: 'hero_shop/upgrade',
+          payload: selectedItem.id,
+        });
+      },
+    });
   }
 
   handleAddSpace = () => {
@@ -78,7 +101,7 @@ class Backpack extends Component {
   }
 
   render() {
-    const { backpack, accounts, backpackSize, inject } = this.props;
+    const { backpack, accounts, backpackSize, inject, noTitle, noAddSpace, noSell, noUpgrade } = this.props;
     const { selectedItem, showItem, showAddSpace } = this.state;
     const showItemInject = (inject || []).map(i => ({
       ...i,
@@ -91,16 +114,18 @@ class Backpack extends Component {
         onClick: this.handleRepair,
       });
     }
-    if (selectedItem && ['equipment', 'weapon'].indexOf(selectedItem.meta.item_type) > -1) {
+    if (selectedItem && ['equipment', 'weapon'].indexOf(selectedItem.meta.item_type) > -1 && !noUpgrade) {
       showItemInject.push({
         text: '升级',
         onClick: this.handleUpgrade,
       });
     }
-    showItemInject.push({
-      text: '卖出',
-      onClick: this.handleSold,
-    });
+    if (!noSell) {
+      showItemInject.push({
+        text: '卖出',
+        onClick: this.handleSold,
+      });
+    }
 
     const equips = [];
     for (let i = 0; i < backpackSize; i += 1) {
@@ -121,7 +146,7 @@ class Backpack extends Component {
         ));
       }
     }
-    if (backpackSize < 25) {
+    if (backpackSize < 25 && !noAddSpace) {
       equips.push((
         <div className="backpack-equip" key={backpackSize + 1} onClick={() => this.setState({ showAddSpace: true })}>
           <img src={RESOURCE.ITEM_ICON.ADD} />
@@ -131,13 +156,15 @@ class Backpack extends Component {
 
     return (
       <div id="backpack">
-        <div className="title">
-          <div>我的背包</div>
-          <div className="account">
-            <div>{accounts.base} BASE</div>
-            <div>背包容量：{backpack.length}/{backpackSize}</div>
+        {!noTitle && (
+          <div className="title">
+            <div>我的背包</div>
+            <div className="account">
+              <div>{accounts.base} BASE</div>
+              <div>背包容量：{backpack.length}/{backpackSize}</div>
+            </div>
           </div>
-        </div>
+        )}
         <div className="backpack-equips">{equips}</div>
         {showItem && (
           <ItemModal

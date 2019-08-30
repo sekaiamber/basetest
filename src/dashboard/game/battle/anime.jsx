@@ -155,7 +155,7 @@ export default class Anime extends Component {
               attackCount -= 1;
             }
             if (attackCount > 0) {
-              codeTo = this.characterFromData.getAnimationCode('attack');
+              codeTo = this.characterToData.getAnimationCode('attack');
               if (charactorToSprite.state.hasAnimation(codeTo)) {
                 charactorToSprite.state.setAnimation(0, codeTo);
               }
