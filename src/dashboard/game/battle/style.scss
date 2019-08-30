@@ -10,6 +10,11 @@
     height: 100%;
   }
 
+  .content {
+    height: 100%;
+    overflow: auto;
+  }
+
   .header {
     height: 0.88rem;
     position: relative;
@@ -123,6 +128,10 @@
 
   .battle-search-modal {
     min-width: 3rem;
+
+    .content {
+      overflow: initial;
+    }
   }
 
   .battles {

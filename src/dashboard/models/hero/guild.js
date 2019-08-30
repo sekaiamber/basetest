@@ -69,13 +69,18 @@ export default {
     * getMyGuild(_, { call, put }) {
       const data = yield call(getMyGuild);
       if (data.success) {
+        let myGuild = null;
+        if (data.data) {
+          myGuild = {
+            ...data.data,
+            technologies: convertTechListToMap(data.data.technologies),
+          };
+        }
+
         yield put({
           type: 'updateState',
           payload: {
-            myGuild: {
-              ...data.data,
-              technologies: convertTechListToMap(data.data.technologies),
-            },
+            myGuild,
           },
         });
       }

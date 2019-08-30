@@ -10,8 +10,8 @@ export default function ItemIcon(props) {
   return (
     <span className="item-icon" onClick={onClick}>
       <img src={RESOURCE.ITEM_ICON[data.code] || RESOURCE.ITEM_ICON.EMPTY} alt="" />
-      {qu > 0 && (
-        <img className="item-quality" src={RESOURCE.ITEM_ICON[`QU${qu}`]} alt="" />
+      {qu.level > 0 && (
+        <img className="item-quality" src={RESOURCE.ITEM_ICON[`QU${qu.level}`]} alt="" />
       )}
     </span>
   );

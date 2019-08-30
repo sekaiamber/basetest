@@ -76,13 +76,86 @@ export function getItemPositionName(meta) {
   return ret;
 }
 
+const quMap = {
+  0: '杂物',
+  1: '普通',
+  2: '优秀',
+  3: '精良',
+  4: '史诗',
+  5: '传说',
+  6: '至宝',
+};
+
 export function getItemQuality(meta) {
   const { max_level } = meta;
-  if (!max_level) return 0;
-  if (max_level < 50) return 1;
-  if (max_level < 60) return 2;
-  if (max_level < 70) return 3;
-  if (max_level < 80) return 4;
-  if (max_level < 90) return 5;
-  return 6;
+  let level = 0;
+  if (!max_level) {
+    level = 0;
+  } else if (max_level < 60) {
+    level = 1;
+  } else if (max_level < 80) {
+    level = 2;
+  } else if (max_level < 100) {
+    level = 3;
+  } else if (max_level < 120) {
+    level = 4;
+  } else if (max_level < 140) {
+    level = 5;
+  } else {
+    level = 6;
+  }
+  return {
+    level,
+    desc: quMap[level],
+  };
+}
+
+export function getItemUpgradeInfo(item) {
+  const { level } = item;
+  if (level < 20) {
+    return {
+      rate: '100%',
+      cost: 200,
+    };
+  }
+  if (level < 40) {
+    return {
+      rate: '90%',
+      cost: 400,
+    };
+  }
+  if (level < 60) {
+    return {
+      rate: '80%',
+      cost: 800,
+    };
+  }
+  if (level < 80) {
+    return {
+      rate: '70%',
+      cost: 1500,
+    };
+  }
+  if (level < 100) {
+    return {
+      rate: '60%',
+      cost: 2000,
+    };
+  }
+  if (level < 120) {
+    return {
+      rate: '45%',
+      cost: 2000,
+    };
+  }
+  if (level < 140) {
+    return {
+      rate: '30%',
+      cost: 2000,
+    };
+  }
+  return {
+    rate: '10%',
+    cost: 3000,
+  };
 }

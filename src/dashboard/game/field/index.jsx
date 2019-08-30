@@ -21,7 +21,7 @@ import Shop from '../shop';
 import Hero from '../hero';
 import Battle from '../battle';
 import Deposit from '../deposit';
-import { getRestTimeFormatted } from '../../../utils';
+import { getRestTimeFormatted, formatNumber } from '../../../utils';
 
 import './style.scss';
 
@@ -416,7 +416,7 @@ class Field extends Component {
             <div className="item" onClick={() => this.setState({ showHero: true })}>
               <img src={RESOURCE.UI.MAIN_PLAYER} alt="" />
             </div>
-            <div className="accounts">{accounts.base} BASE</div>
+            <div className="accounts">{formatNumber(accounts.base)} BASE</div>
             {/* <div className="avatar"></div> */}
             <div className="nickname">{userInfo.nickname}</div>
             <div className="level">{heroInfo.game_level}</div>

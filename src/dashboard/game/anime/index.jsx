@@ -86,6 +86,9 @@ export default class Anime extends React.Component {
     const { heroInfo, equipped } = props;
     characterData.sex = heroInfo.sex;
     characterData.hairstyle = heroInfo.hairstyle;
+    // TODO: 美容系统
+    // characterData.sex = 'm';
+    // characterData.hairstyle = 2;
     // 清除数据
     characterData.updateEquipment('e_lower_1_0');
     characterData.updateEquipment('e_body_1_0');

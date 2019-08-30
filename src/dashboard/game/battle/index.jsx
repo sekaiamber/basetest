@@ -123,7 +123,7 @@ class Battle extends Component {
                   <div className="battle" key={i}>
                     <div className={classnames('result', { win: b.winer === 'from' })}><span>{b.winer === 'from' ? '胜利' : '失败'}</span></div>
                     <div className="date">{b.created_at}</div>
-                    <div className="to">{b.to.nickname}</div>
+                    <div className="to">{b.from.is_me ? b.to.nickname : b.from.nickname}</div>
                     <div className="number">{b.winer === 'from' ? '+' : '-'}{b.win_amount} BASE</div>
                   </div>
                 ))}

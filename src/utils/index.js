@@ -47,6 +47,24 @@ export function getRestTimeFormatted(target) {
   return ret;
 }
 
+export function formatNumber(number) {
+  let origin = parseFloat(number);
+  let suffix = '';
+  if (origin > 1000 * 1000 * 1000) {
+    origin /= (1000 * 1000 * 1000);
+    suffix = ' B';
+  }
+  if (origin < 1000 * 1000 * 1000 && origin > 1000 * 1000) {
+    origin /= (1000 * 1000);
+    suffix = ' M';
+  }
+  if (origin < 1000 * 1000 && origin > 1000) {
+    origin /= 1000;
+    suffix = ' K';
+  }
+  return origin.toFixed(2) + suffix;
+}
+
 export {
   hori,
 };
