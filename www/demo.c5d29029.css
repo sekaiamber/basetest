@@ -1383,7 +1383,7 @@ footer {
   width: 80%;
   font-weight: 400; }
   #guild .content {
-    height: 90%;
+    height: 100%;
     overflow: auto; }
     #guild .content .title {
       color: #522810;
@@ -1396,60 +1396,151 @@ footer {
       -webkit-justify-content: space-between;
               justify-content: space-between;
       margin-bottom: 0.12rem; }
-  #guild img {
-    height: 100%; }
-  #guild .create-guild-modal .game-input {
+  #guild .guilds {
+    font-size: 0.12rem; }
+    #guild .guilds .guild {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      padding: 0.06rem 0.12rem;
+      white-space: nowrap; }
+      #guild .guilds .guild:nth-child(odd) {
+        background: rgba(226, 167, 76, 0.2); }
+      #guild .guilds .guild .level {
+        width: 0.3rem;
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+                flex-grow: 0;
+        -webkit-flex-shrink: 0;
+                flex-shrink: 0;
+        opacity: 0.6; }
+      #guild .guilds .guild .name {
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+                flex-grow: 0;
+        -webkit-flex-shrink: 0;
+                flex-shrink: 0;
+        padding-right: 0.06rem;
+        width: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      #guild .guilds .guild .description {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+                flex-grow: 1;
+        -webkit-flex-shrink: 1;
+                flex-shrink: 1;
+        padding-right: 0.06rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0; }
+      #guild .guilds .guild .join {
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+                flex-grow: 0;
+        -webkit-flex-shrink: 0;
+                flex-shrink: 0;
+        width: 0.8rem; }
+      #guild .guilds .guild .number {
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+                flex-grow: 0;
+        -webkit-flex-shrink: 0;
+                flex-shrink: 0;
+        width: 0.4rem;
+        padding-right: 0.06rem;
+        text-align: right; }
+
+#guild .my-guild {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0;
+  overflow: hidden; }
+  #guild .my-guild .tabs {
+    height: 100%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+            flex-grow: 0;
+    -webkit-flex-shrink: 0;
+            flex-shrink: 0;
+    font-size: 0.12rem;
+    background: #f5e6d4;
+    border-radius: 0.06rem 0 0 0.06rem;
+    overflow: hidden; }
+    #guild .my-guild .tabs .tab {
+      height: 20%;
+      width: 0.6rem;
+      text-align: center;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+              justify-content: center; }
+      #guild .my-guild .tabs .tab.active {
+        background: #faf5ef; }
+      #guild .my-guild .tabs .tab .icon img {
+        height: 0.3rem; }
+      #guild .my-guild .tabs .tab .text {
+        font-weight: 500;
+        color: #522810;
+        line-height: 1; }
+  #guild .my-guild .guild-content {
+    height: 100%;
+    overflow: auto;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+            flex-grow: 1;
+    -webkit-flex-shrink: 1;
+            flex-shrink: 1;
+    padding: 0.15rem;
+    padding-bottom: 0.4rem; }
+    #guild .my-guild .guild-content.home, #guild .my-guild .guild-content.shop {
+      padding-right: 1.65rem; }
+  #guild .my-guild .create-guild-modal .game-input {
     width: 100%; }
-  #guild .users {
-    width: 2rem;
+  #guild .my-guild .users {
     margin: 0 auto; }
-    #guild .users .user {
+    #guild .my-guild .users .user {
       display: -webkit-box;
       display: -webkit-flex;
       display: flex;
       -webkit-box-pack: justify;
       -webkit-justify-content: space-between;
-              justify-content: space-between; }
-  #guild .info {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    margin-bottom: 0.2rem; }
-    #guild .info > div {
-      text-align: center;
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-              flex: 1; }
-    #guild .info .icon {
-      font-size: 0.3rem; }
-      #guild .info .icon img {
-        width: 0.5rem; }
-    #guild .info .name {
-      font-size: 0.12rem;
-      font-weight: 500;
-      color: #522810; }
-    #guild .info .value {
-      font-size: 0.12rem;
-      color: #333; }
-  #guild .top {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
-    margin-bottom: 0.2rem; }
-    #guild .top .name {
-      font-size: 0.24rem;
-      width: 40%;
-      text-align: center;
-      color: #522810; }
-    #guild .top .level {
-      font-size: 0.2rem;
-      width: 40%;
-      text-align: center;
-      color: #333; }
-  #guild .guilds .guild {
+              justify-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      padding: 0.06rem 0.12rem; }
+      #guild .my-guild .users .user:nth-child(odd) {
+        background: rgba(226, 167, 76, 0.2); }
+      #guild .my-guild .users .user .nickname {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+                flex-grow: 1;
+        -webkit-flex-shrink: 1;
+                flex-shrink: 1; }
+      #guild .my-guild .users .user .position,
+      #guild .my-guild .users .user .opt {
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+                flex-grow: 0;
+        -webkit-flex-shrink: 0;
+                flex-shrink: 0; }
+      #guild .my-guild .users .user .position {
+        width: 0.7rem;
+        text-align: center; }
+      #guild .my-guild .users .user .game-btn {
+        font-size: 0.12rem;
+        padding: 0.04rem; }
+  #guild .my-guild .level {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -1457,19 +1548,277 @@ footer {
     -webkit-align-items: center;
             align-items: center;
     margin-bottom: 0.12rem; }
-    #guild .guilds .guild .level {
-      width: 0.8rem;
+    #guild .my-guild .level .step {
       -webkit-box-flex: 0;
-      -webkit-flex: 0;
-              flex: 0;
-      opacity: 0.6; }
-    #guild .guilds .guild .name {
+      -webkit-flex-grow: 0;
+              flex-grow: 0;
+      -webkit-flex-shrink: 0;
+              flex-shrink: 0;
+      width: 0.7rem;
+      text-align: center;
+      font-size: 0.12rem; }
+      #guild .my-guild .level .step .text {
+        white-space: nowrap; }
+      #guild .my-guild .level .step img {
+        opacity: 0.3;
+        width: 0.5rem; }
+        #guild .my-guild .level .step img.active {
+          opacity: 1; }
+    #guild .my-guild .level .bar {
       -webkit-box-flex: 1;
-      -webkit-flex: 1;
-              flex: 1;
-      padding: 0 0.12rem; }
-    #guild .guilds .guild .join {
-      width: 0.8rem; }
+      -webkit-flex-grow: 1;
+              flex-grow: 1;
+      -webkit-flex-shrink: 1;
+              flex-shrink: 1;
+      height: 0.05rem;
+      background: #aaa;
+      border: #555 solid 1px;
+      border-radius: 0.05rem;
+      opacity: 0.3;
+      margin-bottom: 0.25rem; }
+      #guild .my-guild .level .bar.active {
+        border-color: #522810;
+        background: #e2a74c;
+        opacity: 1; }
+  #guild .my-guild .balance {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+            justify-content: space-between; }
+    #guild .my-guild .balance > div {
+      width: 40%;
+      text-align: center; }
+      #guild .my-guild .balance > div .title {
+        display: block;
+        font-size: 0.14rem;
+        margin-bottom: 0.06rem; }
+      #guild .my-guild .balance > div .value {
+        margin-bottom: 0.06rem; }
+      #guild .my-guild .balance > div img {
+        width: 1rem; }
+      #guild .my-guild .balance > div .game-btn {
+        font-size: 0.12rem;
+        padding: 0.04rem; }
+  #guild .my-guild .side-bar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #f5e6d4;
+    height: 100%;
+    width: 1.5rem;
+    padding: 0.12rem 0.06rem 0.06rem;
+    overflow: auto;
+    border-radius: 0 0.06rem 0.06rem 0; }
+    #guild .my-guild .side-bar .name {
+      font-size: 0.18rem;
+      text-align: center;
+      font-weight: 500; }
+    #guild .my-guild .side-bar .user {
+      text-align: center;
+      font-size: 0.12rem; }
+    #guild .my-guild .side-bar .slogan {
+      opacity: 0.7;
+      font-size: 0.12rem;
+      text-align: center;
+      margin-bottom: 0.12rem; }
+    #guild .my-guild .side-bar .title {
+      font-size: 0.16rem;
+      margin: 0.06rem 0;
+      text-align: center;
+      display: block; }
+    #guild .my-guild .side-bar .message {
+      background: #faf5ef;
+      font-size: 0.12rem;
+      padding: 0.06rem;
+      border-radius: 0.06rem; }
+  #guild .my-guild .guild-content.shop .item {
+    border: #5b331e solid 2px;
+    border-radius: 0.06rem;
+    padding: 0.06rem;
+    margin: 0.02rem;
+    font-size: 0.12rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center; }
+    #guild .my-guild .guild-content.shop .item.selected {
+      border-color: #e2a74c; }
+    #guild .my-guild .guild-content.shop .item .img-container {
+      height: 0.5rem;
+      width: 0.5rem;
+      margin-right: 0.06rem; }
+      #guild .my-guild .guild-content.shop .item .img-container img {
+        width: 100%; }
+    #guild .my-guild .guild-content.shop .item .info {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+              flex-grow: 1;
+      -webkit-flex-shrink: 1;
+              flex-shrink: 1;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between; }
+      #guild .my-guild .guild-content.shop .item .info > div:last-child {
+        text-align: right; }
+  #guild .my-guild .guild-content.shop .side-bar .title {
+    text-align: center;
+    color: #522810;
+    font-weight: 500;
+    font-size: 0.2rem;
+    margin-bottom: 0.12rem; }
+  #guild .my-guild .guild-content.shop .side-bar .icon {
+    text-align: center;
+    margin-bottom: 0.12rem; }
+    #guild .my-guild .guild-content.shop .side-bar .icon .item-icon {
+      width: 0.75rem;
+      height: 0.75rem; }
+  #guild .my-guild .guild-content.shop .side-bar .game-btn {
+    position: absolute;
+    bottom: 0.06rem;
+    width: calc(100% - 0.24rem);
+    left: 0.12rem; }
+  #guild .my-guild .guild-content.shop .side-bar .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+            justify-content: space-between; }
+  #guild .my-guild .guild-content.tech .techs,
+  #guild .my-guild .game-modal.uptech .techs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+    margin-top: 0.3rem; }
+    #guild .my-guild .guild-content.tech .techs .tech,
+    #guild .my-guild .game-modal.uptech .techs .tech {
+      position: relative;
+      text-align: center;
+      width: 25%; }
+      #guild .my-guild .guild-content.tech .techs .tech img,
+      #guild .my-guild .game-modal.uptech .techs .tech img {
+        width: 0.75rem; }
+      #guild .my-guild .guild-content.tech .techs .tech .lv,
+      #guild .my-guild .game-modal.uptech .techs .tech .lv {
+        position: absolute;
+        top: 0.7rem;
+        width: 100%;
+        font-size: 0.2rem;
+        font-weight: 500; }
+      #guild .my-guild .guild-content.tech .techs .tech .name,
+      #guild .my-guild .game-modal.uptech .techs .tech .name {
+        font-size: 0.12rem;
+        font-weight: 500;
+        color: #522810;
+        line-height: 1; }
+      #guild .my-guild .guild-content.tech .techs .tech .value,
+      #guild .my-guild .game-modal.uptech .techs .tech .value {
+        font-size: 0.16rem;
+        font-weight: 500; }
+      #guild .my-guild .guild-content.tech .techs .tech.power .lv,
+      #guild .my-guild .game-modal.uptech .techs .tech.power .lv {
+        color: #f4e0e1; }
+      #guild .my-guild .guild-content.tech .techs .tech.upgrade .lv,
+      #guild .my-guild .game-modal.uptech .techs .tech.upgrade .lv {
+        color: #efe8e2; }
+      #guild .my-guild .guild-content.tech .techs .tech.suite .lv,
+      #guild .my-guild .game-modal.uptech .techs .tech.suite .lv {
+        color: #e0eaf4; }
+      #guild .my-guild .guild-content.tech .techs .tech.repair .lv,
+      #guild .my-guild .game-modal.uptech .techs .tech.repair .lv {
+        color: #eee3f0; }
+      #guild .my-guild .guild-content.tech .techs .tech .game-btn,
+      #guild .my-guild .game-modal.uptech .techs .tech .game-btn {
+        font-size: 0.12rem;
+        padding: 0.02rem;
+        width: 0.5rem;
+        margin: 0 auto; }
+  #guild .my-guild .game-modal.uptech .techs {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-justify-content: space-around;
+            justify-content: space-around;
+    margin-top: 0; }
+    #guild .my-guild .game-modal.uptech .techs .arrow {
+      text-align: center; }
+      #guild .my-guild .game-modal.uptech .techs .arrow img {
+        height: 0.55rem;
+        -webkit-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+                transform: rotate(-90deg); }
+  #guild .my-guild .guild-content.battle .coming {
+    text-align: center; }
+    #guild .my-guild .guild-content.battle .coming img {
+      height: 1.1rem; }
+  #guild .my-guild .guild-content.battle .text {
+    font-size: 0.16rem;
+    font-weight: 500;
+    color: #522810;
+    line-height: 3; }
+
+.game-modal.donate .content-container,
+.game-modal.uptech .content-container {
+  min-width: 3.5rem; }
+
+.game-modal.donate .form,
+.game-modal.uptech .form {
+  text-align: center;
+  font-size: 0.2rem;
+  font-weight: 500; }
+  .game-modal.donate .form img,
+  .game-modal.uptech .form img {
+    height: 0.25rem; }
+  .game-modal.donate .form span,
+  .game-modal.uptech .form span {
+    margin: 0 0.1rem; }
+  .game-modal.donate .form > *,
+  .game-modal.uptech .form > * {
+    vertical-align: middle; }
+
+.game-modal.donate .cost,
+.game-modal.uptech .cost {
+  text-align: center;
+  margin: 0.06rem 0 0.12rem; }
+
+.game-modal.donate .tip,
+.game-modal.uptech .tip {
+  padding: 0.06rem;
+  background: #f5e6d4;
+  border-radius: 0.06rem; }
+
+.game-modal.contribution .content-container {
+  min-width: 3.5rem; }
+
+.game-modal.contribution .form {
+  text-align: center;
+  font-size: 0.2rem;
+  font-weight: 500; }
+  .game-modal.contribution .form img {
+    height: 0.25rem; }
+  .game-modal.contribution .form span {
+    margin: 0 0.1rem; }
+  .game-modal.contribution .form > * {
+    vertical-align: middle; }
+
+.game-modal.contribution .cost {
+  text-align: center;
+  margin: 0.06rem 0 0.12rem; }
+
+.game-modal.contribution .tip {
+  padding: 0.06rem;
+  background: #f5e6d4;
+  border-radius: 0.06rem; }
 
 #entertainment {
   position: relative;
@@ -1481,6 +1830,69 @@ footer {
   border-radius: 0.06rem; }
   #entertainment img {
     height: 100%; }
+
+.game-modal.item-modal .content {
+  min-width: 3rem;
+  max-width: 4.5rem;
+  padding: 0.06rem 0.12rem 0.3rem !important; }
+  .game-modal.item-modal .content .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+            justify-content: space-between; }
+  .game-modal.item-modal .content .item-panel {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex; }
+    .game-modal.item-modal .content .item-panel .icon {
+      margin-right: 0.12rem;
+      -webkit-flex-shrink: 0;
+              flex-shrink: 0;
+      -webkit-box-flex: 0;
+      -webkit-flex-grow: 0;
+              flex-grow: 0; }
+    .game-modal.item-modal .content .item-panel .info {
+      -webkit-flex-shrink: 1;
+              flex-shrink: 1;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+              flex-grow: 1;
+      font-size: 0.12rem; }
+
+.game-modal.item-modal .sub-title {
+  color: #522810;
+  font-weight: 500;
+  font-size: 0.14rem;
+  margin: 0.08rem 0; }
+
+.game-modal.item-modal .row.set-item {
+  opacity: 0.7; }
+  .game-modal.item-modal .row.set-item.equipped {
+    color: #009c00;
+    opacity: 1; }
+
+.game-modal.item-modal .set-buff-desc {
+  margin-top: 0.06rem;
+  opacity: 0.7; }
+  .game-modal.item-modal .set-buff-desc.active {
+    color: #009c00;
+    opacity: 1;
+    font-weight: 500; }
+
+.item-icon {
+  position: relative;
+  display: inline-block;
+  height: 0.5rem;
+  width: 0.5rem; }
+  .item-icon img {
+    width: 100%; }
+  .item-icon .item-quality {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
 
 #backpack {
   overflow: auto;
@@ -1520,22 +1932,60 @@ footer {
         font-weight: 500;
         color: #fff;
         text-shadow: 0 0 4px #5b331e; }
-  #backpack .backpack-item-modal .content {
-    display: block;
-    min-width: 2rem; }
-    #backpack .backpack-item-modal .content .row {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
-              justify-content: space-between; }
 
 #shop {
   position: relative;
   height: 80%;
   width: 80%;
-  font-weight: 400; }
+  font-weight: 400;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0; }
+  #shop .tabs {
+    height: 100%;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+            flex-grow: 0;
+    -webkit-flex-shrink: 0;
+            flex-shrink: 0;
+    font-size: 0.12rem;
+    background: #f5e6d4;
+    border-radius: 0.06rem 0 0 0.06rem;
+    overflow: hidden; }
+    #shop .tabs .tab {
+      height: 20%;
+      width: 0.6rem;
+      text-align: center;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+              justify-content: center; }
+      #shop .tabs .tab.active {
+        background: #faf5ef; }
+      #shop .tabs .tab .icon img {
+        height: 0.3rem; }
+      #shop .tabs .tab .text {
+        font-weight: 500;
+        color: #522810;
+        line-height: 1; }
+  #shop .shop-content {
+    height: 100%;
+    overflow: auto;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+            flex-grow: 1;
+    -webkit-flex-shrink: 1;
+            flex-shrink: 1;
+    padding: 0.15rem;
+    padding-bottom: 0.4rem; }
+    #shop .shop-content.home, #shop .shop-content.shop {
+      padding-right: 1.65rem; }
   #shop .content {
     padding: 0;
     height: 100%;
@@ -1551,7 +2001,7 @@ footer {
       -webkit-justify-content: space-between;
               justify-content: space-between;
       margin-bottom: 0.12rem;
-      padding: 0.06rem 0.12rem 0; }
+      padding: 0.06rem 0 0; }
   #shop .shop-panel {
     width: calc(100% - 2rem);
     height: 100%;
@@ -1599,7 +2049,9 @@ footer {
     width: 2rem;
     height: 100%;
     background: #f5e6d4;
-    padding: 0.06rem 0.12rem; }
+    padding: 0.06rem 0.12rem;
+    overflow: auto;
+    font-size: 0.12rem; }
     #shop .shop-footer .title {
       text-align: center;
       color: #522810;
@@ -1609,13 +2061,30 @@ footer {
     #shop .shop-footer .icon {
       text-align: center;
       margin-bottom: 0.12rem; }
-      #shop .shop-footer .icon img {
+      #shop .shop-footer .icon .item-icon {
+        width: 0.75rem;
         height: 0.75rem; }
+    #shop .shop-footer .sub-title {
+      color: #522810;
+      font-weight: 500;
+      margin: 0.06rem 0; }
+    #shop .shop-footer .row.set-item {
+      opacity: 0.7; }
+      #shop .shop-footer .row.set-item.equipped {
+        color: #009c00;
+        opacity: 1; }
+    #shop .shop-footer .set-buff-desc {
+      margin-top: 0.06rem;
+      opacity: 0.7; }
+      #shop .shop-footer .set-buff-desc.active {
+        color: #009c00;
+        opacity: 1;
+        font-weight: 500; }
     #shop .shop-footer .game-btn {
-      position: absolute;
       bottom: 0.06rem;
-      width: calc(100% - 0.24rem);
-      left: 0.12rem; }
+      width: 100%;
+      left: 0.12rem;
+      margin-top: 0.12rem; }
     #shop .shop-footer .row {
       display: -webkit-box;
       display: -webkit-flex;
@@ -1624,18 +2093,75 @@ footer {
       -webkit-justify-content: space-between;
               justify-content: space-between; }
 
+#shop .content.auction .title.auction-title {
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+          justify-content: start;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+          align-items: baseline;
+  font-size: 0.16rem;
+  color: #796458; }
+  #shop .content.auction .title.auction-title .auction-title-tab {
+    margin-right: 0.06rem; }
+  #shop .content.auction .title.auction-title .active {
+    font-size: 0.2rem;
+    color: #522810; }
+
+#shop .content.auction .auction-set {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: relative; }
+  #shop .content.auction .auction-set .item-icon {
+    margin-right: 0.06rem;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+            flex-grow: 0;
+    -webkit-flex-shrink: 0;
+            flex-shrink: 0; }
+  #shop .content.auction .auction-set .info {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+            flex-grow: 1;
+    -webkit-flex-shrink: 1;
+            flex-shrink: 1;
+    min-width: 0; }
+  #shop .content.auction .auction-set .level {
+    position: absolute;
+    top: 0.02rem;
+    left: 0.02rem;
+    font-size: 0.12rem;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 0 0 4px #5b331e; }
+  #shop .content.auction .auction-set .name {
+    color: #522810;
+    font-weight: 500;
+    margin-bottom: 0.06rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  #shop .content.auction .auction-set .close-btn {
+    position: absolute;
+    width: 0.5rem;
+    font-size: 0.12rem;
+    padding: 0;
+    left: 0;
+    bottom: 0; }
+
 #hero {
   position: relative;
   height: 80%;
   width: 80%;
   font-weight: 400; }
-  #hero .content {
+  #hero .hero-content {
     height: 100%;
     overflow: hidden;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex; }
-    #hero .content .title {
+    #hero .hero-content .title {
       color: #522810;
       font-weight: 500;
       font-size: 0.2rem;
@@ -1734,7 +2260,8 @@ footer {
   #hero .pic {
     display: -webkit-box;
     display: -webkit-flex;
-    display: flex; }
+    display: flex;
+    height: 1.5rem; }
     #hero .pic .preview {
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
@@ -1743,7 +2270,7 @@ footer {
               flex-shrink: 1; }
   #hero .backpack-item-modal .content {
     display: block;
-    min-width: 2rem; }
+    min-width: 3rem; }
     #hero .backpack-item-modal .content .row {
       display: -webkit-box;
       display: -webkit-flex;
@@ -1751,21 +2278,46 @@ footer {
       -webkit-box-pack: justify;
       -webkit-justify-content: space-between;
               justify-content: space-between; }
+  #hero .buffs .buff {
+    display: inline-block;
+    position: relative; }
+    #hero .buffs .buff img {
+      height: 0.3rem;
+      width: 0.3rem; }
+    #hero .buffs .buff .count {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      line-height: 1;
+      font-weight: 500;
+      font-size: 0.12rem;
+      color: #faf5ef;
+      background: #e2a74c; }
+
+.hero-buff-name {
+  font-size: 0.12rem;
+  font-weight: 500; }
+
+.hero-buff-desc {
+  font-size: 0.12rem;
+  opacity: 0.8; }
 
 #battle {
   position: relative;
   height: 80%;
   width: 80%;
-  text-align: center;
   background: #faf5ef;
   border: #522810 solid 2px;
   border-radius: 0.06rem; }
   #battle img {
     height: 100%; }
+  #battle .content {
+    height: 100%;
+    overflow: auto; }
   #battle .header {
     height: 0.88rem;
     position: relative;
-    margin-top: -0.4rem;
+    margin-top: -0.7rem;
     margin-bottom: 0.2rem; }
     #battle .header .center {
       height: 0.88rem;
@@ -1808,9 +2360,9 @@ footer {
               animation-iteration-count: 1; }
   #battle .searching {
     position: relative;
-    height: 1.35rem; }
+    height: 0.6rem; }
     #battle .searching .main {
-      height: 1.35rem;
+      height: 0.6rem;
       -webkit-animation: bs-show 5s ease 0;
               animation: bs-show 5s ease 0;
       -webkit-animation-fill-mode: forwards;
@@ -1818,7 +2370,7 @@ footer {
       -webkit-animation-iteration-count: infinite;
               animation-iteration-count: infinite; }
     #battle .searching .sec {
-      height: 1.35rem;
+      height: 0.6rem;
       position: absolute;
       left: 50%;
       top: 0;
@@ -1833,7 +2385,7 @@ footer {
               animation-iteration-count: infinite;
       opacity: 0.3; }
   #battle .searching-text {
-    font-size: 0.3rem;
+    font-size: 0.24rem;
     margin-top: 0.12rem;
     font-weight: 500;
     color: #522810; }
@@ -1851,7 +2403,7 @@ footer {
     #battle .vs img {
       width: 0.3rem; }
     #battle .vs span {
-      width: 1rem;
+      width: 2rem;
       -webkit-box-flex: 1;
       -webkit-flex-grow: 1;
               flex-grow: 1;
@@ -1860,27 +2412,136 @@ footer {
       text-align: center;
       font-weight: 500;
       font-size: 0.2rem; }
-  #battle .result {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-            justify-content: space-between; }
-    #battle .result img {
-      width: 1.32rem; }
-    #battle .result span {
-      width: 1rem;
-      -webkit-box-flex: 1;
-      -webkit-flex-grow: 1;
-              flex-grow: 1;
-      -webkit-flex-shrink: 1;
-              flex-shrink: 1;
-      text-align: center;
-      font-size: 0.3rem; }
+  #battle .searching-model {
+    text-align: center; }
+    #battle .searching-model .result {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between; }
+      #battle .searching-model .result img {
+        width: 1.32rem; }
+      #battle .searching-model .result span {
+        width: 1rem;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+                flex-grow: 1;
+        -webkit-flex-shrink: 1;
+                flex-shrink: 1;
+        text-align: center;
+        font-size: 0.3rem; }
+  #battle .battle-search-modal {
+    min-width: 3rem; }
+    #battle .battle-search-modal .content {
+      overflow: initial; }
+  #battle .battles {
+    font-size: 0.12rem; }
+    #battle .battles .battle {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+              align-items: center;
+      padding: 0.06rem 0.12rem; }
+      #battle .battles .battle:nth-child(odd) {
+        background: rgba(226, 167, 76, 0.2); }
+      #battle .battles .battle .result {
+        width: 0.4rem;
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+                flex-grow: 0;
+        -webkit-flex-shrink: 0;
+                flex-shrink: 0; }
+        #battle .battles .battle .result span {
+          border: #522810 solid 1px;
+          background: rgba(82, 40, 16, 0.2);
+          border-radius: 0.02rem;
+          padding: 0.02rem 0.06rem;
+          color: #522810; }
+        #battle .battles .battle .result.win span {
+          border-color: #62ca15;
+          background: rgba(98, 202, 21, 0.2);
+          color: #419800; }
+      #battle .battles .battle .to {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+                flex-grow: 1;
+        -webkit-flex-shrink: 1;
+                flex-shrink: 1;
+        padding: 0 0.06rem; }
+      #battle .battles .battle .number {
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+                flex-grow: 0;
+        -webkit-flex-shrink: 0;
+                flex-shrink: 0;
+        width: 1.3rem;
+        text-align: right; }
+      #battle .battles .battle .date {
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+                flex-grow: 0;
+        -webkit-flex-shrink: 0;
+                flex-shrink: 0;
+        width: 1rem;
+        padding: 0 0.06rem; }
+
+.battle-anime-container {
+  position: fixed;
+  height: 2rem;
+  width: 100%;
+  background: gray;
+  z-index: 9999999999; }
+  .battle-anime-container::before, .battle-anime-container::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 0.07rem;
+    width: 100%;
+    background-image: url(data:image/png;base64,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);
+    background-size: 316px 7px; }
+  .battle-anime-container::before {
+    top: 0;
+    -webkit-transform: translate(0, -6px);
+        -ms-transform: translate(0, -6px);
+            transform: translate(0, -6px); }
+  .battle-anime-container::after {
+    bottom: 0;
+    -webkit-transform: translate(0, 4px);
+        -ms-transform: translate(0, 4px);
+            transform: translate(0, 4px); }
+
+.battle-anime-mapinfo {
+  position: absolute;
+  z-index: 9999999999;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -1.2rem) scale(1.5);
+      -ms-transform: translate(-50%, -1.2rem) scale(1.5);
+          transform: translate(-50%, -1.2rem) scale(1.5);
+  height: 0.4rem;
+  width: 1.3rem;
+  background-image: url(data:image/png;base64,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);
+  background-repeat: no-repeat;
+  background-size: 1.3rem 0.4rem;
+  text-align: center;
+  font-size: 0.17rem;
+  font-weight: 500;
+  padding-top: 0.07rem;
+  color: rgba(255, 255, 255, 0.8);
+  -webkit-animation: bam-show 0.5s ease 0;
+          animation: bam-show 0.5s ease 0;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1; }
 
 @-webkit-keyframes bhc-show {
   0% {
@@ -2030,6 +2691,26 @@ footer {
     -webkit-transform: translate(-50%, 0) rotate(0deg) scale(1.8);
             transform: translate(-50%, 0) rotate(0deg) scale(1.8); } }
 
+@-webkit-keyframes bam-show {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -1.2rem) scale(1.5);
+            transform: translate(-50%, -1.2rem) scale(1.5); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -1.2rem) scale(1);
+            transform: translate(-50%, -1.2rem) scale(1); } }
+
+@keyframes bam-show {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -1.2rem) scale(1.5);
+            transform: translate(-50%, -1.2rem) scale(1.5); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -1.2rem) scale(1);
+            transform: translate(-50%, -1.2rem) scale(1); } }
+
 #gamedeposit {
   position: relative;
   height: 80%;
@@ -2086,7 +2767,9 @@ footer {
   #ui .bottom-left-menu {
     bottom: 0;
     left: 0;
-    display: none; }
+    display: none;
+    padding-left: constant(safe-area-inset-left);
+    padding-left: env(safe-area-inset-left); }
     #ui .bottom-left-menu .item {
       height: 1rem; }
       #ui .bottom-left-menu .item.main-icon {
@@ -2179,7 +2862,9 @@ footer {
       overflow: hidden;
       white-space: nowrap; }
     #ui .top-left-menu .deposit {
-      height: 0.5rem; }
+      height: 0.5rem;
+      padding-left: constant(safe-area-inset-left);
+      padding-left: env(safe-area-inset-left); }
   #ui .bottom-right-menu {
     bottom: 0;
     right: 0;
@@ -2246,6 +2931,33 @@ footer {
       -webkit-justify-content: space-between;
               justify-content: space-between;
       font-size: 0.12rem; }
+  #ui .plant-info {
+    position: relative;
+    background: #faf5ef;
+    border: #522810 solid 2px;
+    border-radius: 0.06rem;
+    padding: 0.06rem;
+    min-width: 1.5rem; }
+    #ui .plant-info .title {
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.16rem;
+      margin-bottom: 0.06rem; }
+    #ui .plant-info .row {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between;
+      font-size: 0.12rem; }
+    #ui .plant-info .tip {
+      font-size: 0.12rem;
+      padding: 0.02rem;
+      background: #f5e6d4;
+      border-radius: 0.06rem;
+      text-align: center;
+      margin-top: 0.12rem; }
 
 #game.hori #ui .bottom-right-menu {
   height: 100vw; }
@@ -2307,6 +3019,9 @@ footer {
   font-weight: 500;
   font-size: 0.14rem;
   text-align: center; }
+  .game-btn.sm {
+    padding: 0.03rem 0.06rem;
+    font-size: 0.12rem; }
 
 .game-input {
   border: #522810 solid 2px;
@@ -2374,8 +3089,15 @@ footer {
     display: -webkit-flex;
     display: flex; }
     .game-modal .modal-ex .game-btn {
-      margin-right: 0.06rem; }
+      margin-right: 0.06rem;
+      white-space: nowrap; }
       .game-modal .modal-ex .game-btn:last-child {
+        margin-right: 0; }
+    .game-modal .modal-ex .game-input {
+      margin-right: 0.06rem;
+      width: 1rem;
+      height: 0.37rem; }
+      .game-modal .modal-ex .game-input:last-child {
         margin-right: 0; }
 
 .noty_layout_mixin, #noty_layout__top, #noty_layout__topLeft, #noty_layout__topCenter, #noty_layout__topRight, #noty_layout__bottom, #noty_layout__bottomLeft, #noty_layout__bottomCenter, #noty_layout__bottomRight, #noty_layout__center, #noty_layout__centerLeft, #noty_layout__centerRight {
