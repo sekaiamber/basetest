@@ -38,9 +38,6 @@ export default {
       // });
       // }
       // });
-      dispatch({
-        type: 'getSets',
-      });
     },
   },
   effects: {
