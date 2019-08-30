@@ -57,6 +57,8 @@ const pathConfigs = {
     }, {
       type: 'hero_player/getInfo',
     }, {
+      type: 'hero_player/getSets',
+    }, {
       type: 'account/queryMy',
     }, {
       type: 'account/queryAccount',
