@@ -21,7 +21,7 @@ import Shop from '../shop';
 import Hero from '../hero';
 import Battle from '../battle';
 import Deposit from '../deposit';
-import { getRestTimeFormatted, formatNumber } from '../../../utils';
+import { getRestTimeFormatted, formatNumber, getNextDay } from '../../../utils';
 
 import './style.scss';
 
@@ -31,6 +31,66 @@ const MODE = {
   SELECT: 2,
   MOVE: 3,
 };
+
+function getInsertTip(item) {
+  return (
+    <div className="insert-tip">
+      <div className="title">{item.name}</div>
+      <div className="row">
+        <div>每日收益</div>
+        <div>{item.reward} BASE</div>
+      </div>
+      {item.building_type === 'plant' && (
+        <div className="row">
+          <div>总收益</div>
+          <div>{item.reward * item.day} BASE</div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function getSelectPointer(item, arrowPosition) {
+  return (
+    <div
+      className={classnames('select-point show', { nt: arrowPosition && arrowPosition.point.top < 80 })}
+      style={{
+        left: arrowPosition ? arrowPosition.point.left : 0,
+        top: arrowPosition ? arrowPosition.point.top : 0,
+      }}
+    >
+      <img className="pointer" src={RESOURCE.UI.MENU_ICON_SELECT_POINT} alt="" />
+      <div className="game-pointer-content">
+        <div className="icon"><img src={RESOURCE.TEXTURES[item.meta.textures.slice(-1)[0]]} alt="" /></div>
+        <div className="info">
+          <div className="name">{item.meta.name}</div>
+          <div className="row">
+            <div className="key">每日收益</div>
+            <div className="value">{item.meta.reward} BASE</div>
+          </div>
+          {item.meta.building_type === 'plant' && (
+            <div className="row">
+              <div className="key">总收益</div>
+              <div className="value">{item.meta.reward * item.meta.day} BASE</div>
+            </div>
+          )}
+          {item.meta.building_type === 'building' && (
+            <div className="row">
+              <div className="key">下次结算</div>
+              <div className="value">{getRestTimeFormatted(getNextDay())}</div>
+            </div>
+          )}
+          {item.finish_at && (
+            <div className="row">
+              <div className="key">剩余时间</div>
+              <div className="value">{getRestTimeFormatted(item.finish_at)}</div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 class Field extends Component {
   state = {
@@ -470,19 +530,7 @@ class Field extends Component {
             </div>
           </div>
           <div className={classnames('top-right-menu', { show: mode === MODE.INSERT && currentInsert && currentInsert.reward })}>
-            {currentInsert && (
-              <div className="insert-tip">
-                <div className="title">{currentInsert.name}</div>
-                <div className="row">
-                  <div>每日收益</div>
-                  <div>{currentInsert.reward} BASE</div>
-                </div>
-                <div className="row">
-                  <div>总收益</div>
-                  <div>{currentInsert.reward * currentInsert.day} BASE</div>
-                </div>
-              </div>
-            )}
+            {currentInsert && getInsertTip(currentInsert)}
           </div>
           <div className={classnames('top-left-menu', { show: mode === MODE.INSERT && insertSelectType === 'plant' })}>
             <div className="plant-info">
@@ -520,18 +568,9 @@ class Field extends Component {
               </div>
             )}
           </div>
-          <div
-            className={classnames('select-point', { show: mode === MODE.SELECT })}
-            style={{
-              left: arrowPosition ? arrowPosition.point.left : 0,
-              top: arrowPosition ? arrowPosition.point.top : 0,
-            }}
-          >
-            <img src={RESOURCE.UI.MENU_ICON_SELECT_POINT} alt="" />
-            {selectedBuilding && selectedBuilding.finish_at && (
-              <span className="game-input resttime">{getRestTimeFormatted(selectedBuilding.finish_at)}</span>
-            )}
-          </div>
+          {mode === MODE.SELECT && selectedBuilding && (
+            getSelectPointer(selectedBuilding, arrowPosition)
+          )}
           {mode === MODE.MOVE && selectedBuilding && (
             <div className="arrows" style={{ left: arrowPosition.center.x, top: arrowPosition.center.y }}>
               <img onClick={this.handleBuildingMove.bind(this, 'i', -1)} className="a0" src={RESOURCE.UI.ARROW_0} style={{ left: arrowPosition.a0.left, top: arrowPosition.a0.top }} />

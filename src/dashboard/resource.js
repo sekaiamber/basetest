@@ -65,6 +65,13 @@ import BATTLE_BORDER from '../assets/farm/ui/battle_border.png';
 
 import SEED_0 from '../assets/farm/building/200_0.png';
 import SEED_1 from '../assets/farm/building/200_1.png';
+import B_530005 from '../assets/farm/building/530005_0.png';
+import B_530001 from '../assets/farm/building/530001_0.png';
+import B_530025 from '../assets/farm/building/530025_0.png';
+import B_530017 from '../assets/farm/building/530017_0.png';
+import B_530033 from '../assets/farm/building/530033_0.png';
+import B_530073 from '../assets/farm/building/530073_0.png';
+import B_530055 from '../assets/farm/building/530055_0.png';
 import CENTRE from '../assets/farm/building/530028_0.png';
 // import MILK_0 from '../assets/farm/building/530001_0.png';
 // import MILK_1 from '../assets/farm/building/530001_shop.png';
@@ -193,6 +200,13 @@ const RESOURCE = {
     BTN_REDUCE,
   },
   TEXTURES: {
+    B_530001,
+    B_530005,
+    B_530017,
+    B_530025,
+    B_530033,
+    B_530073,
+    B_530055,
     CENTRE,
     ORANGE_0,
     ORANGE_1,

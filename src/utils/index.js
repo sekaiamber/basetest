@@ -65,6 +65,13 @@ export function formatNumber(number) {
   return origin.toFixed(2) + suffix;
 }
 
+export function getNextDay() {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const nextDay = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+  return nextDay;
+}
+
 export {
   hori,
 };

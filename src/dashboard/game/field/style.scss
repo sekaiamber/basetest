@@ -196,21 +196,6 @@
     }
   }
 
-  .select-point {
-    display: none;
-    position: absolute;
-    width: 0.45rem;
-    height: 0.55rem;
-
-    img {
-      width: 100%;
-    }
-
-    &.show {
-      display: block;
-    }
-  }
-
   .menu {
     position: relative;
     z-index: 999999;
@@ -234,16 +219,75 @@
     }
   }
 
-  .resttime {
-    background: #fff;
-    white-space: nowrap;
-    font-size: 0.12rem;
+  .select-point {
+    display: none;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    top: -0.4rem;
-    padding: 0.04rem;
+    width: 0.45rem;
+    height: 0.55rem;
+
+    img {
+      width: 100%;
+    }
+
+    &.show {
+      display: block;
+    }
+    
+    &.nt {
+      transform: translate(0, 0.55rem);
+
+      .pointer {
+        transform: rotate(180deg);
+      }
+
+      .game-pointer-content {
+        top: 80%;
+        bottom: inherit;
+        transform-origin: top left;
+      }
+    }
   }
+
+  .game-pointer-content {
+    display: flex;
+    position: absolute;
+    bottom: 80%;
+    background: #fff;
+    border: #522810 solid 2px;
+    border-radius: 0.06rem;
+    padding: 0.06rem;
+    overflow: hidden;
+    transform: scale(0.8);
+    transform-origin: bottom left;
+
+    .icon {
+      width: 0.5rem;
+      height: 0.5rem;
+      flex-grow: 0;
+      flex-shrink: 0;
+      margin-right: 0.06rem;
+    }
+
+    .name {
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.16rem;
+      white-space: nowrap;
+      margin-bottom: 0.06rem;
+    }
+
+    .row {
+      white-space: nowrap;
+      line-height: 1;
+      margin-bottom: 0.06rem;
+
+      .key {
+        opacity: 0.8;
+        font-size: 0.12rem;
+      }
+    }
+  }
+
 
   .insert-tip {
     position: relative;
