@@ -2875,15 +2875,6 @@ footer {
       height: 25vh; }
       #ui .bottom-right-menu .item img {
         height: 100%; }
-  #ui .select-point {
-    display: none;
-    position: absolute;
-    width: 0.45rem;
-    height: 0.55rem; }
-    #ui .select-point img {
-      width: 100%; }
-    #ui .select-point.show {
-      display: block; }
   #ui .menu {
     position: relative;
     z-index: 999999; }
@@ -2899,17 +2890,68 @@ footer {
     #ui .arrows img {
       position: absolute;
       width: 0.4rem; }
-  #ui .resttime {
-    background: #fff;
-    white-space: nowrap;
-    font-size: 0.12rem;
+  #ui .select-point {
+    display: none;
     position: absolute;
-    left: 50%;
-    -webkit-transform: translate(-50%, 0);
-        -ms-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
-    top: -0.4rem;
-    padding: 0.04rem; }
+    width: 0.45rem;
+    height: 0.55rem; }
+    #ui .select-point img {
+      width: 100%; }
+    #ui .select-point.show {
+      display: block; }
+    #ui .select-point.nt {
+      -webkit-transform: translate(0, 0.55rem);
+          -ms-transform: translate(0, 0.55rem);
+              transform: translate(0, 0.55rem); }
+      #ui .select-point.nt .pointer {
+        -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+                transform: rotate(180deg); }
+      #ui .select-point.nt .game-pointer-content {
+        top: 80%;
+        bottom: inherit;
+        -webkit-transform-origin: top left;
+            -ms-transform-origin: top left;
+                transform-origin: top left; }
+  #ui .game-pointer-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    position: absolute;
+    bottom: 80%;
+    background: #fff;
+    border: #522810 solid 2px;
+    border-radius: 0.06rem;
+    padding: 0.06rem;
+    overflow: hidden;
+    -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+            transform: scale(0.8);
+    -webkit-transform-origin: bottom left;
+        -ms-transform-origin: bottom left;
+            transform-origin: bottom left; }
+    #ui .game-pointer-content .icon {
+      width: 0.5rem;
+      height: 0.5rem;
+      -webkit-box-flex: 0;
+      -webkit-flex-grow: 0;
+              flex-grow: 0;
+      -webkit-flex-shrink: 0;
+              flex-shrink: 0;
+      margin-right: 0.06rem; }
+    #ui .game-pointer-content .name {
+      color: #522810;
+      font-weight: 500;
+      font-size: 0.16rem;
+      white-space: nowrap;
+      margin-bottom: 0.06rem; }
+    #ui .game-pointer-content .row {
+      white-space: nowrap;
+      line-height: 1;
+      margin-bottom: 0.06rem; }
+      #ui .game-pointer-content .row .key {
+        opacity: 0.8;
+        font-size: 0.12rem; }
   #ui .insert-tip {
     position: relative;
     background: #faf5ef;
